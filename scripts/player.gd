@@ -9,6 +9,10 @@ var player_direction: Vector2
 var target_angle: float
 
 
+func _ready() -> void:
+	look_at(get_global_mouse_position())
+
+
 func _process(delta):
 	# Movement
 	var direction := Input.get_vector("left", "right", "up", "down").normalized()
