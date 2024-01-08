@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://nj81u3qmrwq7"]
+
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_trky1"]
+[ext_resource type="Texture2D" uid="uid://cnknsc0qqy7bh" path="res://assets/backgrounds/5-indigo.jpg" id="2_wtwqb"]
+[ext_resource type="Texture2D" uid="uid://da4dpwdyuaqr5" path="res://assets/backgrounds/4-seablue.jpg" id="3_ufkm7"]
+[ext_resource type="Texture2D" uid="uid://cx8g5k141dwxh" path="res://assets/backgrounds/3-skyblue.jpg" id="4_46vv8"]
+
+[node name="Background" type="CanvasLayer"]
+layer = -100
+script = ExtResource("1_trky1")
+base_texture = ExtResource("2_wtwqb")
+middle_texture = ExtResource("3_ufkm7")
+top_texture = ExtResource("4_46vv8")
+base_rotation = 2.0
+middle_rotation = 5.0
+top_rotation = -3.0
+
+[node name="Base" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+
+[node name="Middle" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.466667, 0.466667, 0.466667, 0.54902)
+
+[node name="Top" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.466667, 0.466667, 0.466667, 0.392157)
