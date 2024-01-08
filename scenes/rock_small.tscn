@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://v6n87qvsl1mo"]
+
+[ext_resource type="Texture2D" uid="uid://bfm8j33xg83b1" path="res://assets/meteor_small.png" id="1_fl1sw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5iyr"]
+radius = 30.0
+
+[node name="RockSmall" type="Area2D"]
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.8, 0.329412, 1)
+texture = ExtResource("1_fl1sw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p5iyr")

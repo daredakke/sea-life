@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr5qvryr3aik7"]
+
+[ext_resource type="Texture2D" uid="uid://iyor7jxj58nl" path="res://assets/meteor_large.png" id="1_cjwlr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8gikw"]
+radius = 43.1045
+
+[node name="RockLarge" type="Area2D"]
+scale = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.799, 0.33, 1)
+texture = ExtResource("1_cjwlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8gikw")

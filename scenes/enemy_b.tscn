@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://ulwbeuk17l4a"]
+
+[ext_resource type="Texture2D" uid="uid://c4hiiv7blfpca" path="res://assets/enemy_b.png" id="1_lrwyt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aacb2"]
+radius = 24.0208
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca7t8"]
+radius = 9.45495
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7yq2"]
+radius = 9.45
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysa08"]
+radius = 9.45
+height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y8ah0"]
+radius = 9.45
+height = 42.0
+
+[node name="EnemyB" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 0.329412, 1)
+texture = ExtResource("1_lrwyt")
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aacb2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-36, -36)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_ca7t8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(36, 36)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_k7yq2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-36, 36)
+rotation = 2.35619
+shape = SubResource("CapsuleShape2D_ysa08")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(36, -36)
+rotation = 2.35619
+shape = SubResource("CapsuleShape2D_y8ah0")
