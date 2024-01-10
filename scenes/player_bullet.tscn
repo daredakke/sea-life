@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw82u21ktw6x2"]
+
+[ext_resource type="Script" path="res://scripts/player_bullet.gd" id="1_2uhyg"]
+[ext_resource type="Texture2D" uid="uid://6ra4amrk7vli" path="res://assets/player-bullet-rod.png" id="1_mby0o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hh7n2"]
+radius = 2.0
+height = 46.0
+
+[node name="PlayerBullet" type="Area2D" groups=["player_bullets"]]
+scale = Vector2(0.67, 1)
+script = ExtResource("1_2uhyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.741176, 0.976471, 1, 1)
+texture = ExtResource("1_mby0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hh7n2")

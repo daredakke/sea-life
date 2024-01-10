@@ -10,6 +10,7 @@ radius = 24.0
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_n2ulj")
+fire_rate = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.490196, 0.992157, 1, 1)
@@ -20,3 +21,11 @@ texture = ExtResource("1_uy1op")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_gxsbj")
+
+[node name="BulletSpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.33
+one_shot = true
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(12, 0)

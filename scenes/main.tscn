@@ -1,15 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=6 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
 [ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
 [ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/rock_large.tscn" id="3_e67s1"]
 [ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/rock_small.tscn" id="4_jujky"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_bw2ht")
 
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
 
+[node name="Projectiles" type="Node" parent="."]
+unique_name_in_owner = true
+
 [node name="Player" parent="." instance=ExtResource("1_8if2x")]
+unique_name_in_owner = true
+z_index = 1
 position = Vector2(590, 379)
 
 [node name="Enemies" type="Node" parent="."]
