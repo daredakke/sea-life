@@ -41,3 +41,5 @@ polygon = PackedVector2Array(-363, 20, 1260, 20, 1260, 700, 20, 700, 20, 0, -282
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletDespawner"]
 polygon = PackedVector2Array(-2331, -465, 1717, -497, 1808, 1220, -533, 1234, -604, -590, -2148, -619, -2009, 2645, 3610, 2586, 3246, -2194, -2272, -2177)
+
+[node name="UI" type="CanvasLayer" parent="."]
