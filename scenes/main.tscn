@@ -18,7 +18,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(590, 379)
-fire_rate = 0.01
+fire_rate = 0.25
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
@@ -36,3 +36,8 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 polygon = PackedVector2Array(-363, 20, 1260, 20, 1260, 700, 20, 700, 20, 0, -282, -61, -266, 941, 1527, 945, 1484, -238, -273, -233)
+
+[node name="BulletDespawner" type="Area2D" parent="." groups=["bullet_despawner"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletDespawner"]
+polygon = PackedVector2Array(-2331, -465, 1717, -497, 1808, 1220, -533, 1234, -604, -590, -2148, -619, -2009, 2645, 3610, 2586, 3246, -2194, -2272, -2177)

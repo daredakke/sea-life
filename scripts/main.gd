@@ -7,6 +7,7 @@ var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn"
 @onready var projectiles: Node = %Projectiles
 @onready var enemies: Node = %Enemies
 
+# Player stats
 var spread_range: float = 0.05
 var spread: float = 0
 
