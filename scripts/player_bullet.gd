@@ -6,9 +6,5 @@ var direction: Vector2
 var speed_multiplier: float = 1.0
 
 
-func _ready() -> void:
-	self.rotation = direction.angle()
-
-
 func _process(delta):
 	self.position += direction * speed * speed_multiplier * delta
