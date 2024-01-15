@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=8 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
 [ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
 [ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/rock_large.tscn" id="3_e67s1"]
 [ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/rock_small.tscn" id="4_jujky"]
+[ext_resource type="PackedScene" uid="uid://cdtyd7wvimttf" path="res://scenes/options.tscn" id="6_222c4"]
+[ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bw2ht")
@@ -38,8 +40,18 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(-363, 20, 1260, 20, 1260, 700, 20, 700, 20, 0, -282, -61, -266, 941, 1527, 945, 1484, -238, -273, -233)
 
 [node name="BulletDespawner" type="Area2D" parent="." groups=["bullet_despawner"]]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletDespawner"]
-polygon = PackedVector2Array(-2331, -465, 1717, -497, 1808, 1220, -533, 1234, -604, -590, -2148, -619, -2009, 2645, 3610, 2586, 3246, -2194, -2272, -2177)
+polygon = PackedVector2Array(-2331, -465, 1717, -497, 1808, 1220, -533, 1234, -581, -577, -2290, -582, -2310, 2638, 3610, 2586, 3486, -2210, -2272, -2177)
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Options" parent="UI" instance=ExtResource("6_222c4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
+unique_name_in_owner = true
+visible = false

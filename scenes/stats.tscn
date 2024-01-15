@@ -1,0 +1,254 @@
+[gd_scene load_steps=3 format=3 uid="uid://chftm345jv2bv"]
+
+[ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_lqy1p"]
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_mk0c3"]
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk0c3")
+
+[node name="OuterMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Panel" type="Panel" parent="OuterMargin"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+
+[node name="HeadingMargin" type="MarginContainer" parent="OuterMargin/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HeadingLabel" type="Label" parent="OuterMargin/Panel/HeadingMargin"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+theme_override_font_sizes/font_size = 64
+text = "STATS"
+
+[node name="PointsMargin" type="MarginContainer" parent="OuterMargin/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
+offset_bottom = 126.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PointsLabel" type="Label" parent="OuterMargin/Panel/PointsMargin"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+theme_override_font_sizes/font_size = 64
+text = "POINTS: 0"
+
+[node name="ControlsMargin" type="MarginContainer" parent="OuterMargin/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="StatGrid" type="GridContainer" parent="OuterMargin/Panel/ControlsMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 32
+columns = 3
+
+[node name="PowerVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="PowerLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "BULLET POWER"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PowerLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="PowerButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="FireRateVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="FireRateLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "FIRE RATE"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="FireRateLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="FireRateButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="SpreadVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="SpreadLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "BULLET SPREAD"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="SpreadLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="SpreadButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="SpeedVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "BULLET SPEED"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="SpeedLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="SpeedButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="PierceCountVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="PierceCountLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "PIERCE COUNT"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PierceCountLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="PierceCountButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="PierceChanceVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
+layout_mode = 2
+
+[node name="PierceChanceLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_lqy1p")
+text = "PIERCE CHANCE"
+
+[node name="StatHBox" type="HBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PierceChanceLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "0"
+
+[node name="PierceChanceButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox"]
+layout_mode = 2
+theme = ExtResource("1_lqy1p")
+text = "+"
+
+[node name="CloseMargin" type="MarginContainer" parent="OuterMargin/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="CloseButton" type="Button" parent="OuterMargin/Panel/CloseMargin"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_lqy1p")
+text = "CLOSE"
