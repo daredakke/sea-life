@@ -1,6 +1,8 @@
 class_name Main
 extends Node2D
 
+const BASE_SPREAD_RANGE: float = 0.12
+
 var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 
 @onready var player: Player = %Player
@@ -11,7 +13,7 @@ var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn"
 @onready var stats: Stats = %Stats
 
 # Bullet stats
-var spread_range: float = 0.1
+var spread_range: float = BASE_SPREAD_RANGE
 var spread: float = 0
 var bullet_speed_multiplier: int = 1
 
@@ -58,7 +60,8 @@ func _on_stat_increased(value: int, stat: int) -> void:
 		1:
 			player.set_fire_rate(value)
 		2:
-			pass
+			spread_range = BASE_SPREAD_RANGE - (value * 0.01)
+			print(spread_range)
 		3:
 			bullet_speed_multiplier = value * 0.1 + 1.8
 		4:
