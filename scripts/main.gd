@@ -17,16 +17,21 @@ var spread: float = 0
 
 func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
+	stats.close_stats_screen.connect(toggle_stats_screen)
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("DEBUG_stats"):
-		stats.toggle_visibility()
-		
-		if player.is_processing():
-			player.set_process(false)
-		else:
-			player.set_process(true)
+		toggle_stats_screen()
+
+
+func toggle_stats_screen() -> void:
+	stats.toggle_visibility()
+	
+	if player.is_processing():
+		player.set_process(false)
+	else:
+		player.set_process(true)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:

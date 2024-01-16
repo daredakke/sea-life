@@ -278,3 +278,4 @@ text = "CLOSE"
 [connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox/SpeedButton" to="." method="_on_speed_button_pressed"]
 [connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox/PierceCountButton" to="." method="_on_pierce_count_button_pressed"]
 [connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox/PierceChanceButton" to="." method="_on_pierce_chance_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/CloseMargin/CloseButton" to="." method="_on_close_button_pressed"]

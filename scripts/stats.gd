@@ -2,6 +2,7 @@ class_name Stats
 extends Control
 
 signal stat_increased(value: int, stat: int)
+signal close_stats_screen
 
 const MAX_POINTS: int = 999
 const MAX_STAT_VALUE: int = 10
@@ -32,6 +33,7 @@ enum Stat {
 var points: int:
 	set(new_value):
 		points = clamp(new_value, 0, MAX_POINTS)
+		points_label.text = points_text
 		
 		if points == 0:
 			disable_buttons()
@@ -44,7 +46,6 @@ var points_text: String = "POINTS: ":
 
 
 func _ready() -> void:
-	points_label.text = points_text
 	points = 10
 	
 	self.hide()
@@ -73,6 +74,15 @@ func enable_buttons() -> void:
 	speed_button.disabled = false
 	pierce_count_button.disabled = false
 	pierce_chance_button.disabled = false
+
+
+func reset_points() -> void:
+	power_label.text = "0"
+	fire_rate_label.text = "0"
+	spread_label.text = "0"
+	speed_label.text = "0"
+	pierce_count_label.text = "0"
+	pierce_chance_label.text = "0"
 
 
 func spend_point() -> void:
@@ -110,3 +120,7 @@ func _on_pierce_count_button_pressed() -> void:
 
 func _on_pierce_chance_button_pressed() -> void:
 	increase_stat(pierce_chance_label, Stat.PIERCE_CHANCE)
+
+
+func _on_close_button_pressed() -> void:
+	self.close_stats_screen.emit()
