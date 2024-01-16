@@ -3,6 +3,7 @@ extends Control
 
 signal stat_increased(value: int, stat: int)
 signal close_stats_screen
+signal reset_stats
 
 const MAX_POINTS: int = 999
 const MAX_STAT_VALUE: int = 10
@@ -46,8 +47,7 @@ var points_text: String = "POINTS: ":
 
 
 func _ready() -> void:
-	points = 60
-	
+	reset_points()
 	self.hide()
 
 
@@ -83,6 +83,10 @@ func reset_points() -> void:
 	speed_label.text = "0"
 	pierce_count_label.text = "0"
 	pierce_chance_label.text = "0"
+	
+	points = 0
+	
+	self.reset_stats.emit()
 
 
 func spend_point() -> void:

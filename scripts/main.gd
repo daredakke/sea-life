@@ -24,6 +24,7 @@ var bullet_speed_multiplier: int = 1
 func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(toggle_stats_screen)
+	stats.reset_stats.connect(reset_stats)
 
 
 func _process(delta: float) -> void:
@@ -51,10 +52,11 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	bullet_instance.global_position = pos
 	bullet_instance.direction = new_direction
 	bullet_instance.rotation = new_direction.angle()
-	bullet_instance.speed_multiplier = bullet_speed_multiplier
+	
 	bullet_instance.power = bullet_power
 	bullet_instance.pierce_count = bullet_pierce_count
 	bullet_instance.pierce_chance = bullet_pierce_chance
+	bullet_instance.speed_multiplier = bullet_speed_multiplier
 	
 	projectiles.add_child(bullet_instance)
 
@@ -73,3 +75,13 @@ func _on_stat_increased(value: int, stat: int) -> void:
 			bullet_pierce_count += 1
 		5:
 			bullet_pierce_chance += 0.1
+
+
+func reset_stats() -> void:
+	bullet_power = 1
+	bullet_pierce_count = 0
+	bullet_pierce_chance = 0
+	spread_range = BASE_SPREAD_RANGE
+	bullet_speed_multiplier = 1
+	
+	player.set_fire_rate(0)
