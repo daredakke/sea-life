@@ -53,6 +53,8 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	bullet_instance.rotation = new_direction.angle()
 	bullet_instance.speed_multiplier = bullet_speed_multiplier
 	bullet_instance.power = bullet_power
+	bullet_instance.pierce_count = bullet_pierce_count
+	bullet_instance.pierce_chance = bullet_pierce_chance
 	
 	projectiles.add_child(bullet_instance)
 
