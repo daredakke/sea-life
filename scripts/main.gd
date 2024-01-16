@@ -14,6 +14,8 @@ var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn"
 
 # Bullet stats
 var bullet_power: int = 1
+var bullet_pierce_count: int = 0
+var bullet_pierce_chance: float = 0
 var spread_range: float = BASE_SPREAD_RANGE
 var spread: float = 0
 var bullet_speed_multiplier: int = 1
@@ -63,10 +65,9 @@ func _on_stat_increased(value: int, stat: int) -> void:
 			player.set_fire_rate(value)
 		2:
 			spread_range = BASE_SPREAD_RANGE - (value * 0.01)
-			print(spread_range)
 		3:
 			bullet_speed_multiplier = value * 0.1 + 1.8
 		4:
-			pass
+			bullet_pierce_count += 1
 		5:
-			pass
+			bullet_pierce_chance += 0.1

@@ -5,6 +5,8 @@ extends Area2D
 var direction: Vector2
 var speed_multiplier: float = 1.0
 var power: int = 1
+var pierce_count: int = 0
+var pierce_chance: float = 0
 
 
 func _process(delta):
