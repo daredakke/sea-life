@@ -46,7 +46,7 @@ var points_text: String = "POINTS: ":
 
 
 func _ready() -> void:
-	points = 10
+	points = 60
 	
 	self.hide()
 
