@@ -39,4 +39,4 @@ func _process(delta):
 
 
 func set_fire_rate(multiplier: int) -> void:
-	fire_rate = fire_rate * (1.1 - (multiplier * 0.1))
+	bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))

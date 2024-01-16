@@ -45,8 +45,24 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	projectiles.add_child(bullet_instance)
 
 
-func increase_fire_rate() -> void:
-	if player.fire_rate_multiplier < 10:
-		fire_rate_multiplier += 1
-		
-		player.set_fire_rate(fire_rate_multiplier)
+#func increase_fire_rate() -> void:
+	#if player.fire_rate_multiplier < 10:
+		#fire_rate_multiplier += 1
+		#
+		#player.set_fire_rate(fire_rate_multiplier)
+
+
+func _on_stat_increased(value: int, stat: int) -> void:
+	match stat:
+		0:
+			pass
+		1:
+			player.set_fire_rate(value)
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
+		5:
+			pass

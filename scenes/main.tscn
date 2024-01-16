@@ -54,3 +54,5 @@ visible = false
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
 unique_name_in_owner = true
 visible = false
+
+[connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
