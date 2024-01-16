@@ -2,6 +2,8 @@ class_name Options
 extends Control
 
 signal toggle_fullscreen(state: bool)
+signal change_music_volume(value: float)
+signal change_sfx_volume(value: float)
 
 @onready var music_label: Label = %MusicLabel
 @onready var music_slider: HSlider = %MusicSlider
@@ -27,7 +29,9 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_music_volume_change_timer_timeout() -> void:
 	music_label.text = "MUSIC - " + str(music_slider.value) + "%"
+	self.change_music_volume.emit(music_slider.value)
 
 
 func _on_sfx_volume_change_timer_timeout() -> void:
 	sfx_label.text = "SFX - " + str(sfx_slider.value) + "%"
+	self.change_sfx_volume.emit(sfx_slider.value)
