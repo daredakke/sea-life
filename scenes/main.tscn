@@ -20,7 +20,6 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(590, 379)
-fire_rate = 0.25
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true

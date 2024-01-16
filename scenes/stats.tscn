@@ -57,6 +57,7 @@ theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="PointsLabel" type="Label" parent="OuterMargin/Panel/PointsMargin"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 theme_override_font_sizes/font_size = 64
@@ -85,7 +86,7 @@ columns = 3
 [node name="PowerVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="PowerLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox"]
+[node name="PowerTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -98,19 +99,22 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="PowerLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="PowerButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
 [node name="FireRateVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="FireRateLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox"]
+[node name="FireRateTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -123,19 +127,22 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="FireRateLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="FireRateButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
 [node name="SpreadVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="SpreadLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox"]
+[node name="SpreadTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -148,19 +155,22 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="SpreadLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="SpreadButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
 [node name="SpeedVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="SpeedLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox"]
+[node name="SpeedTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -173,19 +183,22 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="SpeedLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="SpeedButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
 [node name="PierceCountVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="PierceCountLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox"]
+[node name="PierceCountTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -198,19 +211,22 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="PierceCountLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="PierceCountButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
 [node name="PierceChanceVBox" type="VBoxContainer" parent="OuterMargin/Panel/ControlsMargin/StatGrid"]
 layout_mode = 2
 
-[node name="PierceChanceLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox"]
+[node name="PierceChanceTextLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_lqy1p")
@@ -223,12 +239,15 @@ size_flags_vertical = 3
 theme_override_constants/separation = 16
 
 [node name="PierceChanceLabel" type="Label" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_lqy1p")
 text = "0"
 
 [node name="PierceChanceButton" type="Button" parent="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox"]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "+"
 
@@ -252,3 +271,10 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_lqy1p")
 text = "CLOSE"
+
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/PowerVBox/StatHBox/PowerButton" to="." method="_on_power_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/FireRateVBox/StatHBox/FireRateButton" to="." method="_on_fire_rate_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/SpreadVBox/StatHBox/SpreadButton" to="." method="_on_spread_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/SpeedVBox/StatHBox/SpeedButton" to="." method="_on_speed_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/PierceCountVBox/StatHBox/PierceCountButton" to="." method="_on_pierce_count_button_pressed"]
+[connection signal="pressed" from="OuterMargin/Panel/ControlsMargin/StatGrid/PierceChanceVBox/StatHBox/PierceChanceButton" to="." method="_on_pierce_chance_button_pressed"]

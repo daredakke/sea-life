@@ -7,13 +7,27 @@ var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn"
 @onready var projectiles: Node = %Projectiles
 @onready var enemies: Node = %Enemies
 
+@onready var options: Options = %Options
+@onready var stats: Stats = %Stats
+
 # Player stats
+var fire_rate_multiplier: int = 0
 var spread_range: float = 0.1
 var spread: float = 0
 
 
 func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("DEBUG_stats"):
+		stats.toggle_visibility()
+		
+		if player.is_processing():
+			player.set_process(false)
+		else:
+			player.set_process(true)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
@@ -29,3 +43,10 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	bullet_instance.rotation = new_direction.angle()
 	
 	projectiles.add_child(bullet_instance)
+
+
+func increase_fire_rate() -> void:
+	if player.fire_rate_multiplier < 10:
+		fire_rate_multiplier += 1
+		
+		player.set_fire_rate(fire_rate_multiplier)

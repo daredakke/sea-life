@@ -9,8 +9,8 @@ const ANGULAR_SPEED: float = TAU * 2
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
 @export var player_speed: float = 500
-@export var fire_rate: float = 0.33
 
+var fire_rate: float = 0.33
 var player_direction: Vector2
 var target_angle: float
 
@@ -36,3 +36,7 @@ func _process(delta):
 		var player_direction = (get_global_mouse_position() - position).normalized()
 		fire_bullet.emit(bullet_spawn_point.global_position, player_direction)
 		bullet_spawn_timer.start()
+
+
+func set_fire_rate(multiplier: int) -> void:
+	fire_rate = fire_rate * (1.1 - (multiplier * 0.1))
