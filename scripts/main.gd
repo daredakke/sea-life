@@ -13,6 +13,7 @@ var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn"
 @onready var stats: Stats = %Stats
 
 # Bullet stats
+var bullet_power: int = 1
 var spread_range: float = BASE_SPREAD_RANGE
 var spread: float = 0
 var bullet_speed_multiplier: int = 1
@@ -49,6 +50,7 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	bullet_instance.direction = new_direction
 	bullet_instance.rotation = new_direction.angle()
 	bullet_instance.speed_multiplier = bullet_speed_multiplier
+	bullet_instance.power = bullet_power
 	
 	projectiles.add_child(bullet_instance)
 
@@ -56,7 +58,7 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 func _on_stat_increased(value: int, stat: int) -> void:
 	match stat:
 		0:
-			pass
+			bullet_power += 1
 		1:
 			player.set_fire_rate(value)
 		2:
