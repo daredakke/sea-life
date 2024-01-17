@@ -17,12 +17,12 @@ func _ready() -> void:
 	self.hide()
 
 
-func _on_music_slider_value_changed(value: float) -> void:
+func _on_music_slider_value_changed(_value: float) -> void:
 	if music_volume_change_timer.is_stopped():
 		music_volume_change_timer.start()
 
 
-func _on_sfx_slider_value_changed(value: float) -> void:
+func _on_sfx_slider_value_changed(_value: float) -> void:
 	if sfx_volume_change_timer.is_stopped():
 		sfx_volume_change_timer.start()
 

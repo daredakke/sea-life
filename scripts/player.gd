@@ -33,8 +33,8 @@ func _process(delta):
 	rotation += clamp(ANGULAR_SPEED * delta, 0, abs(angle_diff)) * sign(angle_diff)
 	
 	if Input.is_action_pressed("fire") and bullet_spawn_timer.is_stopped():
-		var player_direction = (get_global_mouse_position() - position).normalized()
-		fire_bullet.emit(bullet_spawn_point.global_position, player_direction)
+		var player_dir = (get_global_mouse_position() - position).normalized()
+		fire_bullet.emit(bullet_spawn_point.global_position, player_dir)
 		bullet_spawn_timer.start()
 
 

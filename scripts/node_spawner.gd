@@ -14,13 +14,10 @@ var target_x_variance: float
 var target_y_variance: float
 
 # Coordinates for node spawning
-var top_left: Vector2 = Vector2(-50, -50)
-var top_right: Vector2 = Vector2(get_viewport_rect().size.x + 50, -50)
-var bottom_left: Vector2 = Vector2(-50, get_viewport_rect().size.y + 50)
-var bottom_right: Vector2 = Vector2(
-	get_viewport_rect().size.x + 50,
-	get_viewport_rect().size.y + 50
-)
+var left: float = -50
+var top: float = -50
+var right: float = get_viewport_rect().size.y + 50
+var bottom: float = get_viewport_rect().size.x + 50
 
 
 func _ready() -> void:

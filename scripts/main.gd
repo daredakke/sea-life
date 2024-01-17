@@ -18,7 +18,7 @@ var bullet_pierce_count: int = 0
 var bullet_pierce_chance: float = 0
 var spread_range: float = BASE_SPREAD_RANGE
 var spread: float = 0
-var bullet_speed_multiplier: int = 1
+var bullet_speed_multiplier: float = 1
 
 
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _ready() -> void:
 	stats.reset_stats.connect(reset_stats)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("DEBUG_stats"):
 		toggle_stats_screen()
 
