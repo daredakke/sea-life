@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 
 func toggle_stats_screen() -> void:
 	stats.toggle_visibility()
-	
+
 	if player.is_processing():
 		player.set_process(false)
 	else:
@@ -43,21 +43,21 @@ func toggle_stats_screen() -> void:
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	var bullet_instance: Area2D = player_bullet_scene.instantiate()
-	
+
 	if spread_range > 0:
 		spread = randf_range(-spread_range, spread_range)
-	
+
 	var new_direction: Vector2 = direction.rotated(spread)
-	
+
 	bullet_instance.global_position = pos
 	bullet_instance.direction = new_direction
 	bullet_instance.rotation = new_direction.angle()
-	
+
 	bullet_instance.power = bullet_power
 	bullet_instance.pierce_count = bullet_pierce_count
 	bullet_instance.pierce_chance = bullet_pierce_chance
 	bullet_instance.speed_multiplier = bullet_speed_multiplier
-	
+
 	projectiles.add_child(bullet_instance)
 
 
@@ -83,5 +83,5 @@ func reset_stats() -> void:
 	bullet_pierce_chance = 0
 	spread_range = BASE_SPREAD_RANGE
 	bullet_speed_multiplier = 1
-	
+
 	player.set_fire_rate(0)
