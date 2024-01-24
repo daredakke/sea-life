@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=8 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
 [ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
-[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/rock_large.tscn" id="3_e67s1"]
 [ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/rock_small.tscn" id="4_jujky"]
 [ext_resource type="PackedScene" uid="uid://cdtyd7wvimttf" path="res://scenes/options.tscn" id="6_222c4"]
 [ext_resource type="PackedScene" uid="uid://c667oensvv3ss" path="res://scenes/node_spawner.tscn" id="6_bv7gd"]
@@ -25,14 +24,10 @@ position = Vector2(590, 379)
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="RockLarge" parent="Enemies" instance=ExtResource("3_e67s1")]
-position = Vector2(347, 285)
-
-[node name="RockSmall" parent="Enemies" instance=ExtResource("4_jujky")]
-position = Vector2(231, 431)
-
 [node name="NodeSpawner" parent="Enemies" instance=ExtResource("6_bv7gd")]
 node_scene = ExtResource("4_jujky")
+nodes_to_spawn = 100
+spawn_delay = 0.05
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_mask = 0
