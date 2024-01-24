@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal fire_bullet(pos: Vector2, direction: Vector2)
+signal player_position(pos: Vector2)
 
 const ANGULAR_SPEED: float = TAU * 2
 
@@ -22,6 +23,8 @@ func _ready() -> void:
 
 
 func _process(delta):
+	player_position.emit(global_position)
+	
 	# Movement
 	var direction := Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = direction * player_speed

@@ -8,6 +8,8 @@ extends Node2D
 @export var node_speed: float = 120
 @export var node_speed_variance: float = 50
 @export var spawn_delay: float = 1.0
+@export var aim_at_player: bool = false
+var player_position: Vector2
 var nodes_spawned: int = 0
 
 # Where to aim spawned nodes
@@ -25,6 +27,10 @@ func _ready() -> void:
 	for child in get_children():
 		if child is SpawnArea:
 			spawn_areas.append(child)
+
+
+func get_player_position(pos: Vector2) -> void:
+	player_position = pos
 
 
 func get_screen_centre() -> Vector2:
@@ -45,12 +51,15 @@ func _on_spawn_timer_timeout() -> void:
 	var spawn_position: Vector2 = spawn_areas.pick_random().get_random_spawn_position()
 	node_instance.global_position = spawn_position
 	
-	target = get_screen_centre()
+	if aim_at_player:
+		target = player_position
+	else:
+		target = get_screen_centre()
+	
 	node_instance.direction = spawn_position.direction_to(target)
+	nodes_spawned += 1
 	
 	add_sibling(node_instance)
 	
-	nodes_spawned += 1
-
 	if nodes_spawned >= nodes_to_spawn:
 		self.queue_free()

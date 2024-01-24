@@ -4,7 +4,7 @@ extends Area2D
 var speed: float = 120
 var speed_variance: float = 15
 var direction: Vector2
-var rotation_speed: float = randf_range(0.1, 0.7)
+var rotation_speed: float = randf_range(0.2, 0.8)
 # false -> clockwise
 var reverse_rotation: bool = false
 var health: int = 3
