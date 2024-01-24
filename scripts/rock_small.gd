@@ -6,6 +6,10 @@ var direction: Vector2
 var health: int = 3
 
 
+func _ready() -> void:
+	rotation_degrees = randf_range(0, 360)
+
+
 func _process(delta):
 	self.position += direction * speed * delta
 

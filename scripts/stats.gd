@@ -35,7 +35,7 @@ var points: int:
 	set(new_value):
 		points = clamp(new_value, 0, MAX_POINTS)
 		points_label.text = points_text
-		
+
 		if points == 0:
 			disable_buttons()
 		else:
@@ -83,9 +83,9 @@ func reset_points() -> void:
 	speed_label.text = "0"
 	pierce_count_label.text = "0"
 	pierce_chance_label.text = "0"
-	
+
 	points = 0
-	
+
 	self.reset_stats.emit()
 
 
@@ -97,7 +97,7 @@ func increase_stat(label: Label, stat: Stat) -> void:
 	if int(label.text) < MAX_STAT_VALUE:
 		var new_value = int(label.text) + 1
 		label.text = str(new_value)
-		
+
 		spend_point()
 		self.stat_increased.emit(new_value, stat)
 
