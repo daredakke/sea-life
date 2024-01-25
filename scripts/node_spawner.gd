@@ -44,7 +44,7 @@ func get_screen_centre() -> Vector2:
 
 
 func _on_spawn_timer_timeout() -> void:
-	var node_instance = node_scene.instantiate()
+	var node_instance: Area2D = node_scene.instantiate() as Area2D
 	node_instance.speed = node_speed
 	node_instance.speed_variance = node_speed_variance
 	

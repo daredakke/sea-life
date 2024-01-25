@@ -25,4 +25,3 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		if pierce_chance != 1.0 and randf() > pierce_chance:
 			self.queue_free()
-

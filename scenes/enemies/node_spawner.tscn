@@ -1,28 +1,28 @@
 [gd_scene load_steps=3 format=3 uid="uid://c667oensvv3ss"]
 
-[ext_resource type="Script" path="res://scripts/node_spawner.gd" id="1_1iw5f"]
-[ext_resource type="PackedScene" uid="uid://nbici3s53yio" path="res://scenes/enemies/spawn_area.tscn" id="2_1dn3w"]
+[ext_resource type="Script" path="res://scripts/node_spawner.gd" id="1_6ys0n"]
+[ext_resource type="PackedScene" uid="uid://nbici3s53yio" path="res://scenes/enemies/spawn_area.tscn" id="2_xdph0"]
 
 [node name="NodeSpawner" type="Node2D"]
-script = ExtResource("1_1iw5f")
+script = ExtResource("1_6ys0n")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="SpawnAreaTop" parent="." instance=ExtResource("2_1dn3w")]
+[node name="SpawnAreaTop" parent="." instance=ExtResource("2_xdph0")]
 position = Vector2(640, -50)
 end = 1280.0
 
-[node name="SpawnAreaBottom" parent="." instance=ExtResource("2_1dn3w")]
+[node name="SpawnAreaBottom" parent="." instance=ExtResource("2_xdph0")]
 position = Vector2(640, 770)
 end = 1280.0
 
-[node name="SpawnAreaLeft" parent="." instance=ExtResource("2_1dn3w")]
+[node name="SpawnAreaLeft" parent="." instance=ExtResource("2_xdph0")]
 position = Vector2(-50, 335)
 orientation = 1
 end = 770.0
 
-[node name="SpawnAreaRight" parent="." instance=ExtResource("2_1dn3w")]
+[node name="SpawnAreaRight" parent="." instance=ExtResource("2_xdph0")]
 position = Vector2(1330, 335)
 orientation = 1
 end = 770.0

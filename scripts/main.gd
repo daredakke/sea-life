@@ -3,10 +3,10 @@ extends Node2D
 
 const BASE_SPREAD_RANGE: float = 0.12
 
-var node_spawner_scene: PackedScene = preload("res://scenes/node_spawner.tscn")
+var node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
-var rock_small_scene: PackedScene = preload("res://scenes/rock_small.tscn")
-var rock_large_scene: PackedScene = preload("res://scenes/rock_large.tscn")
+var rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.tscn")
+var rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
 
 @onready var player: Player = %Player
 @onready var projectiles: Node = %Projectiles
@@ -28,7 +28,7 @@ func _ready() -> void:
 	stats.close_stats_screen.connect(toggle_stats_screen)
 	stats.reset_stats.connect(reset_stats)
 	
-	var node_spawner_instance = node_spawner_scene.instantiate()
+	var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
 	node_spawner_instance.node_scene = rock_large_scene
 	node_spawner_instance.aim_at_player = true
 	
@@ -51,7 +51,7 @@ func toggle_stats_screen() -> void:
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
-	var bullet_instance: Area2D = player_bullet_scene.instantiate()
+	var bullet_instance: Area2D = player_bullet_scene.instantiate() as Area2D
 
 	if spread_range > 0:
 		spread = randf_range(-spread_range, spread_range)
