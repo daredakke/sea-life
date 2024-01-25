@@ -18,10 +18,11 @@ func _on_area_entered(area: Area2D) -> void:
 		self.queue_free()
 	
 	if area.is_in_group("enemy"):
-		if pierce_count > 0:
-			pierce_count -= 1
-			
-			if pierce_chance != 1.0 and randf() > pierce_chance:
-				self.queue_free()
-		else:
+		pierce_count -= 1
+		
+		if pierce_count <= 0:
 			self.queue_free()
+		
+		if pierce_chance != 1.0 and randf() > pierce_chance:
+			self.queue_free()
+
