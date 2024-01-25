@@ -6,11 +6,11 @@ const BASE_SPREAD_RANGE: float = 0.12
 var node_spawner_scene: PackedScene = preload("res://scenes/node_spawner.tscn")
 var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 var rock_small_scene: PackedScene = preload("res://scenes/rock_small.tscn")
+var rock_large_scene: PackedScene = preload("res://scenes/rock_large.tscn")
 
 @onready var player: Player = %Player
 @onready var projectiles: Node = %Projectiles
 @onready var enemies: Node = %Enemies
-
 @onready var options: Options = %Options
 @onready var stats: Stats = %Stats
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 	stats.reset_stats.connect(reset_stats)
 	
 	var node_spawner_instance = node_spawner_scene.instantiate()
-	node_spawner_instance.node_scene = rock_small_scene
+	node_spawner_instance.node_scene = rock_large_scene
 	node_spawner_instance.aim_at_player = true
 	
 	player.player_position.connect(node_spawner_instance.get_player_position)
