@@ -1,21 +1,13 @@
 class_name Rock
-extends Area2D
+extends Enemy
 
-var explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
-
-@export var health: int = 3
-@export var explosion_scale: float = 0.33
-
-var speed: float = 120
-var speed_variance: float = 15
-var direction: Vector2
 var rotation_speed: float = randf_range(0.2, 0.8)
 # false -> clockwise
 var reverse_rotation: bool = false
 
 
 func _ready() -> void:
-	speed += randf_range(0, speed_variance)
+	super._ready()
 	rotation_degrees = randf_range(0, 360)
 	
 	if reverse_rotation:
@@ -23,27 +15,5 @@ func _ready() -> void:
 
 
 func _process(delta):
-	self.position += direction * speed * delta
+	super._process(delta)
 	self.rotation += rotation_speed * delta
-
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_bullets"):
-		health -= area.power
-		
-		if health <= 0:
-			spawn_explosion()
-			self.queue_free()
-
-
-	if area.is_in_group("enemy_despawner"):
-		spawn_explosion()
-		self.queue_free()
-
-
-func spawn_explosion() -> void:
-	var explosion_instance = explosion_scene.instantiate()
-	explosion_instance.global_position = global_position
-	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)
-	
-	add_sibling(explosion_instance)
