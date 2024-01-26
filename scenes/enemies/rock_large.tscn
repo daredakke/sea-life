@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dr5qvryr3aik7"]
 
-[ext_resource type="Script" path="res://scripts/rock_large.gd" id="1_6ixaq"]
-[ext_resource type="Texture2D" uid="uid://iyor7jxj58nl" path="res://assets/meteor_large.png" id="1_cjwlr"]
+[ext_resource type="Script" path="res://scripts/rock_large.gd" id="1_gggfv"]
+[ext_resource type="Texture2D" uid="uid://iyor7jxj58nl" path="res://assets/meteor_large.png" id="2_4nkix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gikw"]
 radius = 43.1045
 
 [node name="RockLarge" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.75, 0.75)
-script = ExtResource("1_6ixaq")
+script = ExtResource("1_gggfv")
 health = 6
 explosion_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.799, 0.33, 1)
-texture = ExtResource("1_cjwlr")
+texture = ExtResource("2_4nkix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8gikw")

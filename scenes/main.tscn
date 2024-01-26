@@ -48,7 +48,6 @@ polygon = PackedVector2Array(-2142, -1147, 2434, -1192, 2524, 1738, -1153, 1828,
 
 [node name="Options" parent="UI" instance=ExtResource("6_222c4")]
 unique_name_in_owner = true
-visible = false
 
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
 unique_name_in_owner = true

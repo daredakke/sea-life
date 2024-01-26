@@ -9,6 +9,7 @@ extends Node2D
 @export var node_speed_variance: float = 50
 @export var spawn_delay: float = 1.0
 @export var aim_at_player: bool = false
+
 var player_position: Vector2
 var nodes_spawned: int = 0
 
