@@ -16,7 +16,7 @@ var wave_data: Dictionary = {
 			"nodes_to_spawn": 15,
 			"node_speed": 80,
 			"node_speed_variance": 30,
-			"spawn_delay": 1,
+			"spawn_delay": 1.8,
 			"aim_at_player": false,
 		},
 	],
@@ -24,18 +24,18 @@ var wave_data: Dictionary = {
 	2: [
 		{
 			"node_scene": rock_small_scene,
-			"nodes_to_spawn": 8,
-			"node_speed": 80,
+			"nodes_to_spawn": 10,
+			"node_speed": 85,
 			"node_speed_variance": 35,
-			"spawn_delay": 1.9,
+			"spawn_delay": 2.5,
 			"aim_at_player": false,
 		},
 		{
 			"node_scene": rock_large_scene,
-			"nodes_to_spawn": 8,
+			"nodes_to_spawn": 6,
 			"node_speed": 65,
 			"node_speed_variance": 25,
-			"spawn_delay": 2,
+			"spawn_delay": 2.9,
 			"aim_at_player": false,
 		},
 	],
@@ -62,13 +62,13 @@ var wave_data: Dictionary = {
 
 
 func get_wave_parameters(wave: int) -> Array:
-	var index = wave if wave < wave_data.size() else wave_data.size()
+	var index = clampi(wave, 1, wave_data.size())
 	
 	return wave_data[index]
 
 
 func set_enemies_in_wave(wave: int) -> void:
-	var index = wave if wave < wave_data.size() else wave_data.size()
+	var index = clampi(wave, 1, wave_data.size())
 	
 	enemies_in_wave = 0
 	enemies_defeated = 0
