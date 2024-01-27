@@ -16,7 +16,7 @@ var wave_data: Dictionary = {
 			"nodes_to_spawn": 15,
 			"node_speed": 80,
 			"node_speed_variance": 30,
-			"spawn_delay": 2,
+			"spawn_delay": 1,
 			"aim_at_player": false,
 		},
 	],
@@ -68,12 +68,17 @@ func get_wave_parameters(wave: int) -> Array:
 
 
 func set_enemies_in_wave(wave: int) -> void:
+	var index = wave if wave < wave_data.size() else wave_data.size()
+	
 	enemies_in_wave = 0
 	enemies_defeated = 0
 	
-	for params in wave_data[wave]:
+	for params in wave_data[index]:
 		enemies_in_wave += params["nodes_to_spawn"]
 
 
 func enemy_defeated() -> void:
 	enemies_defeated += 1
+	
+	if enemies_defeated >= enemies_in_wave:
+		wave_over.emit()

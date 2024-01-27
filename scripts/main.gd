@@ -2,6 +2,7 @@ class_name Main
 extends Node2D
 
 const BASE_SPREAD_RANGE: float = 0.12
+const POINTS_PER_WAVE: int = 2
 
 var node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
@@ -29,22 +30,12 @@ var bullet_speed_multiplier: float = 1
 
 func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
-	stats.close_stats_screen.connect(toggle_stats_screen)
+	stats.close_stats_screen.connect(_on_close_stats_screen)
 	stats.reset_stats.connect(reset_stats)
 	player.player_position.connect(Globals.update_player_position)
+	Waves.wave_over.connect(wave_end)
 	
 	wave_start_timer.start()
-	
-	#var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
-	#node_spawner_instance.node_scene = enemy_ship_scene
-	#node_spawner_instance.aim_at_player = true
-	#
-	#enemies.add_child(node_spawner_instance)
-
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("DEBUG_stats"):
-		toggle_stats_screen()
 
 
 func _on_wave_start_timer_timeout() -> void:
@@ -67,13 +58,20 @@ func _on_wave_start_timer_timeout() -> void:
 		enemies.add_child(node_spawner_instance)
 
 
-func toggle_stats_screen() -> void:
-	stats.toggle_visibility()
+func wave_end() -> void:
+	if wave > 30:
+		wave_start_timer.start()
+		return
+	
+	stats.show()
+	player.set_process(false)
+	
+	stats.points = POINTS_PER_WAVE
 
-	if player.is_processing():
-		player.set_process(false)
-	else:
-		player.set_process(true)
+
+func _on_close_stats_screen() -> void:
+	player.set_process(true)
+	wave_start_timer.start()
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:

@@ -49,14 +49,7 @@ var points_text: String = "POINTS: ":
 
 func _ready() -> void:
 	reset_points()
-	self.hide()
-
-
-func toggle_visibility() -> void:
-	if self.visible:
-		self.hide()
-	else:
-		self.show()
+	hide()
 
 
 func disable_buttons() -> void:
@@ -87,7 +80,7 @@ func reset_points() -> void:
 
 	points = 0
 
-	self.reset_stats.emit()
+	reset_stats.emit()
 
 
 func spend_point() -> void:
@@ -100,7 +93,7 @@ func increase_stat(label: Label, stat: Stat) -> void:
 		label.text = str(new_value)
 		
 		spend_point()
-		self.stat_increased.emit(new_value, stat)
+		stat_increased.emit(new_value, stat)
 
 
 func set_wave_text(value: int) -> void:
@@ -132,4 +125,5 @@ func _on_pierce_chance_button_pressed() -> void:
 
 
 func _on_close_button_pressed() -> void:
-	self.close_stats_screen.emit()
+	hide()
+	close_stats_screen.emit()
