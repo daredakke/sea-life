@@ -14,6 +14,9 @@ var enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tsc
 @onready var enemies: Node = %Enemies
 @onready var options: Options = %Options
 @onready var stats: Stats = %Stats
+@onready var wave_start_timer: Timer = %WaveStartTimer
+
+var wave: int = 1
 
 # Bullet stats
 var bullet_power: int = 1

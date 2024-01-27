@@ -18,6 +18,7 @@ enum Stat {
 }
 
 @onready var points_label: Label = %PointsLabel
+@onready var wave_label: Label = %WaveLabel
 @onready var power_label: Label = %PowerLabel
 @onready var power_button: Button = %PowerButton
 @onready var fire_rate_label: Label = %FireRateLabel
@@ -97,9 +98,13 @@ func increase_stat(label: Label, stat: Stat) -> void:
 	if int(label.text) < MAX_STAT_VALUE:
 		var new_value = int(label.text) + 1
 		label.text = str(new_value)
-
+		
 		spend_point()
 		self.stat_increased.emit(new_value, stat)
+
+
+func set_wave_text(value: int) -> void:
+	wave_label.text = "WAVE: " + str(value)
 
 
 func _on_power_button_pressed() -> void:

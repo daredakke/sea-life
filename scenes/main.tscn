@@ -9,6 +9,9 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bw2ht")
 
+[node name="WaveStartTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
 
 [node name="Projectiles" type="Node" parent="."]
