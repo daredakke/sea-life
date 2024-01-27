@@ -16,7 +16,7 @@ var enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tsc
 @onready var stats: Stats = %Stats
 @onready var wave_start_timer: Timer = %WaveStartTimer
 
-var wave: int = 1
+var wave: int = 0
 
 # Bullet stats
 var bullet_power: int = 1
@@ -33,16 +33,38 @@ func _ready() -> void:
 	stats.reset_stats.connect(reset_stats)
 	player.player_position.connect(Globals.update_player_position)
 	
-	var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
-	node_spawner_instance.node_scene = enemy_ship_scene
-	node_spawner_instance.aim_at_player = true
+	wave_start_timer.start()
 	
-	enemies.add_child(node_spawner_instance)
+	#var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
+	#node_spawner_instance.node_scene = enemy_ship_scene
+	#node_spawner_instance.aim_at_player = true
+	#
+	#enemies.add_child(node_spawner_instance)
 
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("DEBUG_stats"):
 		toggle_stats_screen()
+
+
+func _on_wave_start_timer_timeout() -> void:
+	wave += 1
+	var wave_params: Array = Waves.get_wave_parameters(wave)
+	
+	Waves.set_enemies_in_wave(wave)
+	stats.set_wave_text(wave)
+	
+	for params in wave_params:
+		var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
+		
+		node_spawner_instance.node_scene = params["node_scene"]
+		node_spawner_instance.nodes_to_spawn = params["nodes_to_spawn"]
+		node_spawner_instance.node_speed = params["node_speed"]
+		node_spawner_instance.node_speed_variance = params["node_speed_variance"]
+		node_spawner_instance.spawn_delay = params["spawn_delay"]
+		node_spawner_instance.aim_at_player = params["aim_at_player"]
+		
+		enemies.add_child(node_spawner_instance)
 
 
 func toggle_stats_screen() -> void:

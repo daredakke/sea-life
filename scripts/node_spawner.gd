@@ -7,7 +7,7 @@ extends Node2D
 @export var nodes_to_spawn: int = 20
 @export var node_speed: float = 75
 @export var node_speed_variance: float = 30
-@export var spawn_delay: float = 1.0
+@export var spawn_delay: float = 1
 @export var aim_at_player: bool = false
 
 var nodes_spawned: int = 0
@@ -52,6 +52,7 @@ func _on_spawn_timer_timeout() -> void:
 	else:
 		target = get_screen_centre()
 	
+	node_instance.tree_exited.connect(Waves.enemy_defeated)
 	node_instance.direction = spawn_position.direction_to(target)
 	nodes_spawned += 1
 	
