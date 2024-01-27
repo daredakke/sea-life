@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://damxl450n0mfe"]
+[gd_scene load_steps=7 format=3 uid="uid://damxl450n0mfe"]
 
+[ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_d1qb2"]
 [ext_resource type="Texture2D" uid="uid://fteyyb7byktk" path="res://assets/enemy_a.png" id="1_uks7v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3roi7"]
@@ -17,8 +18,12 @@ height = 41.67
 radius = 7.0
 height = 64.0
 
-[node name="EnemyA" type="CharacterBody2D"]
+[node name="EnemyShip" type="Area2D"]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_d1qb2")
+health = 4
+speed = 100.0
+speed_variance = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.33, 0.33, 1)

@@ -27,12 +27,12 @@ func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(toggle_stats_screen)
 	stats.reset_stats.connect(reset_stats)
+	player.player_position.connect(Globals.update_player_position)
 	
 	var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
 	node_spawner_instance.node_scene = rock_large_scene
 	node_spawner_instance.aim_at_player = true
 	
-	player.player_position.connect(node_spawner_instance.get_player_position)
 	enemies.add_child(node_spawner_instance)
 
 

@@ -5,9 +5,9 @@ var explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 
 @export var health: int = 3
 @export var explosion_scale: float = 0.33
+@export var speed: float = 120
+@export var speed_variance: float = 15
 
-var speed: float = 120
-var speed_variance: float = 15
 var direction: Vector2
 
 
