@@ -53,6 +53,7 @@ metadata/_edit_lock_ = true
 
 [node name="Options" parent="UI" instance=ExtResource("6_222c4")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
 unique_name_in_owner = true
