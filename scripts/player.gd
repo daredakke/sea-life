@@ -10,10 +10,13 @@ const ANGULAR_SPEED: float = TAU * 2
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
 @export var player_speed: float = 500
+@export var shields: float = 100
 
 var fire_rate: float = 0.33
 var player_direction: Vector2
 var target_angle: float
+var is_alive: bool = true
+var dead_position: Vector2 = Vector2(-1000, -1000)
 
 
 func _ready() -> void:
@@ -23,6 +26,9 @@ func _ready() -> void:
 
 
 func _process(delta):
+	if not is_alive:
+		return
+	
 	player_position.emit(global_position)
 	
 	# Movement
@@ -43,3 +49,12 @@ func _process(delta):
 
 func set_fire_rate(multiplier: int) -> void:
 	bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))
+
+
+func move_to_dead_position() -> void:
+	global_position = dead_position
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_bullet"):
+		shields -= area.power

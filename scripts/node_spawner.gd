@@ -5,8 +5,8 @@ extends Node2D
 
 @export var node_scene: PackedScene
 @export var nodes_to_spawn: int = 20
-@export var node_speed: float = 120
-@export var node_speed_variance: float = 50
+@export var node_speed: float = 75
+@export var node_speed_variance: float = 30
 @export var spawn_delay: float = 1.0
 @export var aim_at_player: bool = false
 

@@ -7,6 +7,7 @@ var node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner
 var player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 var rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.tscn")
 var rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
+var enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
 
 @onready var player: Player = %Player
 @onready var projectiles: Node = %Projectiles
@@ -30,7 +31,7 @@ func _ready() -> void:
 	player.player_position.connect(Globals.update_player_position)
 	
 	var node_spawner_instance: Node2D = node_spawner_scene.instantiate() as Node2D
-	node_spawner_instance.node_scene = rock_large_scene
+	node_spawner_instance.node_scene = enemy_ship_scene
 	node_spawner_instance.aim_at_player = true
 	
 	enemies.add_child(node_spawner_instance)

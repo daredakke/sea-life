@@ -1,48 +1,39 @@
-[gd_scene load_steps=7 format=3 uid="uid://damxl450n0mfe"]
+[gd_scene load_steps=5 format=3 uid="uid://damxl450n0mfe"]
 
 [ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_d1qb2"]
 [ext_resource type="Texture2D" uid="uid://fteyyb7byktk" path="res://assets/enemy_a.png" id="1_uks7v"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3roi7"]
-radius = 15.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufxpt"]
-radius = 7.27049
-height = 41.6742
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_icbbc"]
-radius = 7.27
-height = 41.67
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c25ok"]
 radius = 7.0
 height = 64.0
 
-[node name="EnemyShip" type="Area2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sesbn"]
+radius = 24.0
+height = 80.0
+
+[node name="EnemyShip" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d1qb2")
-health = 4
-speed = 100.0
-speed_variance = 30.0
+health = 2
+speed = 75.0
+speed_variance = 25.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.33, 0.33, 1)
+modulate = Color(1, 0.329412, 0.329412, 1)
 position = Vector2(0, -13)
 texture = ExtResource("1_uks7v")
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3roi7")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(28, 20)
-rotation = 0.226893
-shape = SubResource("CapsuleShape2D_ufxpt")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-28, 20)
-rotation = -0.226893
-shape = SubResource("CapsuleShape2D_icbbc")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_c25ok")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sesbn")
+
+[node name="FireRate" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

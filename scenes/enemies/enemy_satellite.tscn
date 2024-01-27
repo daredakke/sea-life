@@ -21,7 +21,7 @@ height = 42.0
 radius = 9.45
 height = 42.0
 
-[node name="EnemyStation" type="Area2D"]
+[node name="EnemyStation" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
