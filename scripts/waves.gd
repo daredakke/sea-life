@@ -5,6 +5,7 @@ signal wave_over
 var rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.tscn")
 var rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
 var enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
+var enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_station.tscn")
 
 var enemies_in_wave: int = -1
 var enemies_defeated: int = 0
