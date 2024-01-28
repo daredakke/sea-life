@@ -98,7 +98,7 @@ func _on_stat_increased(value: int, stat: int) -> void:
 		2:
 			_spread_range = BASE_SPREAD_RANGE - (value * 0.01)
 		3:
-			_bullet_speed_multiplier = value * 0.1 + 1.8
+			_bullet_speed_multiplier = value * 0.1 + 1.5
 		4:
 			_bullet_pierce_count += 1
 		5:

@@ -12,7 +12,7 @@ var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_stat
 var _wave_data: Dictionary = {
 	1: [
 		{
-			"node_scene": _rock_small_scene,
+			"node_scene": _enemy_station_scene,
 			"nodes_to_spawn": 15,
 			"node_speed": 80,
 			"node_speed_variance": 30,

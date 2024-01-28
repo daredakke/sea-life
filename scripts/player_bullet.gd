@@ -2,7 +2,7 @@ class_name PlayerBullet
 extends Area2D
 
 
-@export var speed: int = 1000
+@export var speed: float = 975
 
 var direction: Vector2
 var speed_multiplier: float = 1.0
