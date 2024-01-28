@@ -1,28 +1,30 @@
 class_name Player
 extends CharacterBody2D
 
+
 signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
 
 const ANGULAR_SPEED: float = TAU * 2
 
-@onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
-@onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
-
 @export var player_speed: float = 500
 @export var shields: float = 100
 
-var fire_rate: float = 0.33
-var player_direction: Vector2
-var target_angle: float
 var is_alive: bool = true
-var dead_position: Vector2 = Vector2(-1000, -1000)
+var player_direction: Vector2
+var fire_rate: float = 0.33
+
+var _target_angle: float
+var _dead_position := Vector2(-1000, -1000)
+
+@onready var _bullet_spawn_timer: Timer = %BulletSpawnTimer
+@onready var _bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
 
 func _ready() -> void:
 	look_at(get_global_mouse_position())
 	
-	bullet_spawn_timer.wait_time = fire_rate
+	_bullet_spawn_timer.wait_time = fire_rate
 
 
 func _process(delta):
@@ -37,22 +39,24 @@ func _process(delta):
 	move_and_slide()
 	
 	# Rotation
-	target_angle = (get_global_mouse_position() - position).angle()
-	var angle_diff: float = wrapf(target_angle - rotation, -PI, PI)
+	_target_angle = (get_global_mouse_position() - position).angle()
+	var angle_diff: float = wrapf(_target_angle - rotation, -PI, PI)
 	rotation += clamp(ANGULAR_SPEED * delta, 0, abs(angle_diff)) * sign(angle_diff)
 	
-	if Input.is_action_pressed("fire") and bullet_spawn_timer.is_stopped():
-		var player_dir = (get_global_mouse_position() - position).normalized()
-		fire_bullet.emit(bullet_spawn_point.global_position, player_dir)
-		bullet_spawn_timer.start()
+	if Input.is_action_pressed("fire") and _bullet_spawn_timer.is_stopped():
+		var player_dir: Vector2 = (get_global_mouse_position() - position).normalized()
+		
+		fire_bullet.emit(_bullet_spawn_point.global_position, player_dir)
+		_bullet_spawn_timer.start()
 
 
 func set_fire_rate(multiplier: int) -> void:
-	bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))
+	_bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))
 
 
-func move_to_dead_position() -> void:
-	global_position = dead_position
+func kill_player() -> void:
+	is_alive = false
+	global_position = _dead_position
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:

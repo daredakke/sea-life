@@ -1,7 +1,6 @@
-class_name SmallRockSpawner
+class_name NodeSpawner
 extends Node2D
 
-@onready var spawn_timer: Timer = $SpawnTimer
 
 @export var node_scene: PackedScene
 @export var nodes_to_spawn: int = 20
@@ -9,15 +8,14 @@ extends Node2D
 @export var node_speed_variance: float = 30
 @export var spawn_delay: float = 1
 @export var aim_at_player: bool = false
-
-var nodes_spawned: int = 0
-
-# Where to aim spawned nodes
-var target: Vector2
 @export var target_x_variance: float = 150
 @export var target_y_variance: float = 150
 
-var spawn_areas: Array[SpawnArea]
+var _target: Vector2
+var _spawn_areas: Array[SpawnArea]
+var _nodes_spawned: int = 0
+
+@onready var spawn_timer: Timer = $SpawnTimer
 
 
 func _ready() -> void:
@@ -26,10 +24,10 @@ func _ready() -> void:
 	
 	for child in get_children():
 		if child is SpawnArea:
-			spawn_areas.append(child)
+			_spawn_areas.append(child)
 
 
-func get_screen_centre() -> Vector2:
+func _get_screen_centre_target_area() -> Vector2:
 	var centre_x = get_viewport_rect().size.x * 0.5
 	var centre_y = get_viewport_rect().size.y * 0.5
 	
@@ -40,23 +38,23 @@ func get_screen_centre() -> Vector2:
 
 
 func _on_spawn_timer_timeout() -> void:
-	var node_instance: Area2D = node_scene.instantiate() as Area2D
+	var node_instance := node_scene.instantiate() as Area2D
 	node_instance.speed = node_speed
 	node_instance.speed_variance = node_speed_variance
 	
-	var spawn_position: Vector2 = spawn_areas.pick_random().get_random_spawn_position()
+	var spawn_position: Vector2 = _spawn_areas.pick_random().get_random_spawn_position()
 	node_instance.global_position = spawn_position
 	
 	if aim_at_player:
-		target = Globals.player_position
+		_target = Globals.player_position
 	else:
-		target = get_screen_centre()
+		_target = _get_screen_centre_target_area()
 	
 	node_instance.tree_exited.connect(Waves.enemy_defeated)
-	node_instance.direction = spawn_position.direction_to(target)
-	nodes_spawned += 1
+	node_instance.direction = spawn_position.direction_to(_target)
+	_nodes_spawned += 1
 	
 	add_sibling(node_instance)
 	
-	if nodes_spawned >= nodes_to_spawn:
+	if _nodes_spawned >= nodes_to_spawn:
 		self.queue_free()

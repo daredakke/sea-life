@@ -1,7 +1,8 @@
 class_name Rock
 extends Enemy
 
-var rotation_speed: float = randf_range(0.2, 0.8)
+
+var _rotation_speed: float = randf_range(0.2, 0.8)
 
 
 func _ready() -> void:
@@ -9,9 +10,9 @@ func _ready() -> void:
 	rotation_degrees = randf_range(0, 360)
 	
 	if randf() > 0.5:
-		rotation_speed = -rotation_speed
+		_rotation_speed = -_rotation_speed
 
 
 func _process(delta):
 	super._process(delta)
-	rotation += rotation_speed * delta
+	rotation += _rotation_speed * delta

@@ -1,6 +1,7 @@
 class_name Background
 extends CanvasLayer
 
+
 @onready var base: Sprite2D = %Base
 @onready var middle: Sprite2D = %Middle
 @onready var top: Sprite2D = %Top
@@ -22,13 +23,13 @@ extends CanvasLayer
 
 func _ready() -> void:
 	if base_texture:
-		set_background_sprite(base, base_texture, texture_width, texture_height)
+		_set_background_sprite(base, base_texture, texture_width, texture_height)
 	
 	if middle_texture:
-		set_background_sprite(middle, middle_texture, texture_width, texture_height)
+		_set_background_sprite(middle, middle_texture, texture_width, texture_height)
 	
 	if top_texture:
-		set_background_sprite(top, top_texture, texture_width, texture_height)
+		_set_background_sprite(top, top_texture, texture_width, texture_height)
 
 
 func _process(delta: float) -> void:
@@ -37,30 +38,30 @@ func _process(delta: float) -> void:
 	top.rotation_degrees += top_rotation * delta
 
 
-func set_background_sprite(
+func _set_background_sprite(
 		sprite: Sprite2D, 
 		texture: Texture2D, 
 		width: float, 
 		height: float
 	) -> void:
 	sprite.texture = texture
-	sprite.scale = scale_sprite(sprite, width, height)
-	centre_sprite(sprite)
+	sprite.scale = _scale_sprite(sprite, width, height)
+	_centre_sprite(sprite)
 
 
-func centre_sprite(sprite: Sprite2D) -> void:
+func _centre_sprite(sprite: Sprite2D) -> void:
 	sprite.position.x = get_viewport().size.x * 0.5
 	sprite.position.y = get_viewport().size.y * 0.5
 
 
-func scale_sprite(sprite: Sprite2D, width: float, height: float) -> Vector2:
+func _scale_sprite(sprite: Sprite2D, width: float, height: float) -> Vector2:
 	var result: Vector2 = Vector2.ZERO
 	
-	result.x = get_scale_factor(sprite.get_rect().size.x, width)
-	result.y = get_scale_factor(sprite.get_rect().size.y, height)
+	result.x = _get_scale_factor(sprite.get_rect().size.x, width)
+	result.y = _get_scale_factor(sprite.get_rect().size.y, height)
 	
 	return result
 
 
-func get_scale_factor(value: float, target: float) -> float:
+func _get_scale_factor(value: float, target: float) -> float:
 	return snappedf(target / value, 0.01)
