@@ -44,15 +44,16 @@ func _on_reload_timer_timeout() -> void:
 
 
 func _on_fire_rate_timer_timeout() -> void:
-	if _shots_fired < shots_to_fire:
-		for i in range(_bullets_per_salvo):
-			var bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
-			bullet_instance.position = self.position
-			bullet_instance.direction = self.direction.rotated(self.rotation + deg_to_rad(90) * i)
-			add_sibling(bullet_instance)
-		
-		_shots_fired += 1
-		fire_rate_timer.start()
-	else:
+	if _shots_fired >= shots_to_fire:
 		_shots_fired = 0
 		reload_timer.start()
+		return
+	
+	for i in range(_bullets_per_salvo):
+		var bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
+		bullet_instance.position = self.position
+		bullet_instance.direction = self.direction.rotated(self.rotation + deg_to_rad(90) * i)
+		add_sibling(bullet_instance)
+	
+	_shots_fired += 1
+	fire_rate_timer.start()
