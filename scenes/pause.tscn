@@ -26,7 +26,7 @@ grow_vertical = 2
 theme = ExtResource("1_kqgi4")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rafay")
 
-[node name="TitleMargin" type="MarginContainer" parent="Panel"]
+[node name="LeftMargin" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,14 +38,14 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 32
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="Panel/TitleMargin"]
+[node name="ButtonsVBox" type="VBoxContainer" parent="Panel/LeftMargin"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="TitleLabel" type="Label" parent="Panel/TitleMargin/ButtonsVBox"]
+[node name="TitleLabel" type="Label" parent="Panel/LeftMargin/ButtonsVBox"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -53,23 +53,84 @@ theme = ExtResource("1_kqgi4")
 theme_override_font_sizes/font_size = 72
 text = "SEA LIFE"
 
-[node name="ContinueButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+[node name="ContinueButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "CONTINUE"
 
-[node name="NewGameButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+[node name="NewGameButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 text = "NEW GAME"
 
-[node name="QuitButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+[node name="QuitButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "QUIT"
 
-[node name="ContentMargin" type="MarginContainer" parent="Panel"]
+[node name="ControlsVBox" type="VBoxContainer" parent="Panel/LeftMargin"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 24
+
+[node name="MusicHBox" type="VBoxContainer" parent="Panel/LeftMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MusicLabel" type="Label" parent="Panel/LeftMargin/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+text = "MUSIC - 100%"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/LeftMargin/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="SFXHBox" type="VBoxContainer" parent="Panel/LeftMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SFXLabel" type="Label" parent="Panel/LeftMargin/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+text = "SFX - 100%"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/LeftMargin/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="ResolutionButton" type="Button" parent="Panel/LeftMargin/ControlsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "FULLSCREEN"
+
+[node name="MusicVolumeChangeTimer" type="Timer" parent="Panel/LeftMargin/ControlsVBox"]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[node name="SFXVolumeChangeTimer" type="Timer" parent="Panel/LeftMargin/ControlsVBox"]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[node name="RightMargin" type="MarginContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,214 +142,249 @@ theme_override_constants/margin_top = 136
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 32
 
-[node name="HighScoreVBox" type="VBoxContainer" parent="Panel/ContentMargin"]
+[node name="HighScoreVBox" type="VBoxContainer" parent="Panel/RightMargin"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="HighScoreLabel" type="Label" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HighScoreLabel" type="Label" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 text = "HIGHSCORES"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "CIA"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "1045200"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer2"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "FBI"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer2"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer2"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "805920"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer3"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "NSA"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer3"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer3"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "729090"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer4"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer4"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "JFD"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer4"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer4"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "715800"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer5"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer5"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "WGE"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer5"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer5"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "625800"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer6"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer6"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "LLN"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer6"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer6"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "610900"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer7"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer7"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "NDI"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer7"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer7"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "529100"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer8"]
+[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer8"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "PCL"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer8"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer8"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "414640"
 
-[node name="ControlsVBox" type="VBoxContainer" parent="Panel/ContentMargin"]
-custom_minimum_size = Vector2(300, 0)
+[node name="ControlsVBox" type="VBoxContainer" parent="Panel/RightMargin"]
+custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_constants/separation = 24
+size_flags_horizontal = 4
 
-[node name="MusicHBox" type="VBoxContainer" parent="Panel/ContentMargin/ControlsVBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="MusicLabel" type="Label" parent="Panel/ContentMargin/ControlsVBox/MusicHBox"]
-unique_name_in_owner = true
+[node name="ControlsLabel" type="Label" parent="Panel/RightMargin/ControlsVBox"]
 layout_mode = 2
 theme = ExtResource("1_kqgi4")
-text = "MUSIC - 100%"
+text = "CONTROLS"
+horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="Panel/ContentMargin/ControlsVBox/MusicHBox"]
-unique_name_in_owner = true
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "LMB"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("1_kqgi4")
-value = 100.0
 
-[node name="SFXHBox" type="VBoxContainer" parent="Panel/ContentMargin/ControlsVBox"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SHOOT"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "RMB"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 
-[node name="SFXLabel" type="Label" parent="Panel/ContentMargin/ControlsVBox/SFXHBox"]
-unique_name_in_owner = true
+[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("1_kqgi4")
-text = "SFX - 100%"
+theme = ExtResource("3_s5e44")
+text = "SPECIAL
+"
+horizontal_alignment = 2
 
-[node name="SFXSlider" type="HSlider" parent="Panel/ContentMargin/ControlsVBox/SFXHBox"]
-unique_name_in_owner = true
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "WASD"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("1_kqgi4")
-value = 100.0
 
-[node name="ResolutionButton" type="Button" parent="Panel/ContentMargin/ControlsVBox"]
-unique_name_in_owner = true
+[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "FULLSCREEN"
+theme = ExtResource("3_s5e44")
+text = "MOVEMENT
+"
+horizontal_alignment = 2
 
-[node name="MusicVolumeChangeTimer" type="Timer" parent="Panel/ContentMargin/ControlsVBox"]
-unique_name_in_owner = true
-wait_time = 0.05
-one_shot = true
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
 
-[node name="SFXVolumeChangeTimer" type="Timer" parent="Panel/ContentMargin/ControlsVBox"]
-unique_name_in_owner = true
-wait_time = 0.05
-one_shot = true
+[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "ESCAPE"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "TITLE / PAUSE"
+horizontal_alignment = 2
