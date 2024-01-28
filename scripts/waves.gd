@@ -12,7 +12,7 @@ var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_stat
 var _wave_data: Dictionary = {
 	1: [
 		{
-			"node_scene": _enemy_station_scene,
+			"node_scene": _rock_small_scene,
 			"nodes_to_spawn": 15,
 			"node_speed": 80,
 			"node_speed_variance": 30,
@@ -32,7 +32,7 @@ var _wave_data: Dictionary = {
 		},
 		{
 			"node_scene": _rock_large_scene,
-			"nodes_to_spawn": 6,
+			"nodes_to_spawn": 7,
 			"node_speed": 65,
 			"node_speed_variance": 25,
 			"spawn_delay": 2.9,
@@ -44,8 +44,27 @@ var _wave_data: Dictionary = {
 		{
 			"node_scene": _rock_small_scene,
 			"nodes_to_spawn": 12,
-			"node_speed": 80,
-			"node_speed_variance": 35,
+			"node_speed": 85,
+			"node_speed_variance": 40,
+			"spawn_delay": 2,
+			"aim_at_player": false,
+		},
+		{
+			"node_scene": _enemy_ship_scene,
+			"nodes_to_spawn": 8,
+			"node_speed": 90,
+			"node_speed_variance": 50,
+			"spawn_delay": 3,
+			"aim_at_player": true,
+		},
+	],
+	
+	4: [
+		{
+			"node_scene": _rock_small_scene,
+			"nodes_to_spawn": 12,
+			"node_speed": 85,
+			"node_speed_variance": 40,
 			"spawn_delay": 2,
 			"aim_at_player": false,
 		},

@@ -4,6 +4,7 @@ extends Node2D
 
 @export var node_scene: PackedScene
 @export var nodes_to_spawn: int = 20
+@export var node_health: int = 0
 @export var node_speed: float = 75
 @export var node_speed_variance: float = 30
 @export var spawn_delay: float = 1
@@ -39,6 +40,10 @@ func _get_screen_centre_target_area() -> Vector2:
 
 func _on_spawn_timer_timeout() -> void:
 	var node_instance := node_scene.instantiate() as Area2D
+	
+	if node_health > 0:
+		node_instance.health = node_health
+	
 	node_instance.speed = node_speed
 	node_instance.speed_variance = node_speed_variance
 	

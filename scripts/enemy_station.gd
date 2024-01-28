@@ -1,6 +1,7 @@
 class_name EnemyStation
 extends Enemy
 
+
 @export var fire_rate: float = 0.25
 @export var reload_delay: float = 4.5
 @export var shots_to_fire: int = 3

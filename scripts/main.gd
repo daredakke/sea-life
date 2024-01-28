@@ -50,6 +50,9 @@ func _on_wave_start_timer_timeout() -> void:
 		node_spawner_instance.spawn_delay = params["spawn_delay"]
 		node_spawner_instance.aim_at_player = params["aim_at_player"]
 		
+		if params.has("node_health"):
+			node_spawner_instance.node_health = params["node_health"]
+		
 		_enemies.add_child(node_spawner_instance)
 
 
