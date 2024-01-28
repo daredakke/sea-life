@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b1nhdvg4pw6r5"]
+
+[ext_resource type="FontFile" uid="uid://cxo7ud5ef6xb2" path="res://resources/NanumPenScript-Regular.ttf" id="1_oeval"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dfad"]
+bg_color = Color(0.113725, 0.407843, 0.819608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_addjq"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0.0313726, 0.27451, 0.576471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kka54"]
+bg_color = Color(0.752941, 0.85098, 0.996078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjxu6"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+
+[resource]
+Button/colors/font_pressed_color = Color(0.0313726, 0.27451, 0.576471, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_oeval")
+Button/styles/hover = SubResource("StyleBoxFlat_7dfad")
+Button/styles/normal = SubResource("StyleBoxFlat_addjq")
+Button/styles/pressed = SubResource("StyleBoxFlat_kka54")
+Label/font_sizes/font_size = 38
+Label/fonts/font = ExtResource("1_oeval")
+Panel/styles/panel = SubResource("StyleBoxFlat_xjxu6")

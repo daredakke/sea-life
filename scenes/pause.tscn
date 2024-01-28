@@ -1,0 +1,294 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbl8rqlmhufue"]
+
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
+[ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
+[ext_resource type="Theme" uid="uid://b1nhdvg4pw6r5" path="res://resources/smaller_label.tres" id="3_s5e44"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafay"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ix73")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kqgi4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rafay")
+
+[node name="TitleMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="Panel/TitleMargin"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="TitleLabel" type="Label" parent="Panel/TitleMargin/ButtonsVBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_kqgi4")
+theme_override_font_sizes/font_size = 72
+text = "SEA LIFE"
+
+[node name="ContinueButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="NewGameButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "NEW GAME"
+
+[node name="QuitButton" type="Button" parent="Panel/TitleMargin/ButtonsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT"
+
+[node name="ContentMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 136
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 32
+
+[node name="HighScoreVBox" type="VBoxContainer" parent="Panel/ContentMargin"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="HighScoreLabel" type="Label" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+text = "HIGHSCORES"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "CIA"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "1045200"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "FBI"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer2"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "805920"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer3"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "NSA"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer3"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "729090"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer4"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "JFD"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer4"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "715800"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer5"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "WGE"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer5"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "625800"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer6"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "LLN"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer6"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "610900"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer7"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "NDI"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer7"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "529100"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/ContentMargin/HighScoreVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer8"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "PCL"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Panel/ContentMargin/HighScoreVBox/HBoxContainer8"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "414640"
+
+[node name="ControlsVBox" type="VBoxContainer" parent="Panel/ContentMargin"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 24
+
+[node name="MusicHBox" type="VBoxContainer" parent="Panel/ContentMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MusicLabel" type="Label" parent="Panel/ContentMargin/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+text = "MUSIC - 100%"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/ContentMargin/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="SFXHBox" type="VBoxContainer" parent="Panel/ContentMargin/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SFXLabel" type="Label" parent="Panel/ContentMargin/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+text = "SFX - 100%"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/ContentMargin/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="ResolutionButton" type="Button" parent="Panel/ContentMargin/ControlsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "FULLSCREEN"
+
+[node name="MusicVolumeChangeTimer" type="Timer" parent="Panel/ContentMargin/ControlsVBox"]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
+
+[node name="SFXVolumeChangeTimer" type="Timer" parent="Panel/ContentMargin/ControlsVBox"]
+unique_name_in_owner = true
+wait_time = 0.05
+one_shot = true
