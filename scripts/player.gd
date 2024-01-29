@@ -59,6 +59,10 @@ func kill_player() -> void:
 	global_position = _dead_position
 
 
+func reset_player_position() -> void:
+	global_position = Vector2(get_viewport().size.x * 0.5, get_viewport().size.y * 0.5)
+
+
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_bullet"):
 		shields -= area.power

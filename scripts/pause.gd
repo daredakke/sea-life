@@ -24,7 +24,6 @@ var _is_fullscreen: bool = false
 
 func _ready() -> void:
 	continue_button.hide()
-	show()
 
 
 func _on_music_slider_value_changed(value: float) -> void:
@@ -54,12 +53,11 @@ func _on_resolution_button_pressed() -> void:
 
 
 func _on_continue_button_pressed() -> void:
-	hide()
 	continue_game.emit()
 
 
 func _on_new_game_button_pressed() -> void:
-	hide()
+	continue_button.show()
 	start_new_game.emit()
 
 

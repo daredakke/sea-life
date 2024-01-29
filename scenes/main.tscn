@@ -7,27 +7,34 @@
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_bw2ht")
 
 [node name="WaveStartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 wait_time = 2.0
 one_shot = true
 
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
+process_mode = 1
 
 [node name="Projectiles" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_8if2x")]
 unique_name_in_owner = true
+process_mode = 1
 z_index = 1
 position = Vector2(590, 379)
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
+process_mode = 1
 
 [node name="Walls" type="StaticBody2D" parent="."]
+process_mode = 1
 collision_mask = 0
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
@@ -36,6 +43,7 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(-363, 20, 1260, 20, 1260, 700, 20, 700, 20, 0, -282, -61, -266, 941, 1527, 945, 1484, -238, -273, -233)
 
 [node name="BulletDespawner" type="Area2D" parent="." groups=["bullet_despawner"]]
+process_mode = 1
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -43,6 +51,7 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(-2380, -50, 1330, -50, 1330, 780, -50, 780, -50, -554, -2290, -582, -2310, 2638, 3610, 2586, 3486, -2210, -2272, -2177)
 
 [node name="EnemyDespawner" type="Area2D" parent="." groups=["enemy_despawner"]]
+process_mode = 1
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyDespawner"]
@@ -50,13 +59,16 @@ polygon = PackedVector2Array(-2142, -229, 1495, -245, 1532, 950, -270, 945, -257
 metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Pause" parent="UI" instance=ExtResource("4_8d2ge")]
-unique_name_in_owner = true
+process_mode = 1
 
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
 unique_name_in_owner = true
 visible = false
 
+[node name="Pause" parent="UI" instance=ExtResource("4_8d2ge")]
+unique_name_in_owner = true
+process_mode = 2
+
 [connection signal="timeout" from="WaveStartTimer" to="." method="_on_wave_start_timer_timeout"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
+[connection signal="start_new_game" from="UI/Pause" to="." method="_start_new_game"]

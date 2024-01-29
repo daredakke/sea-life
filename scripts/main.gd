@@ -5,6 +5,9 @@ extends Node2D
 const BASE_SPREAD_RANGE: float = 0.12
 const POINTS_PER_WAVE: int = 2
 
+var _game_started: bool = false
+var _game_paused: bool = true
+var _score: int = 0
 var _wave: int = 0
 var _bullet_power: int = 1
 var _bullet_pierce_count: int = 0
@@ -24,16 +27,43 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 
 
 func _ready() -> void:
+	pause.start_new_game.connect(_start_new_game)
+	pause.continue_game.connect(_continue_game)
 	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	player.player_position.connect(Globals.update_player_position)
 	Waves.wave_over.connect(_wave_end)
+	
+	_handle_pause_state()
+
+
+func _process(delta: float) -> void:
+	if _game_started and Input.is_action_just_pressed("pause"):
+		_game_paused = !_game_paused
+		_handle_pause_state()
 
 
 func _start_new_game() -> void:
+	_game_paused = false
+	
+	_handle_pause_state()
+	
+	# Clear any bullets or enemies from an existing game
+	for node in projectiles.get_children():
+		projectiles.remove_child(node)
+		node.queue_free()
+	
+	for node in enemies.get_children():
+		enemies.remove_child(node)
+		node.queue_free()
+	
+	player.reset_player_position()
 	stats.reset_points_and_stat_labels()
 	_reset_stats()
 	wave_start_timer.start()
+	
+	_score = 0
+	_game_started = true
 
 
 func _on_wave_start_timer_timeout() -> void:
@@ -68,6 +98,20 @@ func _wave_end() -> void:
 	player.set_process(false)
 	
 	stats.add_points(POINTS_PER_WAVE)
+
+
+func _continue_game() -> void:
+	_game_paused = false
+	_handle_pause_state()
+
+
+func _handle_pause_state() -> void:
+	get_tree().paused = _game_paused
+	
+	if _game_paused:
+		pause.show()
+	else:
+		pause.hide()
 
 
 func _on_close_stats_screen() -> void:
