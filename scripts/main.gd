@@ -3,7 +3,7 @@ extends Node2D
 
 
 const BASE_SPREAD_RANGE: float = 0.12
-const POINTS_PER_WAVE: int = 2
+const POINTS_PER_WAVE: int = 10
 
 var _game_started: bool = false
 var _game_paused: bool = true
