@@ -103,8 +103,8 @@ func _wave_end() -> void:
 
 func _show_stats_screen() -> void:
 	# Remove any stray bullets so they don't threaten the player
-	for node in projectiles.get_children():
-		projectiles.remove_child(node)
+	for node in enemies.get_children():
+		enemies.remove_child(node)
 		node.queue_free()
 	
 	stats.show()
