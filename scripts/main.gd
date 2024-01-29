@@ -15,21 +15,25 @@ var _bullet_speed_multiplier: float = 1
 var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 
-@onready var _player: Player = %Player
-@onready var _projectiles: Node = %Projectiles
-@onready var _enemies: Node = %Enemies
-@onready var _stats: Stats = %Stats
-@onready var _wave_start_timer: Timer = %WaveStartTimer
+@onready var pause: Pause = %Pause
+@onready var player: Player = %Player
+@onready var projectiles: Node = %Projectiles
+@onready var enemies: Node = %Enemies
+@onready var stats: Stats = %Stats
+@onready var wave_start_timer: Timer = %WaveStartTimer
 
 
 func _ready() -> void:
-	_player.fire_bullet.connect(_on_fire_bullet)
-	_stats.close_stats_screen.connect(_on_close_stats_screen)
-	_stats.reset_stats.connect(_reset_stats)
-	_player.player_position.connect(Globals.update_player_position)
+	player.fire_bullet.connect(_on_fire_bullet)
+	stats.close_stats_screen.connect(_on_close_stats_screen)
+	player.player_position.connect(Globals.update_player_position)
 	Waves.wave_over.connect(_wave_end)
-	
-	_wave_start_timer.start()
+
+
+func _start_new_game() -> void:
+	stats.reset_points_and_stat_labels()
+	_reset_stats()
+	wave_start_timer.start()
 
 
 func _on_wave_start_timer_timeout() -> void:
@@ -37,7 +41,7 @@ func _on_wave_start_timer_timeout() -> void:
 	var wave_params: Array = Waves.get_wave_parameters(_wave)
 	
 	Waves.set_enemies_in_wave(_wave)
-	_stats.set_wave_text(_wave)
+	stats.set_wave_text(_wave)
 	
 	for params in wave_params:
 		var node_spawner_instance := _node_spawner_scene.instantiate() as Node2D
@@ -52,23 +56,23 @@ func _on_wave_start_timer_timeout() -> void:
 		if params.has("node_health"):
 			node_spawner_instance.node_health = params["node_health"]
 		
-		_enemies.add_child(node_spawner_instance)
+		enemies.add_child(node_spawner_instance)
 
 
 func _wave_end() -> void:
 	if _wave > 30:
-		_wave_start_timer.start()
+		wave_start_timer.start()
 		return
 	
-	_stats.show()
-	_player.set_process(false)
+	stats.show()
+	player.set_process(false)
 	
-	_stats.add_points(POINTS_PER_WAVE)
+	stats.add_points(POINTS_PER_WAVE)
 
 
 func _on_close_stats_screen() -> void:
-	_player.set_process(true)
-	_wave_start_timer.start()
+	player.set_process(true)
+	wave_start_timer.start()
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
@@ -88,7 +92,7 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	bullet_instance.pierce_chance = _bullet_pierce_chance
 	bullet_instance.speed_multiplier = _bullet_speed_multiplier
 
-	_projectiles.add_child(bullet_instance)
+	projectiles.add_child(bullet_instance)
 
 
 func _on_stat_increased(value: int, stat: int) -> void:
@@ -96,7 +100,7 @@ func _on_stat_increased(value: int, stat: int) -> void:
 		0:
 			_bullet_power += 1
 		1:
-			_player.set_fire_rate(value)
+			player.set_fire_rate(value)
 		2:
 			_spread_range = BASE_SPREAD_RANGE - (value * 0.01)
 		3:
@@ -114,4 +118,4 @@ func _reset_stats() -> void:
 	_spread_range = BASE_SPREAD_RANGE
 	_bullet_speed_multiplier = 1
 
-	_player.set_fire_rate(0)
+	player.set_fire_rate(0)

@@ -52,6 +52,7 @@ metadata/_edit_lock_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Pause" parent="UI" instance=ExtResource("4_8d2ge")]
+unique_name_in_owner = true
 
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
 unique_name_in_owner = true

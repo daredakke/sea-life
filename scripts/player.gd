@@ -17,14 +17,14 @@ var fire_rate: float = 0.33
 var _target_angle: float
 var _dead_position := Vector2(-1000, -1000)
 
-@onready var _bullet_spawn_timer: Timer = %BulletSpawnTimer
-@onready var _bullet_spawn_point: Marker2D = $BulletSpawnPoint
+@onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
+@onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
 
 func _ready() -> void:
 	look_at(get_global_mouse_position())
 	
-	_bullet_spawn_timer.wait_time = fire_rate
+	bullet_spawn_timer.wait_time = fire_rate
 
 
 func _process(delta):
@@ -43,15 +43,15 @@ func _process(delta):
 	var angle_diff: float = wrapf(_target_angle - rotation, -PI, PI)
 	rotation += clamp(ANGULAR_SPEED * delta, 0, abs(angle_diff)) * sign(angle_diff)
 	
-	if Input.is_action_pressed("fire") and _bullet_spawn_timer.is_stopped():
+	if Input.is_action_pressed("fire") and bullet_spawn_timer.is_stopped():
 		var player_dir: Vector2 = (get_global_mouse_position() - position).normalized()
 		
-		fire_bullet.emit(_bullet_spawn_point.global_position, player_dir)
-		_bullet_spawn_timer.start()
+		fire_bullet.emit(bullet_spawn_point.global_position, player_dir)
+		bullet_spawn_timer.start()
 
 
 func set_fire_rate(multiplier: int) -> void:
-	_bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))
+	bullet_spawn_timer.wait_time = fire_rate * (1.1 - (multiplier * 0.1))
 
 
 func kill_player() -> void:

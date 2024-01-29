@@ -59,17 +59,20 @@ text = "SEA LIFE"
 [node name="ContinueButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "CONTINUE"
 
 [node name="NewGameButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
+mouse_default_cursor_shape = 2
 text = "NEW GAME"
 
 [node name="QuitButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "QUIT"
 
 [node name="ControlsVBox" type="VBoxContainer" parent="Panel/LeftMargin"]
@@ -122,16 +125,6 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "FULLSCREEN"
-
-[node name="MusicVolumeChangeTimer" type="Timer" parent="Panel/LeftMargin/ControlsVBox"]
-unique_name_in_owner = true
-wait_time = 0.05
-one_shot = true
-
-[node name="SFXVolumeChangeTimer" type="Timer" parent="Panel/LeftMargin/ControlsVBox"]
-unique_name_in_owner = true
-wait_time = 0.05
-one_shot = true
 
 [node name="RightMargin" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -297,98 +290,98 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "414640"
 
-[node name="ControlsVBox" type="VBoxContainer" parent="Panel/RightMargin"]
+[node name="InstructionsVBox" type="VBoxContainer" parent="Panel/RightMargin"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 12
 
-[node name="ControlsLabel" type="Label" parent="Panel/RightMargin/ControlsVBox"]
+[node name="ControlsLabel" type="Label" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 theme = ExtResource("1_kqgi4")
 text = "CONTROLS"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "LMB"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "SHOOT"
 horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "RMB"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer2"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "SPECIAL
 "
 horizontal_alignment = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "WASD"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer3"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "MOVEMENT
 "
 horizontal_alignment = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/ControlsVBox"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="Label" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "ESCAPE"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="Panel/RightMargin/ControlsVBox/HBoxContainer4"]
+[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "TITLE / PAUSE"
@@ -397,3 +390,6 @@ horizontal_alignment = 2
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="value_changed" from="Panel/LeftMargin/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/LeftMargin/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Panel/LeftMargin/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]
