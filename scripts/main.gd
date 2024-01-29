@@ -18,7 +18,6 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 @onready var _player: Player = %Player
 @onready var _projectiles: Node = %Projectiles
 @onready var _enemies: Node = %Enemies
-@onready var _options: Options = %Options
 @onready var _stats: Stats = %Stats
 @onready var _wave_start_timer: Timer = %WaveStartTimer
 

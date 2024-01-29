@@ -20,6 +20,10 @@ var _is_fullscreen: bool = false
 @onready var sfx_volume_change_timer: Timer = %SFXVolumeChangeTimer
 
 
+func _ready() -> void:
+	continue_button.hide()
+
+
 func _on_music_slider_value_changed(_value: float) -> void:
 	if music_volume_change_timer.is_stopped():
 		music_volume_change_timer.start()
@@ -49,3 +53,16 @@ func _on_resolution_button_pressed() -> void:
 		resolution_button.text = "FULLSCREEN"
 	
 	toggle_fullscreen.emit(_is_fullscreen)
+
+
+func _on_continue_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_new_game_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
