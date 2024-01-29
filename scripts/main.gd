@@ -24,6 +24,7 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 @onready var enemies: Node = %Enemies
 @onready var stats: Stats = %Stats
 @onready var wave_start_timer: Timer = %WaveStartTimer
+@onready var wave_end_timer: Timer = %WaveEndTimer
 
 
 func _ready() -> void:
@@ -90,9 +91,18 @@ func _on_wave_start_timer_timeout() -> void:
 
 
 func _wave_end() -> void:
-	if _wave > 30:
+	if _wave > Waves.get_wave_count():
 		wave_start_timer.start()
 		return
+	
+	wave_end_timer.start()
+
+
+func _show_stats_screen() -> void:
+	# Remove any stray bullets so they don't threaten the player
+	for node in projectiles.get_children():
+		projectiles.remove_child(node)
+		node.queue_free()
 	
 	stats.show()
 	player.set_process(false)

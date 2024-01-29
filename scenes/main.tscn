@@ -16,6 +16,11 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 
+[node name="WaveEndTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
 process_mode = 1
 
@@ -70,5 +75,6 @@ unique_name_in_owner = true
 process_mode = 2
 
 [connection signal="timeout" from="WaveStartTimer" to="." method="_on_wave_start_timer_timeout"]
+[connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
 [connection signal="start_new_game" from="UI/Pause" to="." method="_start_new_game"]

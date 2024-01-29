@@ -117,3 +117,7 @@ func enemy_defeated() -> void:
 	
 	if _enemies_defeated >= _enemies_in_wave:
 		wave_over.emit()
+
+
+func get_wave_count() -> int:
+	return _wave_data.size()
