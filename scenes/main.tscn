@@ -77,4 +77,3 @@ process_mode = 2
 [connection signal="timeout" from="WaveStartTimer" to="." method="_on_wave_start_timer_timeout"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
-[connection signal="start_new_game" from="UI/Pause" to="." method="_start_new_game"]

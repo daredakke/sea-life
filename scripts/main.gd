@@ -38,7 +38,7 @@ func _ready() -> void:
 	_handle_pause_state()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _game_started and Input.is_action_just_pressed("pause"):
 		_game_paused = !_game_paused
 		_handle_pause_state()
@@ -84,6 +84,9 @@ func _on_wave_start_timer_timeout() -> void:
 		node_spawner_instance.spawn_delay = params["spawn_delay"]
 		node_spawner_instance.aim_at_player = params["aim_at_player"]
 		
+		if params.has("start_delay"):
+			node_spawner_instance.start_delay = params["start_delay"]
+			
 		if params.has("node_health"):
 			node_spawner_instance.node_health = params["node_health"]
 		

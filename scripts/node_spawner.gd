@@ -7,6 +7,7 @@ extends Node2D
 @export var node_health: int = 0
 @export var node_speed: float = 75
 @export var node_speed_variance: float = 30
+@export var start_delay: float = 0.05
 @export var spawn_delay: float = 1
 @export var aim_at_player: bool = false
 @export var target_x_variance: float = 150
@@ -16,13 +17,17 @@ var _target: Vector2
 var _spawn_areas: Array[SpawnArea]
 var _nodes_spawned: int = 0
 
+@onready var start_timer: Timer = $StartTimer
 @onready var spawn_timer: Timer = $SpawnTimer
 
 
 func _ready() -> void:
-	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	start_timer.wait_time = start_delay
 	spawn_timer.wait_time = spawn_delay
 	
+	start_timer.start()
+	
+	# Get areas for spawning nodes in
 	for child in get_children():
 		if child is SpawnArea:
 			_spawn_areas.append(child)
@@ -34,8 +39,12 @@ func _get_screen_centre_target_area() -> Vector2:
 	
 	centre_x += randf_range(-target_x_variance, target_x_variance)
 	centre_y += randf_range(-target_y_variance, target_y_variance)
-
+	
 	return Vector2(centre_x, centre_y)
+
+
+func _on_start_timer_timeout() -> void:
+	spawn_timer.start()
 
 
 func _on_spawn_timer_timeout() -> void:
