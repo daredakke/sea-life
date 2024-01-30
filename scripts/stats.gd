@@ -59,7 +59,7 @@ func reset_points_and_stat_labels() -> void:
 	speed_label.text = "0"
 	pierce_count_label.text = "0"
 	pierce_chance_label.text = "0"
-
+	
 	_points = 0
 
 

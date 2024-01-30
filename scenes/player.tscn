@@ -44,5 +44,6 @@ position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_3eyja")
 debug_color = Color(0.882353, 0.309804, 0.352941, 0.419608)
 
+[connection signal="player_health_changed" from="." to="." method="_on_player_health_changed"]
 [connection signal="timeout" from="HealthRecoveryTimer" to="." method="_on_health_recovery_timer_timeout"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

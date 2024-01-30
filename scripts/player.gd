@@ -5,13 +5,17 @@ extends CharacterBody2D
 signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
 signal player_hit
+signal player_health_changed(value: int, max_health: int)
 
 const ANGULAR_SPEED: float = TAU * 2
 const MAX_HEALTH: float = 100
 const ENEMY_DAMAGE: float = 40
 
 @export var player_speed: float = 500
-@export var health: float = MAX_HEALTH
+@export var health: float = MAX_HEALTH:
+	set(new_value):
+		health = clampf(new_value, 0, MAX_HEALTH)
+
 @export var health_recovery_rate: float = 0.1
 
 var is_alive: bool = true
@@ -73,11 +77,13 @@ func reset_player_position() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
 		health -= ENEMY_DAMAGE
+		player_health_changed.emit(health, MAX_HEALTH)
 		
 		player_hit.emit()
 	
 	if area.is_in_group("enemy_bullet"):
 		health -= area.power
+		player_health_changed.emit(health, MAX_HEALTH)
 		
 		player_hit.emit()
 
@@ -85,3 +91,10 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func _on_health_recovery_timer_timeout() -> void:
 	if health < MAX_HEALTH:
 		health += 1
+		player_health_changed.emit(health, MAX_HEALTH)
+
+
+func _on_player_health_changed(value: int, _max_health: int) -> void:
+	if value == 0:
+		#kill_player()
+		print("PLAYER DEAD")

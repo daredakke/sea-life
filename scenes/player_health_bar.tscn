@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi7e6b8a2ue6p"]
+
+[ext_resource type="Script" path="res://scripts/player_health_bar.gd" id="1_l3r3t"]
+
+[node name="PlayerHealthBar" type="Control"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3r3t")
+
+[node name="BorderMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 690
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Background" type="ColorRect" parent="BorderMargin"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="InnerMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 692
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="HealthBar" type="ColorRect" parent="InnerMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.498, 0.9, 0.297, 1)

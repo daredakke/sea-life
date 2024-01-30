@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=9 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
 [ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="3_5b77i"]
 [ext_resource type="PackedScene" uid="uid://bbl8rqlmhufue" path="res://scenes/pause.tscn" id="4_8d2ge"]
+[ext_resource type="PackedScene" uid="uid://bi7e6b8a2ue6p" path="res://scenes/player_health_bar.tscn" id="4_kc4cn"]
 [ext_resource type="PackedScene" uid="uid://bstxmoqmg6epi" path="res://scenes/score.tscn" id="4_qno8n"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 
@@ -24,6 +26,9 @@ one_shot = true
 
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
 process_mode = 1
+
+[node name="RockLarge" parent="." instance=ExtResource("3_5b77i")]
+position = Vector2(425, 427)
 
 [node name="Projectiles" type="Node" parent="."]
 unique_name_in_owner = true
@@ -67,6 +72,9 @@ metadata/_edit_lock_ = true
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 1
 
+[node name="PlayerHealthBar" parent="UI" instance=ExtResource("4_kc4cn")]
+unique_name_in_owner = true
+
 [node name="Score" parent="UI" instance=ExtResource("4_qno8n")]
 unique_name_in_owner = true
 
@@ -77,6 +85,7 @@ visible = false
 [node name="Pause" parent="UI" instance=ExtResource("4_8d2ge")]
 unique_name_in_owner = true
 process_mode = 2
+visible = false
 
 [connection signal="timeout" from="WaveStartTimer" to="." method="_on_wave_start_timer_timeout"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]

@@ -25,9 +25,10 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 @onready var projectiles: Node = %Projectiles
 @onready var player: Player = %Player
 @onready var enemies: Node = %Enemies
-@onready var pause: Pause = %Pause
-@onready var stats: Stats = %Stats
+@onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
 @onready var score: Score = %Score
+@onready var stats: Stats = %Stats
+@onready var pause: Pause = %Pause
 
 
 func _ready() -> void:
@@ -37,6 +38,7 @@ func _ready() -> void:
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	player.player_position.connect(Globals.update_player_position)
 	player.player_hit.connect(_reset_multiplier)
+	player.player_health_changed.connect(_update_player_health_bar)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	
@@ -142,6 +144,7 @@ func _increase_score(value: int) -> void:
 	
 	if _score_multiplier < MAX_SCORE_MULTIPLIER:
 		_score_multiplier += 1
+		
 		score.set_multiplier_label(_score_multiplier)
 	
 	score.set_score_label(_score)
@@ -151,6 +154,10 @@ func _reset_multiplier() -> void:
 	_score_multiplier = 1
 	
 	score.set_multiplier_label(_score_multiplier)
+
+
+func _update_player_health_bar(hp: int, max_hp: int) -> void:
+	player_health_bar.update_health_bar(hp, max_hp)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
