@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bstxmoqmg6epi"]
+
+[ext_resource type="Script" path="res://scripts/score.gd" id="1_d1u0m"]
+[ext_resource type="FontFile" uid="uid://cxo7ud5ef6xb2" path="res://resources/NanumPenScript-Regular.ttf" id="2_ud7dw"]
+
+[node name="Score" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d1u0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 4
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ud7dw")
+theme_override_font_sizes/font_size = 48
+text = "10405070"
+horizontal_alignment = 1

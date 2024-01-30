@@ -2,6 +2,7 @@ extends Node
 
 
 signal wave_over
+signal score_increased(value: int)
 
 var _enemies_in_wave: int = -1
 var _enemies_defeated: int = 0
@@ -125,8 +126,10 @@ func set_enemies_in_wave(wave: int) -> void:
 		_enemies_in_wave += params["nodes_to_spawn"]
 
 
-func enemy_defeated() -> void:
+func enemy_defeated(score_value: int) -> void:
 	_enemies_defeated += 1
+	
+	score_increased.emit(score_value)
 	
 	if _enemies_defeated >= _enemies_in_wave:
 		wave_over.emit()

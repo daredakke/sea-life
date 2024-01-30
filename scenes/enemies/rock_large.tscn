@@ -10,6 +10,7 @@ radius = 43.1045
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_gggfv")
 health = 9
+score_value = 250
 explosion_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

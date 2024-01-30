@@ -18,13 +18,14 @@ var _bullet_speed_multiplier: float = 1
 var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 
-@onready var pause: Pause = %Pause
-@onready var player: Player = %Player
-@onready var projectiles: Node = %Projectiles
-@onready var enemies: Node = %Enemies
-@onready var stats: Stats = %Stats
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
+@onready var projectiles: Node = %Projectiles
+@onready var player: Player = %Player
+@onready var enemies: Node = %Enemies
+@onready var pause: Pause = %Pause
+@onready var stats: Stats = %Stats
+@onready var score: Score = %Score
 
 
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _ready() -> void:
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	player.player_position.connect(Globals.update_player_position)
 	Waves.wave_over.connect(_wave_end)
+	Waves.score_increased.connect(_increase_score)
 	
 	_handle_pause_state()
 
@@ -130,6 +132,12 @@ func _handle_pause_state() -> void:
 func _on_close_stats_screen() -> void:
 	player.set_process(true)
 	wave_start_timer.start()
+
+
+func _increase_score(value: int) -> void:
+	_score += value
+	
+	score.set_score_label(_score)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:

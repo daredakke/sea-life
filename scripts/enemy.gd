@@ -2,7 +2,10 @@ class_name Enemy
 extends Area2D
 
 
+signal defeated(score: int)
+
 @export var health: int = 3
+@export var score_value: int = 500
 @export var explosion_scale: float = 0.33
 @export var speed: float = 120
 @export var speed_variance: float = 15
@@ -24,11 +27,13 @@ func _on_area_entered(area: Area2D) -> void:
 		health -= area.power
 		
 		if health <= 0:
+			defeated.emit(score_value)
 			_spawn_explosion()
 			self.queue_free()
 
 
 	if area.is_in_group("enemy_despawner"):
+		defeated.emit(0)
 		_spawn_explosion()
 		self.queue_free()
 

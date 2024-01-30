@@ -64,7 +64,7 @@ func _on_spawn_timer_timeout() -> void:
 	else:
 		_target = _get_screen_centre_target_area()
 	
-	node_instance.tree_exited.connect(Waves.enemy_defeated)
+	node_instance.defeated.connect(Waves.enemy_defeated)
 	node_instance.direction = spawn_position.direction_to(_target)
 	_nodes_spawned += 1
 	
