@@ -12,6 +12,7 @@ const ENEMY_DAMAGE: float = 40
 
 @export var player_speed: float = 500
 @export var health: float = MAX_HEALTH
+@export var health_recovery_rate: float = 0.1
 
 var is_alive: bool = true
 var player_direction: Vector2
@@ -20,6 +21,7 @@ var fire_rate: float = 0.33
 var _target_angle: float
 var _dead_position := Vector2(-1000, -1000)
 
+@onready var health_recovery_timer: Timer = %HealthRecoveryTimer
 @onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
 
@@ -27,6 +29,7 @@ var _dead_position := Vector2(-1000, -1000)
 func _ready() -> void:
 	look_at(get_global_mouse_position())
 	
+	health_recovery_timer.wait_time = health_recovery_rate
 	bullet_spawn_timer.wait_time = fire_rate
 
 
@@ -77,3 +80,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		health -= area.power
 		
 		player_hit.emit()
+
+
+func _on_health_recovery_timer_timeout() -> void:
+	if health < MAX_HEALTH:
+		health += 1
