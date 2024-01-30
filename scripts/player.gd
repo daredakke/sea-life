@@ -4,11 +4,13 @@ extends CharacterBody2D
 
 signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
+signal player_hit_by_bullet
 
 const ANGULAR_SPEED: float = TAU * 2
+const MAX_HEALTH: float = 100
 
 @export var player_speed: float = 500
-@export var shields: float = 100
+@export var health: float = MAX_HEALTH
 
 var is_alive: bool = true
 var player_direction: Vector2
@@ -36,6 +38,7 @@ func _process(delta):
 	# Movement
 	var direction := Input.get_vector("left", "right", "up", "down").normalized()
 	velocity = direction * player_speed
+	
 	move_and_slide()
 	
 	# Rotation
@@ -65,4 +68,6 @@ func reset_player_position() -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_bullet"):
-		shields -= area.power
+		health -= area.power
+		
+		player_hit_by_bullet.emit()

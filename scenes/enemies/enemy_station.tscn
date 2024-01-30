@@ -15,7 +15,7 @@ height = 121.622
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_xc1p5")
 health = 12
-score_value = 650
+score_value = 250
 explosion_scale = 0.45
 speed = 50.0
 

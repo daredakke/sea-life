@@ -15,7 +15,7 @@ height = 80.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d1qb2")
 health = 5
-score_value = 325
+score_value = 150
 speed = 75.0
 speed_variance = 25.0
 

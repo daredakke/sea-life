@@ -8,6 +8,7 @@ const POINTS_PER_WAVE: int = 10
 var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0
+var _score_multiplier: int = 1
 var _wave: int = 0
 var _bullet_power: int = 1
 var _bullet_pierce_count: int = 0
@@ -34,6 +35,7 @@ func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	player.player_position.connect(Globals.update_player_position)
+	player.player_hit_by_bullet.connect(_reset_multiplier)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	
@@ -135,9 +137,14 @@ func _on_close_stats_screen() -> void:
 
 
 func _increase_score(value: int) -> void:
-	_score += value
+	_score += floori(value * _score_multiplier)
+	_score_multiplier += 1
 	
 	score.set_score_label(_score)
+
+
+func _reset_multiplier() -> void:
+	_score_multiplier = 1
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
