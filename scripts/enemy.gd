@@ -30,9 +30,8 @@ func _on_area_entered(area: Area2D) -> void:
 			defeated.emit(score_value)
 			_spawn_explosion()
 			self.queue_free()
-
-
-	if area.is_in_group("enemy_despawner"):
+	
+	if area.is_in_group("player_hitbox") or area.is_in_group("enemy_despawner"):
 		defeated.emit(0)
 		_spawn_explosion()
 		self.queue_free()

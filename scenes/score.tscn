@@ -19,7 +19,13 @@ anchor_right = 1.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 4
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 2
@@ -28,4 +34,15 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_ud7dw")
 theme_override_font_sizes/font_size = 48
 text = "10405070"
+horizontal_alignment = 1
+
+[node name="MultiplierLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_ud7dw")
+theme_override_font_sizes/font_size = 32
+text = "x9999"
 horizontal_alignment = 1

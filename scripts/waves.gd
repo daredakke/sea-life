@@ -129,7 +129,8 @@ func set_enemies_in_wave(wave: int) -> void:
 func enemy_defeated(score_value: int) -> void:
 	_enemies_defeated += 1
 	
-	score_increased.emit(score_value)
+	if score_value > 0:
+		score_increased.emit(score_value)
 	
 	if _enemies_defeated >= _enemies_in_wave:
 		wave_over.emit()

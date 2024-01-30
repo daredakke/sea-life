@@ -4,6 +4,7 @@ extends Node2D
 
 const BASE_SPREAD_RANGE: float = 0.12
 const POINTS_PER_WAVE: int = 10
+const MAX_SCORE_MULTIPLIER: int = 9999
 
 var _game_started: bool = false
 var _game_paused: bool = true
@@ -35,7 +36,7 @@ func _ready() -> void:
 	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	player.player_position.connect(Globals.update_player_position)
-	player.player_hit_by_bullet.connect(_reset_multiplier)
+	player.player_hit.connect(_reset_multiplier)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	
@@ -138,13 +139,18 @@ func _on_close_stats_screen() -> void:
 
 func _increase_score(value: int) -> void:
 	_score += floori(value * _score_multiplier)
-	_score_multiplier += 1
+	
+	if _score_multiplier < MAX_SCORE_MULTIPLIER:
+		_score_multiplier += 1
+		score.set_multiplier_label(_score_multiplier)
 	
 	score.set_score_label(_score)
 
 
 func _reset_multiplier() -> void:
 	_score_multiplier = 1
+	
+	score.set_multiplier_label(_score_multiplier)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:

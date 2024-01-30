@@ -4,10 +4,11 @@ extends CharacterBody2D
 
 signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
-signal player_hit_by_bullet
+signal player_hit
 
 const ANGULAR_SPEED: float = TAU * 2
 const MAX_HEALTH: float = 100
+const ENEMY_DAMAGE: float = 40
 
 @export var player_speed: float = 500
 @export var health: float = MAX_HEALTH
@@ -67,7 +68,12 @@ func reset_player_position() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		health -= ENEMY_DAMAGE
+		
+		player_hit.emit()
+	
 	if area.is_in_group("enemy_bullet"):
 		health -= area.power
 		
-		player_hit_by_bullet.emit()
+		player_hit.emit()
