@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfwhkhol7mfff"]
+[gd_scene load_steps=6 format=3 uid="uid://dfwhkhol7mfff"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n2ulj"]
 [ext_resource type="Texture2D" uid="uid://bfdrheox8utcu" path="res://assets/player.png" id="1_uy1op"]
+[ext_resource type="Texture2D" uid="uid://8heor5yml8xx" path="res://assets/circle-white.png" id="3_k53br"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxsbj"]
 radius = 24.0
@@ -38,6 +39,12 @@ one_shot = true
 position = Vector2(12, 0)
 
 [node name="HitBox" type="Area2D" parent="." groups=["player_hitbox"]]
+
+[node name="HitBoxSprite" type="Sprite2D" parent="HitBox"]
+unique_name_in_owner = true
+position = Vector2(-2, 0)
+scale = Vector2(0.186667, 0.186667)
+texture = ExtResource("3_k53br")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-2, 0)

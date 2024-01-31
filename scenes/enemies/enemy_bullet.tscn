@@ -8,7 +8,7 @@
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpiin"]
-radius = 21.0
+radius = 23.0
 
 [node name="EnemyBullet" type="Area2D" groups=["enemy_bullet"]]
 script = ExtResource("1_bjfgj")

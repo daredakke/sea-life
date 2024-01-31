@@ -30,6 +30,7 @@ var _dead_position := Vector2(-1000, -1000)
 @onready var health_recovery_timer: Timer = %HealthRecoveryTimer
 @onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
+@onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 
 
 func _ready() -> void:
@@ -46,8 +47,17 @@ func _process(delta):
 	player_position.emit(global_position)
 	
 	# Movement
+	var move_speed: float
+	
+	if Input.is_action_pressed("focus"):
+		move_speed = player_speed * 0.5
+		hit_box_sprite.show()
+	else:
+		move_speed = player_speed
+		hit_box_sprite.hide()
+	
 	var direction := Input.get_vector("left", "right", "up", "down").normalized()
-	velocity = direction * player_speed
+	velocity = direction * move_speed
 	
 	move_and_slide()
 	

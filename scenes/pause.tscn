@@ -367,6 +367,27 @@ text = "MOVEMENT
 "
 horizontal_alignment = 2
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SHIFT"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "FOCUSED MOVEMENT
+"
+horizontal_alignment = 2
+
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
 layout_mode = 2
 size_flags_vertical = 0
