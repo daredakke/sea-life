@@ -25,4 +25,6 @@ Button/styles/normal = SubResource("StyleBoxFlat_addjq")
 Button/styles/pressed = SubResource("StyleBoxFlat_kka54")
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_l4pdp")
+LineEdit/font_sizes/font_size = 48
+LineEdit/fonts/font = ExtResource("1_l4pdp")
 Panel/styles/panel = SubResource("StyleBoxFlat_xjxu6")
