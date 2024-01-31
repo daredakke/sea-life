@@ -6,6 +6,7 @@ signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
 signal player_hit
 signal player_health_changed(value: int, max_health: int)
+signal bullet_grazed(value: int, increase_multiplier: bool)
 
 const ANGULAR_SPEED: float = TAU * 2
 const MAX_HEALTH: float = 100
@@ -17,6 +18,7 @@ const ENEMY_DAMAGE: float = 40
 		health = clampf(new_value, 0, MAX_HEALTH)
 
 @export var health_recovery_rate: float = 0.1
+@export var bullet_graze_score: int = 30
 
 var is_alive: bool = true
 var player_direction: Vector2
@@ -86,6 +88,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		player_health_changed.emit(health, MAX_HEALTH)
 		
 		player_hit.emit()
+	
+	if area.is_in_group("graze_area"):
+		bullet_grazed.emit(bullet_graze_score, false)
 
 
 func _on_health_recovery_timer_timeout() -> void:

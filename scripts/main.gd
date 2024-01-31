@@ -34,11 +34,12 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 func _ready() -> void:
 	pause.start_new_game.connect(_start_new_game)
 	pause.continue_game.connect(_continue_game)
-	player.fire_bullet.connect(_on_fire_bullet)
 	stats.close_stats_screen.connect(_on_close_stats_screen)
+	player.fire_bullet.connect(_on_fire_bullet)
 	player.player_position.connect(Globals.update_player_position)
 	player.player_hit.connect(_reset_multiplier)
 	player.player_health_changed.connect(_update_player_health_bar)
+	player.bullet_grazed.connect(_increase_score)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	
@@ -139,10 +140,10 @@ func _on_close_stats_screen() -> void:
 	wave_start_timer.start()
 
 
-func _increase_score(value: int) -> void:
+func _increase_score(value: int, increase_multiplier: bool) -> void:
 	_score += floori(value * _score_multiplier)
 	
-	if _score_multiplier < MAX_SCORE_MULTIPLIER:
+	if increase_multiplier and _score_multiplier < MAX_SCORE_MULTIPLIER:
 		_score_multiplier += 1
 		
 		score.set_multiplier_label(_score_multiplier)

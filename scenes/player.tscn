@@ -7,7 +7,7 @@
 radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3eyja"]
-radius = 22.0
+radius = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)

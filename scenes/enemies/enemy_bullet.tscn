@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpyodnv5w667y"]
+[gd_scene load_steps=6 format=3 uid="uid://dpyodnv5w667y"]
 
 [ext_resource type="Script" path="res://scripts/enemy_bullet.gd" id="1_bjfgj"]
 [ext_resource type="Texture2D" uid="uid://dafmn718m2ct8" path="res://assets/star_small.png" id="1_k17l7"]
+[ext_resource type="Script" path="res://scripts/graze_area.gd" id="3_msaxu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebkgh"]
 radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpiin"]
+radius = 21.0
 
 [node name="EnemyBullet" type="Area2D" groups=["enemy_bullet"]]
 script = ExtResource("1_bjfgj")
@@ -17,4 +21,11 @@ texture = ExtResource("1_k17l7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ebkgh")
 
+[node name="GrazeArea" type="Area2D" parent="." groups=["graze_area"]]
+script = ExtResource("3_msaxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeArea"]
+shape = SubResource("CircleShape2D_gpiin")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_entered" from="GrazeArea" to="GrazeArea" method="_on_area_entered"]

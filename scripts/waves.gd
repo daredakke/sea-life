@@ -2,7 +2,7 @@ extends Node
 
 
 signal wave_over
-signal score_increased(value: int)
+signal score_increased(value: int, increase_multiplier: bool)
 
 var _enemies_in_wave: int = -1
 var _enemies_defeated: int = 0
@@ -13,7 +13,7 @@ var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_stat
 var _wave_data: Dictionary = {
 	1: [
 		{
-			"node_scene": _rock_small_scene,
+			"node_scene": _enemy_ship_scene,
 			"nodes_to_spawn": 10,
 			"node_speed": 80,
 			"node_speed_variance": 30,
@@ -130,7 +130,7 @@ func enemy_defeated(score_value: int) -> void:
 	_enemies_defeated += 1
 	
 	if score_value > 0:
-		score_increased.emit(score_value)
+		score_increased.emit(score_value, true)
 	
 	if _enemies_defeated >= _enemies_in_wave:
 		wave_over.emit()
