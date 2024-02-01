@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
 [ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
-[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="3_5b77i"]
 [ext_resource type="PackedScene" uid="uid://bbl8rqlmhufue" path="res://scenes/pause.tscn" id="4_8d2ge"]
 [ext_resource type="PackedScene" uid="uid://bi7e6b8a2ue6p" path="res://scenes/player_health_bar.tscn" id="4_kc4cn"]
 [ext_resource type="PackedScene" uid="uid://bstxmoqmg6epi" path="res://scenes/score.tscn" id="4_qno8n"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
+[ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -26,9 +26,6 @@ one_shot = true
 
 [node name="Background" parent="." instance=ExtResource("1_t8rk7")]
 process_mode = 1
-
-[node name="RockLarge" parent="." instance=ExtResource("3_5b77i")]
-position = Vector2(425, 427)
 
 [node name="Projectiles" type="Node" parent="."]
 unique_name_in_owner = true
@@ -79,6 +76,10 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Stats" parent="UI" instance=ExtResource("7_35p0l")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GameOver" parent="UI" instance=ExtResource("8_6op73")]
 unique_name_in_owner = true
 visible = false
 

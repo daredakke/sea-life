@@ -4,9 +4,12 @@ extends CharacterBody2D
 
 signal fire_bullet(pos: Vector2, direction: Vector2)
 signal player_position(pos: Vector2)
+# For resetting score multiplier
 signal player_hit
+# For updating health bar UI
 signal player_health_changed(value: int, max_health: int)
 signal bullet_grazed(value: int, increase_multiplier: bool)
+signal player_died
 
 const ANGULAR_SPEED: float = TAU * 2
 const MAX_HEALTH: float = 100
@@ -15,8 +18,8 @@ const ENEMY_DAMAGE: float = 40
 @export var player_speed: float = 500
 @export var health: float = MAX_HEALTH:
 	set(new_value):
-		health = clampf(new_value, 0, MAX_HEALTH)
-
+		health = clampf(new_value, -1, MAX_HEALTH)
+		player_health_changed.emit(new_value, MAX_HEALTH)
 @export var health_recovery_rate: float = 0.1
 @export var bullet_graze_score: int = 30
 
@@ -44,8 +47,6 @@ func _process(delta):
 	if not is_alive:
 		return
 	
-	player_position.emit(global_position)
-	
 	# Movement
 	var move_speed: float
 	
@@ -60,6 +61,7 @@ func _process(delta):
 	velocity = direction * move_speed
 	
 	move_and_slide()
+	player_position.emit(global_position)
 	
 	# Rotation
 	_target_angle = (get_global_mouse_position() - position).angle()
@@ -82,34 +84,35 @@ func kill_player() -> void:
 	global_position = _dead_position
 
 
-func reset_player_position() -> void:
+func reset_player() -> void:
+	is_alive = true
 	global_position = Vector2(get_viewport().size.x * 0.5, get_viewport().size.y * 0.5)
+	health = MAX_HEALTH
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
-		health -= ENEMY_DAMAGE
-		player_health_changed.emit(health, MAX_HEALTH)
-		
-		player_hit.emit()
+		_take_damage(ENEMY_DAMAGE)
 	
 	if area.is_in_group("enemy_bullet"):
-		health -= area.power
-		player_health_changed.emit(health, MAX_HEALTH)
-		
-		player_hit.emit()
+		_take_damage(area.power)
 	
 	if area.is_in_group("graze_area"):
 		bullet_grazed.emit(bullet_graze_score, false)
 
 
+func _take_damage(value: int) -> void:
+	health -= value
+	
+	player_hit.emit()
+
+
 func _on_health_recovery_timer_timeout() -> void:
-	if health < MAX_HEALTH:
+	if is_alive and health < MAX_HEALTH:
 		health += 1
-		player_health_changed.emit(health, MAX_HEALTH)
 
 
 func _on_player_health_changed(value: int, _max_health: int) -> void:
-	if value == 0:
-		#kill_player()
-		print("PLAYER DEAD")
+	if value <= 0:
+		kill_player()
+		player_died.emit()

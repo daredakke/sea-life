@@ -8,8 +8,12 @@ const MAX_SCORE_MULTIPLIER: int = 9999
 
 var _game_started: bool = false
 var _game_paused: bool = true
-var _score: int = 0
-var _score_multiplier: int = 1
+var _score: int = 0:
+	set(new_value):
+		score.set_score_label(new_value)
+var _score_multiplier: int = 1:
+	set(new_value):
+		score.set_multiplier_label(new_value)
 var _wave: int = 0
 var _bullet_power: int = 1
 var _bullet_pierce_count: int = 0
@@ -28,6 +32,7 @@ var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
 @onready var score: Score = %Score
 @onready var stats: Stats = %Stats
+@onready var game_over: GameOver = %GameOver
 @onready var pause: Pause = %Pause
 
 
@@ -35,11 +40,13 @@ func _ready() -> void:
 	pause.start_new_game.connect(_start_new_game)
 	pause.continue_game.connect(_continue_game)
 	stats.close_stats_screen.connect(_on_close_stats_screen)
+	game_over.restart_game.connect(_restart_game)
 	player.fire_bullet.connect(_on_fire_bullet)
 	player.player_position.connect(Globals.update_player_position)
 	player.player_hit.connect(_reset_multiplier)
 	player.player_health_changed.connect(_update_player_health_bar)
 	player.bullet_grazed.connect(_increase_score)
+	player.player_died.connect(_show_game_over_screen)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	
@@ -49,6 +56,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if _game_started and Input.is_action_just_pressed("pause"):
 		_game_paused = !_game_paused
+		
 		_handle_pause_state()
 
 
@@ -56,8 +64,39 @@ func _start_new_game() -> void:
 	_game_paused = false
 	
 	_handle_pause_state()
+	_reset_game_state()
 	
+	_game_started = true
+
+
+func _reset_game_state() -> void:
 	# Clear any bullets or enemies from an existing game
+	_removed_spawned_nodes() 
+	player.reset_player()
+	stats.reset_points_and_stat_labels()
+	_reset_stats()
+	wave_start_timer.start()
+	
+	_score = 0
+	_score_multiplier = 1
+
+
+func _restart_game() -> void:
+	pause.continue_button.hide()
+	
+	_game_paused = true
+	
+	_handle_pause_state()
+
+
+func _show_game_over_screen() -> void:
+	_removed_spawned_nodes() 
+	
+	_game_started = false
+	game_over.show()
+
+
+func _removed_spawned_nodes() -> void:
 	for node in projectiles.get_children():
 		projectiles.remove_child(node)
 		node.queue_free()
@@ -65,14 +104,6 @@ func _start_new_game() -> void:
 	for node in enemies.get_children():
 		enemies.remove_child(node)
 		node.queue_free()
-	
-	player.reset_player_position()
-	stats.reset_points_and_stat_labels()
-	_reset_stats()
-	wave_start_timer.start()
-	
-	_score = 0
-	_game_started = true
 
 
 func _on_wave_start_timer_timeout() -> void:
@@ -145,16 +176,10 @@ func _increase_score(value: int, increase_multiplier: bool) -> void:
 	
 	if increase_multiplier and _score_multiplier < MAX_SCORE_MULTIPLIER:
 		_score_multiplier += 1
-		
-		score.set_multiplier_label(_score_multiplier)
-	
-	score.set_score_label(_score)
 
 
 func _reset_multiplier() -> void:
 	_score_multiplier = 1
-	
-	score.set_multiplier_label(_score_multiplier)
 
 
 func _update_player_health_bar(hp: int, max_hp: int) -> void:

@@ -41,7 +41,6 @@ var _points: int:
 			_disable_buttons()
 		else:
 			_enable_buttons()
-
 var _points_text: String = "POINTS: ":
 	get:
 		return _points_text + str(_points)

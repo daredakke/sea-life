@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq4f7ttthp0en"]
+[gd_scene load_steps=3 format=3 uid="uid://dq4f7ttthp0en"]
 
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_grf8t"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pgrpx"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pgrpx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -110,6 +112,7 @@ max_length = 3
 [node name="HighscoreButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HighscoreHBox"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_grf8t")
 text = "SUBMIT"
 
@@ -120,4 +123,7 @@ theme_override_constants/margin_top = 32
 [node name="ReturnToTitleButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/ButtonMargin"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "RETURN TO TITLE"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ButtonMargin/ReturnToTitleButton" to="." method="_on_return_to_title_button_pressed"]
