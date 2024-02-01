@@ -10,9 +10,11 @@ var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0:
 	set(new_value):
+		_score = new_value
 		score.set_score_label(new_value)
 var _score_multiplier: int = 1:
 	set(new_value):
+		_score_multiplier = new_value
 		score.set_multiplier_label(new_value)
 var _wave: int = 0
 var _bullet_power: int = 1
@@ -97,6 +99,8 @@ func _show_game_over_screen() -> void:
 	
 	_game_started = false
 	game_over.show()
+	game_over.set_enemies_defeated(Waves.get_enemies_defeated())
+	game_over.set_total_score(_score)
 
 
 func _removed_spawned_nodes(parent_node: Node) -> void:
