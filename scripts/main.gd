@@ -71,12 +71,14 @@ func _start_new_game() -> void:
 
 func _reset_game_state() -> void:
 	# Clear any bullets or enemies from an existing game
-	_removed_spawned_nodes() 
+	_removed_spawned_nodes(projectiles)
+	_removed_spawned_nodes(enemies)
 	player.reset_player()
 	stats.reset_points_and_stat_labels()
 	_reset_stats()
 	wave_start_timer.start()
 	
+	_wave = 0
 	_score = 0
 	_score_multiplier = 1
 
@@ -90,20 +92,18 @@ func _restart_game() -> void:
 
 
 func _show_game_over_screen() -> void:
-	_removed_spawned_nodes() 
+	_removed_spawned_nodes(projectiles)
+	_removed_spawned_nodes(enemies)
 	
 	_game_started = false
 	game_over.show()
 
 
-func _removed_spawned_nodes() -> void:
-	for node in projectiles.get_children():
-		projectiles.remove_child(node)
-		node.queue_free()
-	
-	for node in enemies.get_children():
-		enemies.remove_child(node)
-		node.queue_free()
+func _removed_spawned_nodes(parent_node: Node) -> void:
+	if parent_node.get_children().size() > 0:
+		for node in parent_node.get_children():
+			parent_node.remove_child(node)
+			node.queue_free()
 
 
 func _on_wave_start_timer_timeout() -> void:
