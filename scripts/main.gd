@@ -59,6 +59,7 @@ func _ready() -> void:
 	player.player_died.connect(_show_game_over_screen)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
+	Waves.special_charged.connect(_increase_special_charge)
 	
 	_handle_pause_state()
 
@@ -186,6 +187,11 @@ func _increase_score(value: int, increase_multiplier: bool) -> void:
 
 func _reset_multiplier() -> void:
 	_score_multiplier = 1
+
+
+func _increase_special_charge() -> void:
+	if _special_charges < MAX_SPECIAL_CHARGES:
+		_special_charges += 1
 
 
 func _update_player_health_bar(hp: int, max_hp: int) -> void:

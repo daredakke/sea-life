@@ -3,10 +3,24 @@ extends Node
 
 signal wave_over
 signal score_increased(value: int, increase_multiplier: bool)
+signal special_charged
+
+const ENEMIES_DEFEATED_MILESTONE: int = 50
 
 var _enemies_in_wave: int = -1
+# For detecting if a wave is over
 var _enemies_defeated_this_wave: int = 0
-var _enemies_defeated: int = 0
+# For detecting if the player should get an extra special charge
+var _enemies_defeated_combo: int = 0
+# For display on the game over screen
+var _enemies_defeated: int = 0:
+	set(new_value):
+		_enemies_defeated = new_value
+		
+		if _enemies_defeated_combo >= ENEMIES_DEFEATED_MILESTONE:
+			_enemies_defeated_combo = 0
+			
+			special_charged.emit()
 var _rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.tscn")
 var _rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
 var _enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
@@ -130,6 +144,7 @@ func set_enemies_in_wave(wave: int) -> void:
 func enemy_defeated(score_value: int) -> void:
 	_enemies_defeated_this_wave += 1
 	_enemies_defeated += 1
+	_enemies_defeated_combo += 1
 	
 	if score_value > 0:
 		score_increased.emit(score_value, true)
