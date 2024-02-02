@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=10 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbl8rqlmhufue" path="res://scenes/pause.tscn" id="4_8d2ge"]
 [ext_resource type="PackedScene" uid="uid://bi7e6b8a2ue6p" path="res://scenes/player_health_bar.tscn" id="4_kc4cn"]
 [ext_resource type="PackedScene" uid="uid://bstxmoqmg6epi" path="res://scenes/score.tscn" id="4_qno8n"]
+[ext_resource type="PackedScene" uid="uid://ckfabkssvqr3s" path="res://scenes/special.tscn" id="5_bwqbv"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 [ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
 
@@ -71,6 +72,8 @@ process_mode = 1
 
 [node name="PlayerHealthBar" parent="UI" instance=ExtResource("4_kc4cn")]
 unique_name_in_owner = true
+
+[node name="Special" parent="UI" instance=ExtResource("5_bwqbv")]
 
 [node name="Score" parent="UI" instance=ExtResource("4_qno8n")]
 unique_name_in_owner = true
