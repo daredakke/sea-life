@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hyluhmuy4mw4"]
+
+[ext_resource type="Texture2D" uid="uid://c6vnavx11bq84" path="res://assets/circle-white-border.png" id="1_bvpry"]
+
+[node name="SpecialIndicator" type="TextureRect"]
+texture = ExtResource("1_bvpry")
+expand_mode = 1
+stretch_mode = 3

@@ -5,6 +5,7 @@ extends Node2D
 const BASE_SPREAD_RANGE: float = 0.12
 const POINTS_PER_WAVE: int = 10
 const MAX_SCORE_MULTIPLIER: int = 9999
+const MAX_SPECIAL_CHARGES: int = 3
 
 var _game_started: bool = false
 var _game_paused: bool = true
@@ -17,6 +18,10 @@ var _score_multiplier: int = 1:
 		_score_multiplier = new_value
 		score.set_multiplier_label(new_value)
 var _wave: int = 0
+var _special_charges: int = 1:
+	set(new_value):
+		_special_charges = new_value
+		special.set_special_charges(_special_charges)
 var _bullet_power: int = 1
 var _bullet_pierce_count: int = 0
 var _bullet_pierce_chance: float = 0
@@ -33,6 +38,7 @@ var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.ts
 @onready var player: Player = %Player
 @onready var enemies: Node = %Enemies
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
+@onready var special: Special = %Special
 @onready var score: Score = %Score
 @onready var stats: Stats = %Stats
 @onready var game_over: GameOver = %GameOver
@@ -75,8 +81,8 @@ func _start_new_game() -> void:
 
 func _reset_game_state() -> void:
 	# Clear any bullets or enemies from an existing game
-	_removed_spawned_nodes(projectiles)
-	_removed_spawned_nodes(enemies)
+	Globals.remove_child_nodes(projectiles)
+	Globals.remove_child_nodes(enemies)
 	player.reset_player()
 	stats.reset_points_and_stat_labels()
 	_reset_stats()
@@ -85,6 +91,7 @@ func _reset_game_state() -> void:
 	_wave = 0
 	_score = 0
 	_score_multiplier = 1
+	_special_charges = 1
 
 
 func _restart_game() -> void:
@@ -96,20 +103,13 @@ func _restart_game() -> void:
 
 
 func _show_game_over_screen() -> void:
-	_removed_spawned_nodes(projectiles)
-	_removed_spawned_nodes(enemies)
+	Globals.remove_child_nodes(projectiles)
+	Globals.remove_child_nodes(enemies)
 	
 	_game_started = false
 	game_over.show()
 	game_over.set_enemies_defeated(Waves.get_enemies_defeated())
 	game_over.set_total_score(_score)
-
-
-func _removed_spawned_nodes(parent_node: Node) -> void:
-	if parent_node.get_children().size() > 0:
-		for node in parent_node.get_children():
-			parent_node.remove_child(node)
-			node.queue_free()
 
 
 func _on_wave_start_timer_timeout() -> void:
@@ -215,11 +215,14 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 
 
 func _on_special_fired(pos: Vector2) -> void:
-	var special_attack_instance := _special_attack_scene.instantiate() as Area2D
-	
-	special_attack_instance.global_position = pos
-	
-	projectiles.add_child(special_attack_instance)
+	if _special_charges > 0:
+		var special_attack_instance := _special_attack_scene.instantiate() as Area2D
+		
+		special_attack_instance.global_position = pos
+		
+		projectiles.add_child(special_attack_instance)
+		
+		_special_charges -= 1
 
 
 func _on_stat_increased(value: int, stat: int) -> void:

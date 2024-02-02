@@ -74,6 +74,7 @@ process_mode = 1
 unique_name_in_owner = true
 
 [node name="Special" parent="UI" instance=ExtResource("5_bwqbv")]
+unique_name_in_owner = true
 
 [node name="Score" parent="UI" instance=ExtResource("4_qno8n")]
 unique_name_in_owner = true
