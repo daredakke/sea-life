@@ -14,12 +14,8 @@ signal restart_game
 
 
 func _ready() -> void:
+	_hide_highscore_input()
 	hide()
-
-
-func _on_return_to_title_button_pressed() -> void:
-	hide()
-	restart_game.emit()
 
 
 func set_enemies_defeated(value: int) -> void:
@@ -28,3 +24,22 @@ func set_enemies_defeated(value: int) -> void:
 
 func set_total_score(value: int) -> void:
 	total_score_value.text = str(value)
+
+
+func show_highscore_input() -> void:
+	new_highscore_label.show()
+	highscore_h_box.show()
+
+
+func _hide_highscore_input() -> void:
+	new_highscore_label.hide()
+	highscore_h_box.hide()
+
+
+func _on_highscore_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_return_to_title_button_pressed() -> void:
+	hide()
+	restart_game.emit()

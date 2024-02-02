@@ -4,9 +4,12 @@ extends Area2D
 
 @export var speed: int = 200
 @export var power: float = 24.5
+@export var explosion_scale: float = 0.1
 
 var direction: Vector2
 var speed_multiplier: float = 1.0
+
+var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 
 @onready var _rotation_speed: float = 5
 
@@ -24,5 +27,17 @@ func _process(delta):
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("special_attack"):
+		_spawn_explosion()
+		self.queue_free()
+	
 	if area.is_in_group("bullet_despawner") or area.is_in_group("player_hitbox"):
 		self.queue_free()
+
+
+func _spawn_explosion() -> void:
+	var explosion_instance = _explosion_scene.instantiate()
+	explosion_instance.global_position = global_position
+	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)
+	
+	add_sibling(explosion_instance)

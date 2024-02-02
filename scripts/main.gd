@@ -25,6 +25,7 @@ var _spread_range: float = BASE_SPREAD_RANGE
 var _bullet_speed_multiplier: float = 1
 var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
+var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.tscn")
 
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
@@ -44,6 +45,7 @@ func _ready() -> void:
 	stats.close_stats_screen.connect(_on_close_stats_screen)
 	game_over.restart_game.connect(_restart_game)
 	player.fire_bullet.connect(_on_fire_bullet)
+	player.special_fired.connect(_on_special_fired)
 	player.player_position.connect(Globals.update_player_position)
 	player.player_hit.connect(_reset_multiplier)
 	player.player_health_changed.connect(_update_player_health_bar)
@@ -192,22 +194,32 @@ func _update_player_health_bar(hp: int, max_hp: int) -> void:
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 	var bullet_instance := _player_bullet_scene.instantiate() as Area2D
-
+	
 	if _spread_range > 0:
 		_spread = randf_range(-_spread_range, _spread_range)
-
+	
 	var new_direction: Vector2 = direction.rotated(_spread)
-
+	
+	# Orientation
 	bullet_instance.global_position = pos
 	bullet_instance.direction = new_direction
 	bullet_instance.rotation = new_direction.angle()
-
+	
+	# Stats
 	bullet_instance.power = _bullet_power
 	bullet_instance.pierce_count = _bullet_pierce_count
 	bullet_instance.pierce_chance = _bullet_pierce_chance
 	bullet_instance.speed_multiplier = _bullet_speed_multiplier
-
+	
 	projectiles.add_child(bullet_instance)
+
+
+func _on_special_fired(pos: Vector2) -> void:
+	var special_attack_instance := _special_attack_scene.instantiate() as Area2D
+	
+	special_attack_instance.global_position = pos
+	
+	projectiles.add_child(special_attack_instance)
 
 
 func _on_stat_increased(value: int, stat: int) -> void:

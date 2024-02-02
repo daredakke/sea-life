@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 
 signal fire_bullet(pos: Vector2, direction: Vector2)
+signal special_fired(pos: Vector2)
 signal player_position(pos: Vector2)
 # For resetting score multiplier
 signal player_hit
@@ -30,10 +31,11 @@ var fire_rate: float = 0.33
 var _target_angle: float
 var _dead_position := Vector2(-1000, -1000)
 
+@onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 @onready var health_recovery_timer: Timer = %HealthRecoveryTimer
 @onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
+@onready var special_cooldown_timer: Timer = %SpecialCooldownTimer
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
-@onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 
 
 func _ready() -> void:
@@ -73,6 +75,10 @@ func _process(delta):
 		
 		fire_bullet.emit(bullet_spawn_point.global_position, player_dir)
 		bullet_spawn_timer.start()
+	
+	if Input.is_action_pressed("special") and special_cooldown_timer.is_stopped():
+		special_fired.emit(global_position)
+		special_cooldown_timer.start()
 
 
 func set_fire_rate(multiplier: int) -> void:
