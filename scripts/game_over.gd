@@ -6,6 +6,7 @@ signal restart_game
 
 const DEFAULT_NAME: String = "SEA"
 
+var _label_visible: bool = true
 var _score: int:
 	set(new_value):
 		_score = new_value
@@ -13,6 +14,7 @@ var _score: int:
 		if Highscores.is_new_highscore(new_value):
 			_show_highscore_input()
 
+@onready var pulse_timer: Timer = %PulseTimer
 @onready var total_score_value: Label = %TotalScoreValue
 @onready var enemies_killed_value: Label = %EnemiesKilledValue
 @onready var new_highscore_label: Label = %NewHighscoreLabel
@@ -60,3 +62,12 @@ func _on_return_to_title_button_pressed() -> void:
 	_hide_highscore_input()
 	hide()
 	restart_game.emit()
+
+
+func _on_pulse_timer_timeout() -> void:
+	_label_visible = !_label_visible
+	
+	if _label_visible:
+		new_highscore_label.modulate = Color.WHITE
+	else:
+		new_highscore_label.modulate = Color.TRANSPARENT

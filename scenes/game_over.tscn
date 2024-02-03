@@ -12,6 +12,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pgrpx")
 
+[node name="PulseTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.45
+autostart = true
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -126,5 +131,6 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "RETURN TO TITLE"
 
+[connection signal="timeout" from="PulseTimer" to="." method="_on_pulse_timer_timeout"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HighscoreHBox/HighscoreButton" to="." method="_on_highscore_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ButtonMargin/ReturnToTitleButton" to="." method="_on_return_to_title_button_pressed"]
