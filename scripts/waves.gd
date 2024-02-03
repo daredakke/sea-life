@@ -7,7 +7,7 @@ signal special_charged
 
 const ENEMIES_DEFEATED_MILESTONE: int = 50
 
-var _enemies_in_wave: int = -1
+var _enemies_in_wave: int = -1 
 # For detecting if a wave is over
 var _enemies_defeated_this_wave: int = 0
 # For detecting if the player should get an extra special charge
@@ -17,7 +17,7 @@ var _enemies_defeated: int = 0:
 	set(new_value):
 		_enemies_defeated = new_value
 		
-		if _enemies_defeated_combo >= ENEMIES_DEFEATED_MILESTONE:
+		if _enemies_defeated_combo >= ENEMIES_DEFEATED_MILESTONE + _wave_data.size():
 			_enemies_defeated_combo = 0
 			
 			special_charged.emit()

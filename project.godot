@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://scripts/globals.gd"
 Waves="*res://scripts/waves.gd"
+Highscores="*res://scripts/highscores.gd"
 
 [display]
 
