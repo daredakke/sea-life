@@ -18,6 +18,17 @@ func save_scores() -> void:
 	file = null
 
 
+func is_new_highscore(score: int) -> bool:
+	if scores["scores"] < MAX_SCORES:
+		return true
+	
+	for saved_score in scores["scores"]:
+		if score > saved_score:
+			return true
+	
+	return false
+
+
 func save_single_score(score: int, name: String) -> void:
 	if scores["scores"].is_empty():
 		scores["names"].append(name)
