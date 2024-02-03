@@ -139,156 +139,20 @@ theme_override_constants/margin_top = 136
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 32
 
-[node name="HighScoreVBox" type="VBoxContainer" parent="Panel/RightMargin"]
+[node name="HighscoreVBox" type="VBoxContainer" parent="Panel/RightMargin"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="HighScoreLabel" type="Label" parent="Panel/RightMargin/HighScoreVBox"]
+[node name="HighscoreLabel" type="Label" parent="Panel/RightMargin/HighscoreVBox"]
 layout_mode = 2
 text = "HIGHSCORES"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/HighScoreVBox"]
+[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/HighscoreVBox"]
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "CIA"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "1045200"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer2"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "FBI"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer2"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "805920"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer3"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "NSA"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer3"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "729090"
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer4"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "JFK"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer4"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "715800"
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer5"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "WGE"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer5"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "625800"
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer6"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "LLN"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer6"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "610900"
-
-[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer7"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "NDI"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer7"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "529100"
-
-[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/RightMargin/HighScoreVBox"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer8"]
-custom_minimum_size = Vector2(90, 0)
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "PCL"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/HighScoreVBox/HBoxContainer8"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-text = "414640"
 
 [node name="InstructionsVBox" type="VBoxContainer" parent="Panel/RightMargin"]
 custom_minimum_size = Vector2(480, 0)

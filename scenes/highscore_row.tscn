@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnpvbp3lbtnq5"]
+
+[ext_resource type="Script" path="res://scripts/highscore_row.gd" id="1_hkv1c"]
+[ext_resource type="Theme" uid="uid://b1nhdvg4pw6r5" path="res://resources/smaller_label.tres" id="1_vfebd"]
+
+[node name="HighscoreRow" type="HBoxContainer"]
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+script = ExtResource("1_hkv1c")
+
+[node name="NameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme = ExtResource("1_vfebd")
+text = "CIA"
+horizontal_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+text = "1045200"

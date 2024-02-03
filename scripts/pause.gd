@@ -11,6 +11,7 @@ var music_bus := AudioServer.get_bus_index("Music")
 var sfx_bus := AudioServer.get_bus_index("SFX")
 
 var _is_fullscreen: bool = false
+var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn")
 
 @onready var continue_button: Button = %ContinueButton
 @onready var new_game_button: Button = %NewGameButton
@@ -20,10 +21,28 @@ var _is_fullscreen: bool = false
 @onready var sfx_label: Label = %SFXLabel
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var resolution_button: Button = %ResolutionButton
+@onready var highscore_v_box: VBoxContainer = %HighscoreVBox
+
 
 
 func _ready() -> void:
+	_display_highscores()
 	continue_button.hide()
+
+
+func _display_highscores() -> void:
+	if Highscores.scores["scores"].is_empty():
+		return
+	
+	for i in range(Highscores.scores["scores"].size()):
+		var name = Highscores.scores["names"][i]
+		var score = Highscores.scores["scores"][i]
+		var highscore_row_instance := _highscore_row_scene.instantiate() as HBoxContainer
+		
+		highscore_row_instance.name_text = name
+		highscore_row_instance.score = score
+		
+		highscore_v_box.add_child(highscore_row_instance)
 
 
 func _on_music_slider_value_changed(value: float) -> void:

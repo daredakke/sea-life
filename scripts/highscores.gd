@@ -4,18 +4,11 @@ extends Node
 const SCORE_LIST: String = "user://scores.dat"
 const BLANK_SCORES: Dictionary = { "scores": [], "names": [] }
 
-var test_scores: Dictionary = {
-	"names": ["ABC", "XYZ", "DDD"],
-	"scores": [15040, 8590, 5600],
-}
 var scores: Dictionary
-var new_score: int = 3550
-var new_name: String = "EEE"
 
 
 func _ready() -> void:
 	load_scores()
-	#save_single_score(new_score, new_name)
 	
 	print(scores)
 
