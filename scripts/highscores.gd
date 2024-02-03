@@ -3,14 +3,13 @@ extends Node
 
 const SCORE_LIST: String = "user://scores.dat"
 const BLANK_SCORES: Dictionary = { "scores": [], "names": [] }
+const MAX_SCORES: int = 8
 
 var scores: Dictionary
 
 
 func _ready() -> void:
 	load_scores()
-	
-	print(scores)
 
 
 func save_scores() -> void:
@@ -40,6 +39,12 @@ func save_single_score(score: int, name: String) -> void:
 	
 	scores["scores"].insert(index, score)
 	scores["names"].insert(index, name)
+	
+	# Truncate scores if there are too many
+	if scores["scores"].size() > MAX_SCORES:
+		scores["names"] = scores["names"].slice(0, MAX_SCORES)
+		scores["scores"] = scores["scores"].slice(0, MAX_SCORES)
+	
 	save_scores()
 
 
