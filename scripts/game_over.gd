@@ -4,6 +4,8 @@ extends Control
 
 signal restart_game
 
+const DEFAULT_NAME: String = "SEA"
+
 var _score: int:
 	set(new_value):
 		_score = new_value
@@ -45,7 +47,13 @@ func _hide_highscore_input() -> void:
 
 
 func _on_highscore_button_pressed() -> void:
-	pass # Replace with function body.
+	var name_text := DEFAULT_NAME
+	
+	if highscore_input.text != "":
+		name_text = highscore_input.text.to_upper()
+	
+	Highscores.save_single_score(_score, name_text)
+	_hide_highscore_input()
 
 
 func _on_return_to_title_button_pressed() -> void:

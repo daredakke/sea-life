@@ -26,11 +26,13 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 
 
 func _ready() -> void:
-	_display_highscores()
+	display_highscores()
 	continue_button.hide()
 
 
-func _display_highscores() -> void:
+func display_highscores() -> void:
+	_clear_highscore_list()
+	
 	if Highscores.scores["scores"].is_empty():
 		return
 	
@@ -43,6 +45,13 @@ func _display_highscores() -> void:
 		highscore_row_instance.score = score
 		
 		highscore_v_box.add_child(highscore_row_instance)
+
+
+func _clear_highscore_list() -> void:
+	for node in highscore_v_box.get_children():
+		if node.is_in_group("highscore_row"):
+			highscore_v_box.remove_child(node)
+			node.queue_free()
 
 
 func _on_music_slider_value_changed(value: float) -> void:

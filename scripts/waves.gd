@@ -29,10 +29,10 @@ var _wave_data: Dictionary = {
 	1: [
 		{
 			"node_scene": _enemy_ship_scene,
-			"nodes_to_spawn": 10,
+			"nodes_to_spawn": 20,
 			"node_speed": 80,
 			"node_speed_variance": 30,
-			"spawn_delay": 2.1,
+			"spawn_delay": 1.1,
 			"aim_at_player": false,
 		},
 	],
@@ -43,7 +43,7 @@ var _wave_data: Dictionary = {
 			"nodes_to_spawn": 10,
 			"node_speed": 85,
 			"node_speed_variance": 35,
-			"spawn_delay": 2.1,
+			"spawn_delay": 1.1,
 			"aim_at_player": false,
 		},
 		{

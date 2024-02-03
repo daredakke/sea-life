@@ -97,6 +97,7 @@ func _reset_game_state() -> void:
 
 func _restart_game() -> void:
 	pause.continue_button.hide()
+	pause.display_highscores()
 	
 	_game_paused = true
 	

@@ -17,7 +17,7 @@ script = ExtResource("1_bw2ht")
 [node name="WaveStartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 1
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="WaveEndTimer" type="Timer" parent="."]
