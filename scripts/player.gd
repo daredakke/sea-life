@@ -33,14 +33,17 @@ var _target_angle: float
 var _dead_position := Vector2(-1000, -1000)
 var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 
-@onready var hit_box_sprite: Sprite2D = %HitBoxSprite
+@onready var player_sprite: Sprite2D = %PlayerSprite
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var health_recovery_timer: Timer = %HealthRecoveryTimer
 @onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
 @onready var special_cooldown_timer: Timer = %SpecialCooldownTimer
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
+@onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 
 
 func _ready() -> void:
+	animation_player.play("boiling")
 	look_at(get_global_mouse_position())
 	
 	health_recovery_timer.wait_time = health_recovery_rate
@@ -71,6 +74,9 @@ func _process(delta):
 	_target_angle = (get_global_mouse_position() - position).angle()
 	var angle_diff: float = wrapf(_target_angle - rotation, -PI, PI)
 	rotation += clamp(ANGULAR_SPEED * delta, 0, abs(angle_diff)) * sign(angle_diff)
+	
+	# Flip sprite vertically if facing left
+	player_sprite.flip_v = (get_global_mouse_position() - position).x < 0
 	
 	if Input.is_action_pressed("fire") and bullet_spawn_timer.is_stopped():
 		var player_dir: Vector2 = (get_global_mouse_position() - position).normalized()
