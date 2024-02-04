@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq4f7ttthp0en"]
+[gd_scene load_steps=5 format=3 uid="uid://dq4f7ttthp0en"]
 
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_grf8t"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pgrpx"]
+[ext_resource type="Texture2D" uid="uid://bfrnyu45n68wy" path="res://assets/backgrounds/composite.jpg" id="3_cxcvs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r21sc"]
+texture = ExtResource("3_cxcvs")
+modulate_color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -25,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_grf8t")
+theme_override_styles/panel = SubResource("StyleBoxTexture_r21sc")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1

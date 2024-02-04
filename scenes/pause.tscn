@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbl8rqlmhufue"]
+[gd_scene load_steps=6 format=3 uid="uid://bbl8rqlmhufue"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
+[ext_resource type="Texture2D" uid="uid://bfrnyu45n68wy" path="res://assets/backgrounds/composite.jpg" id="3_eiapf"]
 [ext_resource type="Theme" uid="uid://b1nhdvg4pw6r5" path="res://resources/smaller_label.tres" id="3_s5e44"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafay"]
-bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xner5"]
+texture = ExtResource("3_eiapf")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -26,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_kqgi4")
-theme_override_styles/panel = SubResource("StyleBoxFlat_rafay")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xner5")
 
 [node name="LeftMargin" type="MarginContainer" parent="Panel"]
 layout_mode = 1

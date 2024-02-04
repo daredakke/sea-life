@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://baoqr7j73ipkc"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://baoqr7j73ipkc"]
 
 [ext_resource type="FontFile" uid="uid://cxo7ud5ef6xb2" path="res://resources/NanumPenScript-Regular.ttf" id="1_l4pdp"]
 
@@ -13,6 +13,21 @@ bg_color = Color(0.0313726, 0.27451, 0.576471, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kka54"]
 bg_color = Color(0.752941, 0.85098, 0.996078, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mh1k0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0941176, 0.431373, 0.862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fghw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjxu6"]
 bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
@@ -25,6 +40,9 @@ Button/styles/normal = SubResource("StyleBoxFlat_addjq")
 Button/styles/pressed = SubResource("StyleBoxFlat_kka54")
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_l4pdp")
+LineEdit/colors/selection_color = Color(0.0313726, 0.27451, 0.576471, 1)
 LineEdit/font_sizes/font_size = 48
 LineEdit/fonts/font = ExtResource("1_l4pdp")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_mh1k0")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_4fghw")
 Panel/styles/panel = SubResource("StyleBoxFlat_xjxu6")
