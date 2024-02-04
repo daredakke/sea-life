@@ -3,11 +3,13 @@ extends CanvasLayer
 
 
 @onready var base: Sprite2D = %Base
+@onready var lower: Sprite2D = %Lower
 @onready var middle: Sprite2D = %Middle
 @onready var top: Sprite2D = %Top
 
 @export_category("Textures")
 @export var base_texture: Texture2D
+@export var lower_texture: Texture2D
 @export var middle_texture: Texture2D
 @export var top_texture: Texture2D
 
@@ -17,14 +19,18 @@ extends CanvasLayer
 
 @export_category("Rotation")
 @export_range(-250, 250) var base_rotation: float = 10
-@export_range(-250, 250) var middle_rotation: float = 30
-@export_range(-250, 250) var top_rotation: float = -20
+@export_range(-250, 250) var lower_rotation: float = -10
+@export_range(-250, 250) var middle_rotation: float = 25
+@export_range(-250, 250) var top_rotation: float = -25
 
 
 func _ready() -> void:
 	if base_texture:
 		_set_background_sprite(base, base_texture, texture_width, texture_height)
 	
+	if lower_texture:
+		_set_background_sprite(lower, lower_texture, texture_width, texture_height)
+		
 	if middle_texture:
 		_set_background_sprite(middle, middle_texture, texture_width, texture_height)
 	
@@ -34,6 +40,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	base.rotation_degrees += base_rotation * delta
+	lower.rotation_degrees += middle_rotation * delta
 	middle.rotation_degrees += middle_rotation * delta
 	top.rotation_degrees += top_rotation * delta
 
