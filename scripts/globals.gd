@@ -4,7 +4,6 @@ extends Node
 var player_position: Vector2
 
 @onready var score: int = 0
-@onready var screen_centre: Marker2D = $ScreenCentre
 
 
 func update_player_position(pos: Vector2) -> void:

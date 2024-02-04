@@ -57,8 +57,8 @@ func _set_background_sprite(
 
 
 func _centre_sprite(sprite: Sprite2D) -> void:
-	sprite.position.x = Globals.screen_centre.global_position.x
-	sprite.position.y = Globals.screen_centre.global_position.y
+	sprite.position.x = get_viewport().size.x * 0.5
+	sprite.position.y = get_viewport().size.y * 0.5
 
 
 func _scale_sprite(sprite: Sprite2D, width: float, height: float) -> Vector2:

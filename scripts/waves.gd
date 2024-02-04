@@ -26,6 +26,7 @@ var _rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.ts
 var _enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
 var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_station.tscn")
 var _enemy_crab_scene: PackedScene = preload("res://scenes/enemies/enemy_crab.tscn")
+var _enemy_jellyfish_scene: PackedScene = preload("res://scenes/enemies/enemy_jellyfish.tscn")
 var _wave_data: Dictionary = {
 	1: [
 		{
