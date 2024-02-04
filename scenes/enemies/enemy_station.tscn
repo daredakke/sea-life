@@ -16,7 +16,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_xc1p5")
 health = 12
 score_value = 250
-explosion_scale = 0.45
+explosion_scale = 0.36
 speed = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

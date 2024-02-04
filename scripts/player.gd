@@ -23,6 +23,7 @@ const ENEMY_DAMAGE: float = 40
 		player_health_changed.emit(new_value, MAX_HEALTH)
 @export var health_recovery_rate: float = 0.1
 @export var bullet_graze_score: int = 30
+@export var explosion_scale: float = 0.3
 
 var is_alive: bool = true
 var player_direction: Vector2
@@ -30,6 +31,7 @@ var fire_rate: float = 0.33
 
 var _target_angle: float
 var _dead_position := Vector2(-1000, -1000)
+var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 
 @onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 @onready var health_recovery_timer: Timer = %HealthRecoveryTimer
@@ -86,6 +88,8 @@ func set_fire_rate(multiplier: int) -> void:
 
 
 func kill_player() -> void:
+	_spawn_explosion()
+	
 	is_alive = false
 	global_position = _dead_position
 
@@ -122,3 +126,12 @@ func _on_player_health_changed(value: int, _max_health: int) -> void:
 	if value <= 0:
 		kill_player()
 		player_died.emit()
+
+
+func _spawn_explosion() -> void:
+	var explosion_instance = _explosion_scene.instantiate()
+	explosion_instance.global_position = global_position
+	explosion_instance.animation_speed_scale = 0.5
+	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)
+	
+	add_sibling(explosion_instance)

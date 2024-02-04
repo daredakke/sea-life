@@ -11,7 +11,6 @@ scale = Vector2(0.75, 0.75)
 script = ExtResource("1_gggfv")
 health = 9
 score_value = 100
-explosion_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.799, 0.33, 1)

@@ -11,6 +11,7 @@ scale = Vector2(0.75, 0.75)
 script = ExtResource("1_hwrrp")
 health = 5
 score_value = 25
+explosion_scale = 0.18
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.8, 0.329412, 1)

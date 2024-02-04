@@ -42,6 +42,7 @@ var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.ts
 @onready var score: Score = %Score
 @onready var stats: Stats = %Stats
 @onready var game_over: GameOver = %GameOver
+@onready var fade_out: FadeOut = $UI/FadeOut
 @onready var pause: Pause = %Pause
 
 
@@ -56,7 +57,8 @@ func _ready() -> void:
 	player.player_hit.connect(_reset_multiplier)
 	player.player_health_changed.connect(_update_player_health_bar)
 	player.bullet_grazed.connect(_increase_score)
-	player.player_died.connect(_show_game_over_screen)
+	player.player_died.connect(_fade_out_on_death)
+	fade_out.animation_finished.connect(_show_game_over_screen)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
 	Waves.special_charged.connect(_increase_special_charge)
@@ -102,6 +104,11 @@ func _restart_game() -> void:
 	_game_paused = true
 	
 	_handle_pause_state()
+
+
+func _fade_out_on_death() -> void:
+	fade_out.show()
+	fade_out.start_animation()
 
 
 func _show_game_over_screen() -> void:

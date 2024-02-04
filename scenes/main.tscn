@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=11 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfabkssvqr3s" path="res://scenes/special.tscn" id="5_bwqbv"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 [ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
+[ext_resource type="PackedScene" uid="uid://ceckwpqwfrg3b" path="res://scenes/fade_out.tscn" id="9_31iox"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -86,6 +87,8 @@ visible = false
 [node name="GameOver" parent="UI" instance=ExtResource("8_6op73")]
 unique_name_in_owner = true
 visible = false
+
+[node name="FadeOut" parent="UI" instance=ExtResource("9_31iox")]
 
 [node name="Pause" parent="UI" instance=ExtResource("4_8d2ge")]
 unique_name_in_owner = true

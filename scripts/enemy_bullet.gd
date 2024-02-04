@@ -4,7 +4,7 @@ extends Area2D
 
 @export var speed: int = 200
 @export var power: float = 24.5
-@export var explosion_scale: float = 0.1
+@export var explosion_scale: float = 0.075
 
 var direction: Vector2
 var speed_multiplier: float = 1.0
