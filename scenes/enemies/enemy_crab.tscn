@@ -47,6 +47,7 @@ _data = {
 
 [node name="EnemyCrab" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_aevtm")
+explosion_scale = 0.3
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 position = Vector2(17, -2)

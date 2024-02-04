@@ -1,6 +1,7 @@
 class_name EnemyCrab
 extends Enemy
 
+
 var _decel_rate: float = 0.2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

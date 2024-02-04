@@ -54,7 +54,7 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_d1qb2")
 health = 5
 score_value = 150
-explosion_scale = 0.2
+explosion_scale = 0.24
 speed = 75.0
 speed_variance = 25.0
 
