@@ -52,7 +52,3 @@ func _on_fire_rate_timeout() -> void:
 	enemy_bullet_instance.direction = _direction_to_player()
 	
 	add_sibling(enemy_bullet_instance)
-
-
-func _direction_to_player() -> Vector2:
-	return global_position.direction_to(Globals.player_position)

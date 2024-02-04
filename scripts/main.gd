@@ -88,6 +88,7 @@ func _reset_game_state() -> void:
 	Globals.remove_child_nodes(enemies)
 	player.reset_player()
 	stats.reset_points_and_stat_labels()
+	stats.hide()
 	_reset_stats()
 	wave_start_timer.start()
 	

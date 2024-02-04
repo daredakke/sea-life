@@ -43,6 +43,10 @@ func _die(score) -> void:
 	self.queue_free()
 
 
+func _direction_to_player() -> Vector2:
+	return global_position.direction_to(Globals.player_position)
+
+
 func _spawn_explosion() -> void:
 	var explosion_instance = _explosion_scene.instantiate()
 	explosion_instance.global_position = global_position

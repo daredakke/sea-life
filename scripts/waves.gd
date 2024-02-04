@@ -25,22 +25,23 @@ var _rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.ts
 var _rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
 var _enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
 var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_station.tscn")
+var _enemy_crab_scene: PackedScene = preload("res://scenes/enemies/enemy_crab.tscn")
 var _wave_data: Dictionary = {
 	1: [
 		{
-			"node_scene": _rock_small_scene,
-			"nodes_to_spawn": 9,
+			"node_scene": _enemy_crab_scene,
+			"nodes_to_spawn": 160,
 			"node_speed": 85,
 			"node_speed_variance": 35,
-			"spawn_delay": 1.5,
-			"aim_at_player": false,
+			"spawn_delay": 0.05,
+			"aim_at_player": true,
 		},
 		{
 			"node_scene": _rock_large_scene,
 			"nodes_to_spawn": 6,
 			"node_speed": 85,
 			"node_speed_variance": 35,
-			"spawn_delay": 2.5,
+			"spawn_delay": 4,
 			"aim_at_player": false,
 		},
 	],
