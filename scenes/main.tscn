@@ -43,11 +43,12 @@ top_rotation = -5.0
 unique_name_in_owner = true
 process_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("1_8if2x")]
+[node name="Player" parent="." node_paths=PackedStringArray("starting_position") instance=ExtResource("1_8if2x")]
 unique_name_in_owner = true
 process_mode = 1
 z_index = 1
 position = Vector2(590, 379)
+starting_position = NodePath("../ScreenCentre")
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
@@ -77,6 +78,9 @@ metadata/_edit_group_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyDespawner"]
 polygon = PackedVector2Array(-2142, -229, 1495, -245, 1532, 950, -270, 945, -257, -2149, -2195, -2121, -2225, 2538, 3521, 2515, 3400, -2189, -2134, -2068)
 metadata/_edit_lock_ = true
+
+[node name="ScreenCentre" type="Marker2D" parent="."]
+position = Vector2(640, 360)
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 1
