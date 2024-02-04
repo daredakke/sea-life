@@ -75,7 +75,7 @@ func _process(delta):
 	var angle_diff: float = wrapf(_target_angle - rotation, -PI, PI)
 	rotation += clamp(ANGULAR_SPEED * delta, 0, abs(angle_diff)) * sign(angle_diff)
 	
-	# Flip sprite vertically if facing left
+	# Flip sprite vertically if facing left to keep it upright
 	player_sprite.flip_v = (get_global_mouse_position() - position).x < 0
 	
 	if Input.is_action_pressed("fire") and bullet_spawn_timer.is_stopped():

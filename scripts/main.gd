@@ -89,7 +89,7 @@ func _reset_game_state() -> void:
 	player.reset_player()
 	stats.reset_points_and_stat_labels()
 	_reset_stats()
-	#wave_start_timer.start()
+	wave_start_timer.start()
 	
 	_wave = 0
 	_score = 0

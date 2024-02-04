@@ -14,6 +14,7 @@ var _shots_fired: int = 0
 var _bullets_per_salvo: int = 4
 var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bullet.tscn")
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var reload_timer: Timer = $ReloadTimer
 
@@ -21,6 +22,7 @@ var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bulle
 func _ready() -> void:
 	super._ready()
 	
+	animation_player.play("boiling")
 	fire_rate_timer.wait_time = fire_rate
 	reload_timer.wait_time = reload_delay
 	rotation_degrees = randf_range(0, 360)

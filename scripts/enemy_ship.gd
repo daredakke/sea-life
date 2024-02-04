@@ -9,12 +9,15 @@ extends Enemy
 
 var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bullet.tscn")
 
+@onready var enemy_sprite: Sprite2D = $EnemySprite
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fire_rate: Timer = $FireRate
 @onready var _original_speed: float = speed
 
 
 func _ready() -> void:
 	super._ready()
+	animation_player.play("boiling")
 	_on_fire_rate_timeout()
 
 
@@ -26,9 +29,16 @@ func _process(delta):
 	
 	super._process(delta)
 	look_at(Globals.player_position)
-	rotation_degrees += 90
 	
 	direction = _direction_to_player()
+	
+	# Flip sprite vertically if facing left to keep it upright
+	if direction.x < 0:
+		enemy_sprite.flip_v = true
+		enemy_sprite.offset.y = -3
+	else:
+		enemy_sprite.flip_v = false
+		enemy_sprite.offset.y = 0
 
 
 func _on_fire_rate_timeout() -> void:

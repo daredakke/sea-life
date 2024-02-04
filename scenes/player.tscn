@@ -56,7 +56,6 @@ explosion_scale = 0.75
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.490196, 0.992157, 1, 1)
 position = Vector2(-8, 0)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_807rj")
