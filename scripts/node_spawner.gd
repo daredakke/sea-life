@@ -1,17 +1,16 @@
 class_name NodeSpawner
 extends Node2D
 
-var node_scene: PackedScene
-var nodes_to_spawn: int = 10
+var configuration: EnemyGroup
+var _node_scene: PackedScene
+var _nodes_to_spawn: int = 10
 ## Leave at 0 to use the node's default health
-var node_health: int = 0
-var node_speed: int = 80
-var node_speed_variance: int = 25
-var start_delay: float = 0.05
-var spawn_delay: float = 1.0
-var aim_at_player: bool = false
-var target_x_variance: float = 150
-var target_y_variance: float = 150
+var _node_health: int = 0
+var _node_speed: int = 80
+var _node_speed_variance: int = 25
+var _aim_at_player: bool = false
+var _target_x_variance: float = 150
+var _target_y_variance: float = 150
 
 var _target: Vector2
 var _spawn_areas: Array[SpawnArea]
@@ -22,8 +21,16 @@ var _nodes_spawned: int = 0
 
 
 func _ready() -> void:
-	start_timer.wait_time = start_delay
-	spawn_timer.wait_time = spawn_delay
+	_node_scene = configuration.node_scene
+	_nodes_to_spawn = configuration.nodes_to_spawn
+	_node_health = configuration.node_health
+	_node_speed = configuration.node_speed
+	_node_speed_variance = configuration.node_speed_variance
+	start_timer.wait_time = configuration.start_delay
+	spawn_timer.wait_time = configuration.spawn_delay
+	_aim_at_player = configuration.aim_at_player
+	_target_x_variance = configuration.target_x_variance
+	_target_y_variance = configuration.target_y_variance
 	
 	start_timer.start()
 	
@@ -37,8 +44,8 @@ func _get_screen_centre_target_area() -> Vector2:
 	var centre_x = Globals.screen_centre.x
 	var centre_y = Globals.screen_centre.y
 	
-	centre_x += randf_range(-target_x_variance, target_x_variance)
-	centre_y += randf_range(-target_y_variance, target_y_variance)
+	centre_x += randf_range(-_target_x_variance, _target_x_variance)
+	centre_y += randf_range(-_target_y_variance, _target_y_variance)
 	
 	return Vector2(centre_x, centre_y)
 
@@ -48,18 +55,18 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
-	var node_instance := node_scene.instantiate() as Enemy
+	var node_instance := _node_scene.instantiate() as Enemy
 	
-	if node_health > 0:
-		node_instance.health = node_health
+	if _node_health > 0:
+		node_instance.health = _node_health
 	
-	node_instance.speed = node_speed
-	node_instance.speed_variance = node_speed_variance
+	node_instance.speed = _node_speed
+	node_instance.speed_variance = _node_speed_variance
 	
 	var spawn_position: Vector2 = _spawn_areas.pick_random().get_random_spawn_position()
 	node_instance.global_position = spawn_position
 	
-	if aim_at_player:
+	if _aim_at_player:
 		_target = Globals.player_position
 	else:
 		_target = _get_screen_centre_target_area()
@@ -70,5 +77,5 @@ func _on_spawn_timer_timeout() -> void:
 	
 	add_sibling(node_instance)
 	
-	if _nodes_spawned >= nodes_to_spawn:
+	if _nodes_spawned >= _nodes_to_spawn:
 		self.queue_free()

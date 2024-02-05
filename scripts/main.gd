@@ -135,17 +135,7 @@ func _start_wave() -> void:
 	
 	for group in wave_composition:
 		var node_spawner_instance := _node_spawner_scene.instantiate() as NodeSpawner
-		
-		node_spawner_instance.node_scene = group.node_scene
-		node_spawner_instance.nodes_to_spawn = group.nodes_to_spawn
-		node_spawner_instance.node_health = group.node_health
-		node_spawner_instance.node_speed = group.node_speed
-		node_spawner_instance.node_speed_variance = group.node_speed_variance
-		node_spawner_instance.start_delay = group.start_delay
-		node_spawner_instance.spawn_delay = group.spawn_delay
-		node_spawner_instance.aim_at_player = group.aim_at_player
-		node_spawner_instance.target_x_variance = group.target_x_variance
-		node_spawner_instance.target_y_variance = group.target_y_variance
+		node_spawner_instance.configuration = group
 		
 		enemies.add_child(node_spawner_instance)
 
