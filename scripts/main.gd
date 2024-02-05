@@ -37,6 +37,7 @@ var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.ts
 @onready var projectiles: Node = %Projectiles
 @onready var player: Player = %Player
 @onready var enemies: Node = %Enemies
+@onready var screen_centre: Marker2D = %ScreenCentre
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
 @onready var special: Special = %Special	
 @onready var score: Score = %Score
@@ -47,6 +48,7 @@ var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.ts
 
 
 func _ready() -> void:
+	Globals.screen_centre = screen_centre.global_position
 	pause.start_new_game.connect(_start_new_game)
 	pause.continue_game.connect(_continue_game)
 	stats.close_stats_screen.connect(_on_close_stats_screen)

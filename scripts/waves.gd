@@ -31,10 +31,10 @@ var _wave_data: Dictionary = {
 	1: [
 		{
 			"node_scene": _rock_small_scene,
-			"nodes_to_spawn": 12,
-			"node_speed": 60,
+			"nodes_to_spawn": 120,
+			"node_speed": 100,
 			"node_speed_variance": 30,
-			"spawn_delay": 2,
+			"spawn_delay": 0.05,
 			"aim_at_player": false,
 		},
 	],

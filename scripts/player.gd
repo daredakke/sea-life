@@ -24,7 +24,6 @@ const ENEMY_DAMAGE: float = 40
 @export var health_recovery_rate: float = 0.1
 @export var bullet_graze_score: int = 30
 @export var explosion_scale: float = 0.3
-@export var screen_centre: Marker2D
 
 var is_alive: bool = true
 var player_direction: Vector2
@@ -103,7 +102,7 @@ func kill_player() -> void:
 
 func reset_player() -> void:
 	is_alive = true
-	global_position = screen_centre.global_position
+	global_position = Globals.screen_centre
 	health = MAX_HEALTH
 
 

@@ -34,8 +34,8 @@ func _ready() -> void:
 
 
 func _get_screen_centre_target_area() -> Vector2:
-	var centre_x = get_viewport_rect().size.x * 0.5
-	var centre_y = get_viewport_rect().size.y * 0.5
+	var centre_x = Globals.screen_centre.x
+	var centre_y = Globals.screen_centre.y
 	
 	centre_x += randf_range(-target_x_variance, target_x_variance)
 	centre_y += randf_range(-target_y_variance, target_y_variance)

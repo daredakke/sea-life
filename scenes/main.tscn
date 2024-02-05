@@ -43,12 +43,11 @@ top_rotation = -5.0
 unique_name_in_owner = true
 process_mode = 1
 
-[node name="Player" parent="." node_paths=PackedStringArray("screen_centre") instance=ExtResource("1_8if2x")]
+[node name="Player" parent="." instance=ExtResource("1_8if2x")]
 unique_name_in_owner = true
 process_mode = 1
 z_index = 1
 position = Vector2(590, 379)
-screen_centre = NodePath("../ScreenCentre")
 
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true

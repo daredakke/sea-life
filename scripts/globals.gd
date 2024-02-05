@@ -2,6 +2,7 @@ extends Node
 
 
 var player_position: Vector2
+var screen_centre: Vector2
 
 @onready var score: int = 0
 
