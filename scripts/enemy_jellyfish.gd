@@ -31,7 +31,7 @@ func _die(score) -> void:
 
 func _fire_bullet_ring(speed_multiplier: float) -> void:
 	for i in range(bullet_count):
-		var bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
+		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 		bullet_instance.global_position = global_position
 		bullet_instance.speed = bullet_speed
 		bullet_instance.speed_multiplier = 1.0 + (speed_multiplier * 0.2)

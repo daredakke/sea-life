@@ -36,7 +36,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _spawn_explosion() -> void:
-	var explosion_instance = _explosion_scene.instantiate()
+	var explosion_instance := _explosion_scene.instantiate() as Explosion
 	explosion_instance.global_position = global_position
 	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)
 	

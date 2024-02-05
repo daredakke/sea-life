@@ -48,7 +48,7 @@ func _direction_to_player() -> Vector2:
 
 
 func _spawn_explosion() -> void:
-	var explosion_instance = _explosion_scene.instantiate()
+	var explosion_instance := _explosion_scene.instantiate() as Explosion
 	explosion_instance.global_position = global_position
 	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)
 	

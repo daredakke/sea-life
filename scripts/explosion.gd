@@ -13,7 +13,7 @@ func _ready() -> void:
 	animation_player.play("fade_out")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	scale.x += expansion_rate
 	scale.y += expansion_rate
 

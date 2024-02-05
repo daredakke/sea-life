@@ -47,7 +47,7 @@ func _on_fire_rate_timeout() -> void:
 	
 	fire_rate.wait_time = fire_rate_time + randf_range(0, fire_rate_variance)
 	
-	var enemy_bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
+	var enemy_bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 	enemy_bullet_instance.position = self.position
 	enemy_bullet_instance.direction = _direction_to_player()
 	

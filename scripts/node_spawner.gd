@@ -3,14 +3,13 @@ extends Node2D
 
 var configuration: EnemyGroup
 var _node_scene: PackedScene
-var _nodes_to_spawn: int = 10
-## Leave at 0 to use the node's default health
-var _node_health: int = 0
-var _node_speed: int = 80
-var _node_speed_variance: int = 25
-var _aim_at_player: bool = false
-var _target_x_variance: float = 150
-var _target_y_variance: float = 150
+var _nodes_to_spawn: int
+var _node_health: int
+var _node_speed: int
+var _node_speed_variance: int
+var _aim_at_player: bool
+var _target_x_variance: float
+var _target_y_variance: float
 
 var _target: Vector2
 var _spawn_areas: Array[SpawnArea]

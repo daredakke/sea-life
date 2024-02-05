@@ -6,7 +6,6 @@ signal score_increased(value: int, increase_multiplier: bool)
 signal special_charged
 
 var _enemies_defeated_milestone: int = 50
-
 var _enemies_in_wave: int = -1 
 # For detecting if a wave is over
 var _enemies_defeated_this_wave: int = 0
@@ -29,7 +28,7 @@ var _waves_collection: WavesCollection = preload("res://resources/waves_default.
 
 
 func get_wave_composition(wave: int) -> Array:
-	var index = clampi(wave, 0, get_wave_count() - 1)
+	var index: int = clampi(wave, 0, get_wave_count() - 1)
 	
 	return _waves_collection.collection[index].composition
 

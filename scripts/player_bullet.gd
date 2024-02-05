@@ -2,8 +2,7 @@ class_name PlayerBullet
 extends Area2D
 
 
-@export var speed: float = 975
-
+var speed: float = 975
 var direction: Vector2
 var speed_multiplier: float = 1.0
 var power: int = 1
@@ -12,7 +11,7 @@ var pierce_chance: float = 0
 
 
 func _process(delta):
-	self.position += direction * speed * speed_multiplier * delta
+	position += direction * speed * speed_multiplier * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

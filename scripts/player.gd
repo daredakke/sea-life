@@ -14,7 +14,7 @@ signal player_died
 
 const ANGULAR_SPEED: float = TAU * 2
 const MAX_HEALTH: float = 100
-const ENEMY_DAMAGE: float = 40
+const ENEMY_DAMAGE: int = 40
 
 @export var player_speed: float = 500
 @export var health: float = MAX_HEALTH:
@@ -22,7 +22,7 @@ const ENEMY_DAMAGE: float = 40
 		health = clampf(new_value, -1, MAX_HEALTH)
 		player_health_changed.emit(new_value, MAX_HEALTH)
 @export var health_recovery_rate: float = 0.1
-@export var bullet_graze_score: int = 30
+@export var bullet_graze_score: int = 5
 @export var explosion_scale: float = 0.3
 
 var is_alive: bool = true
@@ -135,7 +135,7 @@ func _on_player_health_changed(value: int, _max_health: int) -> void:
 
 
 func _spawn_explosion() -> void:
-	var explosion_instance = _explosion_scene.instantiate()
+	var explosion_instance := _explosion_scene.instantiate() as Explosion
 	explosion_instance.global_position = global_position
 	explosion_instance.animation_speed_scale = 0.5
 	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)

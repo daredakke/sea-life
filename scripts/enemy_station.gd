@@ -53,7 +53,7 @@ func _on_fire_rate_timer_timeout() -> void:
 		return
 	
 	for i in range(_bullets_per_salvo):
-		var bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
+		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 		bullet_instance.position = self.position
 		bullet_instance.direction = self.direction.rotated(self.rotation + deg_to_rad(90) * i)
 		add_sibling(bullet_instance)
