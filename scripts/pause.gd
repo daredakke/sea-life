@@ -37,11 +37,11 @@ func display_highscores() -> void:
 		return
 	
 	for i in range(Highscores.scores["scores"].size()):
-		var name = Highscores.scores["names"][i]
+		var score_name = Highscores.scores["names"][i]
 		var score = Highscores.scores["scores"][i]
 		var highscore_row_instance := _highscore_row_scene.instantiate() as HBoxContainer
 		
-		highscore_row_instance.name_text = name
+		highscore_row_instance.name_text = score_name
 		highscore_row_instance.score = score
 		
 		highscore_v_box.add_child(highscore_row_instance)

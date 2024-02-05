@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="WaveComposition" load_steps=3 format=3 uid="uid://d324o4j2tqu7f"]
 
+[ext_resource type="Resource" uid="uid://wdidlifu25sc" path="res://scenes/enemy_groups/group_2.tres" id="1_76i84"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_w02f3"]
-[ext_resource type="PackedScene" uid="uid://y0mf3xnckeov" path="res://scenes/waves/wave_2.tscn" id="2_5q8tl"]
 
 [resource]
 script = ExtResource("1_w02f3")
-wave_set = Array[PackedScene]([ExtResource("2_5q8tl")])
+composition = Array[Resource("res://scripts/enemy_group.gd")]([ExtResource("1_76i84")])

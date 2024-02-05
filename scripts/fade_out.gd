@@ -17,7 +17,7 @@ func start_animation() -> void:
 	animation_player.play("fade_out")
 
 
-func _on_animation_finished(anim_name: StringName) -> void:
+func _on_animation_finished(_anim_name: StringName) -> void:
 	self.hide()
 	animation_finished.emit()
 	animation_player.stop()

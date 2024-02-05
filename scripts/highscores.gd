@@ -29,9 +29,9 @@ func is_new_highscore(score: int) -> bool:
 	return false
 
 
-func save_single_score(score: int, name: String) -> void:
+func save_single_score(score: int, score_name: String) -> void:
 	if scores["scores"].is_empty():
-		scores["names"].append(name)
+		scores["names"].append(score_name)
 		scores["scores"].append(score)
 		save_scores()
 		return
@@ -65,9 +65,9 @@ func load_scores() -> void:
 		var file = FileAccess.open(SCORE_LIST, FileAccess.READ)
 		scores = file.get_var()
 		file = null
-		return
-	
+		
 	# Or create scores.dat if it does not exist
-	var file = FileAccess.open(SCORE_LIST, FileAccess.WRITE_READ)
-	file.store_var(BLANK_SCORES)
-	file = null
+	else:
+		var file = FileAccess.open(SCORE_LIST, FileAccess.WRITE_READ)
+		file.store_var(BLANK_SCORES)
+		file = null

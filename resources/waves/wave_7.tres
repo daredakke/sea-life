@@ -5,4 +5,4 @@
 
 [resource]
 script = ExtResource("1_he48s")
-wave_set = Array[PackedScene]([ExtResource("2_ee3yy")])
+composition = Array[PackedScene]([ExtResource("2_ee3yy")])

@@ -6,6 +6,7 @@ const BASE_SPREAD_RANGE: float = 0.12
 const POINTS_PER_WAVE: int = 2
 const MAX_SCORE_MULTIPLIER: int = 9999
 const MAX_SPECIAL_CHARGES: int = 3
+const INITIAL_WAVE: int = -1
 
 var _game_started: bool = false
 var _game_paused: bool = true
@@ -17,7 +18,7 @@ var _score_multiplier: int = 1:
 	set(new_value):
 		_score_multiplier = new_value
 		score.set_multiplier_label(new_value)
-var _wave: int = 0
+var _wave: int = INITIAL_WAVE
 var _special_charges: int = 1:
 	set(new_value):
 		_special_charges = new_value
@@ -94,7 +95,7 @@ func _reset_game_state() -> void:
 	_reset_stats()
 	wave_start_timer.start()
 	
-	_wave = 0
+	_wave = INITIAL_WAVE
 	_score = 0
 	_score_multiplier = 1
 	_special_charges = 1
@@ -124,28 +125,27 @@ func _show_game_over_screen() -> void:
 	game_over.set_total_score(_score)
 
 
-func _on_wave_start_timer_timeout() -> void:
+func _start_wave() -> void:
 	_wave += 1
-	var wave_params: Array = Waves.get_wave_parameters(_wave)
 	
+	stats.set_wave_text(_wave + 1)
 	Waves.set_enemies_in_wave(_wave)
-	stats.set_wave_text(_wave)
 	
-	for params in wave_params:
-		var node_spawner_instance := _node_spawner_scene.instantiate() as Node2D
+	var wave_composition = Waves.get_wave_composition(_wave)
+	
+	for group in wave_composition:
+		var node_spawner_instance := _node_spawner_scene.instantiate() as NodeSpawner
 		
-		node_spawner_instance.node_scene = params["node_scene"]
-		node_spawner_instance.nodes_to_spawn = params["nodes_to_spawn"]
-		node_spawner_instance.node_speed = params["node_speed"]
-		node_spawner_instance.node_speed_variance = params["node_speed_variance"]
-		node_spawner_instance.spawn_delay = params["spawn_delay"]
-		node_spawner_instance.aim_at_player = params["aim_at_player"]
-		
-		if params.has("start_delay"):
-			node_spawner_instance.start_delay = params["start_delay"]
-			
-		if params.has("node_health"):
-			node_spawner_instance.node_health = params["node_health"]
+		node_spawner_instance.node_scene = group.node_scene
+		node_spawner_instance.nodes_to_spawn = group.nodes_to_spawn
+		node_spawner_instance.node_health = group.node_health
+		node_spawner_instance.node_speed = group.node_speed
+		node_spawner_instance.node_speed_variance = group.node_speed_variance
+		node_spawner_instance.start_delay = group.start_delay
+		node_spawner_instance.spawn_delay = group.spawn_delay
+		node_spawner_instance.aim_at_player = group.aim_at_player
+		node_spawner_instance.target_x_variance = group.target_x_variance
+		node_spawner_instance.target_y_variance = group.target_y_variance
 		
 		enemies.add_child(node_spawner_instance)
 
