@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cav01lv12cgqo"]
+
+[ext_resource type="Script" path="res://scripts/node_spawner.gd" id="1_rqopo"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="2_mgmth"]
+
+[node name="Wave1" type="Node2D"]
+script = ExtResource("1_rqopo")
+node_scene = ExtResource("2_mgmth")
+spawn_delay = 2.2

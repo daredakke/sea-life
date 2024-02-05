@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ulwbeuk17l4a"]
 
-[ext_resource type="Script" path="res://scripts/enemy_station.gd" id="1_xc1p5"]
-[ext_resource type="Texture2D" uid="uid://di0d5d50s4vl4" path="res://assets/starfish.png" id="2_i0rq4"]
+[ext_resource type="Script" path="res://scripts/enemy_station.gd" id="1_n34tr"]
+[ext_resource type="Texture2D" uid="uid://di0d5d50s4vl4" path="res://assets/starfish.png" id="2_mrpfp"]
 
 [sub_resource type="Animation" id="Animation_g70lf"]
 length = 0.001
@@ -49,7 +49,7 @@ height = 76.3538
 
 [node name="EnemyStation" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_xc1p5")
+script = ExtResource("1_n34tr")
 health = 12
 score_value = 50
 explosion_scale = 0.36
@@ -57,7 +57,7 @@ speed = 50.0
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 modulate = Color(0.972549, 0, 0.933333, 1)
-texture = ExtResource("2_i0rq4")
+texture = ExtResource("2_mrpfp")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

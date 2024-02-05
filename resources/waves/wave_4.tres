@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=3 format=3 uid="uid://j5457psok07w"]
+
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_kgxrf"]
+[ext_resource type="PackedScene" uid="uid://bxg73yk16x3qr" path="res://scenes/waves/wave_4.tscn" id="2_ec0lu"]
+
+[resource]
+script = ExtResource("1_kgxrf")
+wave_set = Array[PackedScene]([ExtResource("2_ec0lu")])

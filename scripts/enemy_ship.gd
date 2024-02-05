@@ -1,4 +1,4 @@
-class_name EnemyShip
+class_name EnemyFish
 extends Enemy
 
 

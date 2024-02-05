@@ -1,4 +1,4 @@
-class_name EnemyStation
+class_name EnemyStarfish
 extends Enemy
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://damxl450n0mfe"]
 
-[ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_d1qb2"]
-[ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/fish3.png" id="2_o2xlr"]
+[ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_qbryu"]
+[ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/fish3.png" id="2_jccfy"]
 
 [sub_resource type="Animation" id="Animation_g2poo"]
 length = 0.001
@@ -51,7 +51,7 @@ height = 100.0
 
 [node name="EnemyShip" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_d1qb2")
+script = ExtResource("1_qbryu")
 health = 5
 score_value = 30
 explosion_scale = 0.24
@@ -60,7 +60,7 @@ speed_variance = 25.0
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.329412, 0.329412, 1)
-texture = ExtResource("2_o2xlr")
+texture = ExtResource("2_jccfy")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

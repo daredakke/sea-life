@@ -23,8 +23,8 @@ var _enemies_defeated: int = 0:
 			special_charged.emit()
 var _rock_small_scene: PackedScene = preload("res://scenes/enemies/rock_small.tscn")
 var _rock_large_scene: PackedScene = preload("res://scenes/enemies/rock_large.tscn")
-var _enemy_ship_scene: PackedScene = preload("res://scenes/enemies/enemy_ship.tscn")
-var _enemy_station_scene: PackedScene = preload("res://scenes/enemies/enemy_station.tscn")
+var _enemy_fish_scene: PackedScene = preload("res://scenes/enemies/enemy_fish.tscn")
+var _enemy_starfish_scene: PackedScene = preload("res://scenes/enemies/enemy_starfish.tscn")
 var _enemy_crab_scene: PackedScene = preload("res://scenes/enemies/enemy_crab.tscn")
 var _enemy_jellyfish_scene: PackedScene = preload("res://scenes/enemies/enemy_jellyfish.tscn")
 var _wave_data: Dictionary = {
@@ -71,7 +71,7 @@ var _wave_data: Dictionary = {
 	
 	4: [
 		{
-			"node_scene": _enemy_ship_scene,
+			"node_scene": _enemy_fish_scene,
 			"nodes_to_spawn": 12,
 			"node_speed": 75,
 			"node_speed_variance": 40,
@@ -98,7 +98,7 @@ var _wave_data: Dictionary = {
 			"aim_at_player": false,
 		},
 		{
-			"node_scene": _enemy_ship_scene,
+			"node_scene": _enemy_fish_scene,
 			"nodes_to_spawn": 12,
 			"node_speed": 75,
 			"node_speed_variance": 50,
@@ -127,7 +127,7 @@ var _wave_data: Dictionary = {
 			"aim_at_player": false,
 		},
 		{
-			"node_scene": _enemy_ship_scene,
+			"node_scene": _enemy_fish_scene,
 			"nodes_to_spawn": 8,
 			"node_speed": 80,
 			"node_speed_variance": 40,
@@ -166,7 +166,7 @@ var _wave_data: Dictionary = {
 			"aim_at_player": true,
 		},
 		{
-			"node_scene": _enemy_ship_scene,
+			"node_scene": _enemy_fish_scene,
 			"nodes_to_spawn": 40,
 			"node_speed": 90,
 			"node_speed_variance": 100,
@@ -175,7 +175,7 @@ var _wave_data: Dictionary = {
 			"aim_at_player": true,
 		},
 		{
-			"node_scene": _enemy_station_scene,
+			"node_scene": _enemy_starfish_scene,
 			"nodes_to_spawn": 20,
 			"node_speed": 80,
 			"node_speed_variance": 35,
