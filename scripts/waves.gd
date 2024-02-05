@@ -31,40 +31,40 @@ var _wave_data: Dictionary = {
 	1: [
 		{
 			"node_scene": _rock_small_scene,
-			"nodes_to_spawn": 120,
-			"node_speed": 100,
-			"node_speed_variance": 30,
-			"spawn_delay": 0.05,
-			"aim_at_player": false,
-		},
-	],
-	
-	2: [
-		{
-			"node_scene": _enemy_crab_scene,
-			"nodes_to_spawn": 12,
-			"node_speed": 70,
+			"nodes_to_spawn": 1,
+			"node_speed": 75,
 			"node_speed_variance": 30,
 			"spawn_delay": 2,
 			"aim_at_player": false,
 		},
 	],
 	
+	2: [
+		{
+			"node_scene": _enemy_jellyfish_scene,
+			"nodes_to_spawn": 12,
+			"node_speed": 60,
+			"node_speed_variance": 40,
+			"spawn_delay": 1.25,
+			"aim_at_player": true,
+		},
+	],
+	
 	3: [
 		{
 			"node_scene": _enemy_crab_scene,
-			"nodes_to_spawn": 6,
-			"node_speed": 80,
-			"node_speed_variance": 50,
-			"spawn_delay": 3,
+			"nodes_to_spawn": 9,
+			"node_speed": 100,
+			"node_speed_variance": 30,
+			"spawn_delay": 2,
 			"aim_at_player": true,
 		},
 		{
 			"node_scene": _rock_small_scene,
-			"nodes_to_spawn": 10,
+			"nodes_to_spawn": 12,
 			"node_speed": 60,
-			"node_speed_variance": 45,
-			"spawn_delay": 1.9,
+			"node_speed_variance": 50,
+			"spawn_delay": 1.4,
 			"aim_at_player": false,
 		},
 	],
@@ -72,10 +72,10 @@ var _wave_data: Dictionary = {
 	4: [
 		{
 			"node_scene": _enemy_ship_scene,
-			"nodes_to_spawn": 10,
-			"node_speed": 70,
-			"node_speed_variance": 50,
-			"spawn_delay": 2.2,
+			"nodes_to_spawn": 12,
+			"node_speed": 75,
+			"node_speed_variance": 40,
+			"spawn_delay": 2,
 			"aim_at_player": true,
 		},
 	],
@@ -84,7 +84,7 @@ var _wave_data: Dictionary = {
 		{
 			"node_scene": _rock_small_scene,
 			"nodes_to_spawn": 14,
-			"node_speed": 75,
+			"node_speed": 90,
 			"node_speed_variance": 40,
 			"spawn_delay": 0.8,
 			"aim_at_player": true,
@@ -93,17 +93,17 @@ var _wave_data: Dictionary = {
 			"node_scene": _rock_large_scene,
 			"nodes_to_spawn": 8,
 			"node_speed": 55,
-			"node_speed_variance": 25,
+			"node_speed_variance": 35,
 			"spawn_delay": 1.3,
 			"aim_at_player": false,
 		},
 		{
 			"node_scene": _enemy_ship_scene,
 			"nodes_to_spawn": 12,
-			"node_speed": 70,
+			"node_speed": 75,
 			"node_speed_variance": 50,
-			"start_delay": 11,
-			"spawn_delay": 2.3,
+			"start_delay": 10,
+			"spawn_delay": 2.1,
 			"aim_at_player": true,
 		},
 	],
@@ -119,9 +119,9 @@ var _wave_data: Dictionary = {
 		},
 		{
 			"node_scene": _enemy_crab_scene,
-			"nodes_to_spawn": 8,
-			"node_speed": 70,
-			"node_speed_variance": 40,
+			"nodes_to_spawn": 9,
+			"node_speed": 110,
+			"node_speed_variance": 30,
 			"start_delay": 5,
 			"spawn_delay": 1.5,
 			"aim_at_player": false,
@@ -129,7 +129,7 @@ var _wave_data: Dictionary = {
 		{
 			"node_scene": _enemy_ship_scene,
 			"nodes_to_spawn": 8,
-			"node_speed": 70,
+			"node_speed": 80,
 			"node_speed_variance": 40,
 			"start_delay": 6.5,
 			"spawn_delay": 1.5,
@@ -138,6 +138,17 @@ var _wave_data: Dictionary = {
 	],
 	
 	7: [
+		{
+			"node_scene": _enemy_jellyfish_scene,
+			"nodes_to_spawn": 14,
+			"node_speed": 60,
+			"node_speed_variance": 40,
+			"spawn_delay": 1.25,
+			"aim_at_player": true,
+		},
+	],
+	
+	8: [
 		{
 			"node_scene": _rock_small_scene,
 			"nodes_to_spawn": 50,
