@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _die(score) -> void:
 	for i in range(salvo_count):
-		_fire_bullet_ring(i * 1)
+		call_deferred("_fire_bullet_ring", i * 1)
 		
 	super._die(score)
 

@@ -31,7 +31,7 @@ var _wave_data: Dictionary = {
 	1: [
 		{
 			"node_scene": _rock_small_scene,
-			"nodes_to_spawn": 1,
+			"nodes_to_spawn": 12,
 			"node_speed": 75,
 			"node_speed_variance": 30,
 			"spawn_delay": 2,
@@ -41,11 +41,11 @@ var _wave_data: Dictionary = {
 	
 	2: [
 		{
-			"node_scene": _enemy_jellyfish_scene,
+			"node_scene": _enemy_crab_scene,
 			"nodes_to_spawn": 12,
-			"node_speed": 60,
+			"node_speed": 90,
 			"node_speed_variance": 40,
-			"spawn_delay": 1.25,
+			"spawn_delay": 1.8,
 			"aim_at_player": true,
 		},
 	],
@@ -62,8 +62,8 @@ var _wave_data: Dictionary = {
 		{
 			"node_scene": _rock_small_scene,
 			"nodes_to_spawn": 12,
-			"node_speed": 60,
-			"node_speed_variance": 50,
+			"node_speed": 70,
+			"node_speed_variance": 45,
 			"spawn_delay": 1.4,
 			"aim_at_player": false,
 		},
