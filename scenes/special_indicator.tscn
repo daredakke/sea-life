@@ -1,8 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://hyluhmuy4mw4"]
+[gd_scene load_steps=6 format=3 uid="uid://hyluhmuy4mw4"]
 
-[ext_resource type="Texture2D" uid="uid://c6vnavx11bq84" path="res://assets/circle-white-border.png" id="1_bvpry"]
+[ext_resource type="Texture2D" uid="uid://jsh1w4o4w52" path="res://assets/special-indicator.png" id="1_e0x8c"]
+[ext_resource type="Script" path="res://scripts/special_indicator.gd" id="1_xtp1g"]
 
-[node name="SpecialIndicator" type="TextureRect"]
-texture = ExtResource("1_bvpry")
-expand_mode = 1
-stretch_mode = 3
+[sub_resource type="Animation" id="Animation_i2cwp"]
+resource_name = "boiling"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Indicator:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.253112),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qlecw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Indicator:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uc3hb"]
+_data = {
+"RESET": SubResource("Animation_qlecw"),
+"boiling": SubResource("Animation_i2cwp")
+}
+
+[node name="SpecialIndicator" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xtp1g")
+
+[node name="Indicator" type="Sprite2D" parent="."]
+texture = ExtResource("1_e0x8c")
+offset = Vector2(0, 8)
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uc3hb")
+}

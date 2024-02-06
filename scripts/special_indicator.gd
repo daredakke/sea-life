@@ -1,5 +1,5 @@
-class_name RockSmall
-extends Rock
+class_name SpecialIndicator
+extends Control
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

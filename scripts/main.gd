@@ -200,7 +200,7 @@ func _update_player_health_bar(hp: int, max_hp: int) -> void:
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
-	var bullet_instance := _player_bullet_scene.instantiate() as Area2D
+	var bullet_instance := _player_bullet_scene.instantiate() as PlayerBullet
 	
 	if _spread_range > 0:
 		_spread = randf_range(-_spread_range, _spread_range)
@@ -223,7 +223,7 @@ func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:
 
 func _on_special_fired(pos: Vector2) -> void:
 	if _special_charges > 0:
-		var special_attack_instance := _special_attack_scene.instantiate() as Area2D
+		var special_attack_instance := _special_attack_scene.instantiate() as SpecialAttack
 		
 		special_attack_instance.global_position = pos
 		

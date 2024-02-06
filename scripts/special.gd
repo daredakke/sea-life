@@ -23,6 +23,6 @@ func update_special_indicators() -> void:
 	
 	if charges > 0:
 		for i in range(charges):
-			var indicator_instance := indicator_scene.instantiate() as TextureRect
+			var indicator_instance := indicator_scene.instantiate() as SpecialIndicator
 			
 			indicator_h_box.add_child(indicator_instance)
