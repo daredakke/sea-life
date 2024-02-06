@@ -19,6 +19,9 @@ func save_scores() -> void:
 
 
 func is_new_highscore(score: int) -> bool:
+	if score == 0:
+		return false
+	
 	if scores["scores"].size() < MAX_SCORES:
 		return true
 	
