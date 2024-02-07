@@ -20,7 +20,7 @@ func _ready() -> void:
 
 
 func _process(delta):
-	self.position += direction * speed * delta
+	position += direction * speed * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

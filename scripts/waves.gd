@@ -5,6 +5,8 @@ signal wave_over
 signal score_increased(value: int, increase_multiplier: bool)
 signal special_charged
 
+const MAX_ENEMY_DEFEATED_MILESTONE: int = 125
+
 var _enemies_defeated_milestone: int = 50
 var _enemies_in_wave: int = -1 
 # For detecting if a wave is over
@@ -19,18 +21,21 @@ var _enemies_defeated: int = 0:
 		if _enemies_defeated_combo >= _enemies_defeated_milestone:
 			_enemies_defeated_combo = 0
 			
-			if _enemies_defeated_milestone < 100:
+			if _enemies_defeated_milestone < MAX_ENEMY_DEFEATED_MILESTONE:
 				_enemies_defeated_milestone += 1
 			
 			special_charged.emit()
 
 var _waves_collection: WavesCollection = preload("res://resources/waves_default.tres")
+# Once out of waves, this one will run on repeat with increasing difficulty
+var _final_wave: WaveComposition = preload("res://resources/waves/final_wave.tres")
 
 
 func get_wave_composition(wave: int) -> Array:
-	var index: int = clampi(wave, 0, get_wave_count() - 1)
+	if wave > get_wave_count() - 1:
+		return _final_wave.composition
 	
-	return _waves_collection.collection[index].composition
+	return _waves_collection.collection[wave].composition
 
 
 func set_enemies_in_wave(wave: int) -> void:
@@ -41,8 +46,6 @@ func set_enemies_in_wave(wave: int) -> void:
 	
 	for group in wave_composition:
 		_enemies_in_wave += group.nodes_to_spawn
-	
-	print("enemies in wave: " + str(_enemies_in_wave))
 
 
 func enemy_defeated(score_value: int) -> void:

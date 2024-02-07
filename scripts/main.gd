@@ -7,6 +7,7 @@ const POINTS_PER_WAVE: int = 2
 const MAX_SCORE_MULTIPLIER: int = 9999
 const MAX_SPECIAL_CHARGES: int = 3
 const INITIAL_WAVE: int = -1
+const MAX_FINAL_WAVE_CHANGES: int = 12
 
 var _game_started: bool = false
 var _game_paused: bool = true
@@ -32,6 +33,16 @@ var _bullet_speed_multiplier: float = 1
 var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawner.tscn")
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.tscn")
+var _final_wave_changes: Dictionary = {
+	"nodes_to_spawn": 3,
+	"node_health": 3,
+	"node_speed": 2.5,
+	"node_speed_variance": 2,
+	"spawn_delay": -0.2,
+	"spawn_delay_min": 0.05,
+	"start_delay": -0.25,
+	"start_delay_min": 5,
+}
 
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
@@ -135,6 +146,16 @@ func _start_wave() -> void:
 	
 	for group in wave_composition:
 		var node_spawner_instance := _node_spawner_scene.instantiate() as NodeSpawner
+		
+		#if _wave > Waves.get_wave_count():
+		#	# Increment stats 10 times
+		#	# Increase nodes_to_spawn by 3
+		#	# Increase node_speed by 3
+		#	# Increase node_speed_variance by 2
+		#	# Decrease spawn_delay by 0.2, min 0.05
+		#	# Decrease start_delay by 0.4, min 5
+		#	pass
+		
 		node_spawner_instance.configuration = group
 		
 		enemies.add_child(node_spawner_instance)

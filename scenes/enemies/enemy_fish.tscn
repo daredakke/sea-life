@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://damxl450n0mfe"]
 
-[ext_resource type="Script" path="res://scripts/enemy_ship.gd" id="1_qbryu"]
+[ext_resource type="Script" path="res://scripts/enemy_fish.gd" id="1_ovupi"]
 [ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/fish3.png" id="2_jccfy"]
 
 [sub_resource type="Animation" id="Animation_g2poo"]
@@ -49,9 +49,9 @@ height = 56.0
 radius = 16.0
 height = 100.0
 
-[node name="EnemyShip" type="Area2D" groups=["enemy"]]
+[node name="EnemyFish" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_qbryu")
+script = ExtResource("1_ovupi")
 health = 5
 score_value = 30
 explosion_scale = 0.24

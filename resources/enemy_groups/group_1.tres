@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EnemyGroup" load_steps=3 format=3 uid="uid://ceitoob3rqf01"]
 
 [ext_resource type="Script" path="res://scripts/enemy_group.gd" id="1_0lb6f"]
-[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_dsa7r"]
+[ext_resource type="PackedScene" uid="uid://dg325iwinn4xs" path="res://scenes/enemies/enemy_squid.tscn" id="1_pmps7"]
 
 [resource]
 script = ExtResource("1_0lb6f")
-node_scene = ExtResource("1_dsa7r")
+node_scene = ExtResource("1_pmps7")
 nodes_to_spawn = 10
 node_health = 0
 node_speed = 70

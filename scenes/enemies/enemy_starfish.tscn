@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ulwbeuk17l4a"]
 
-[ext_resource type="Script" path="res://scripts/enemy_station.gd" id="1_n34tr"]
+[ext_resource type="Script" path="res://scripts/enemy_starfish.gd" id="1_eii1d"]
 [ext_resource type="Texture2D" uid="uid://di0d5d50s4vl4" path="res://assets/starfish.png" id="2_mrpfp"]
 
 [sub_resource type="Animation" id="Animation_g70lf"]
@@ -47,9 +47,9 @@ height = 56.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v1xk"]
 height = 76.3538
 
-[node name="EnemyStation" type="Area2D" groups=["enemy"]]
+[node name="EnemyStarfish" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_n34tr")
+script = ExtResource("1_eii1d")
 health = 12
 score_value = 50
 explosion_scale = 0.36

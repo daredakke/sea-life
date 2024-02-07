@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg325iwinn4xs"]
+
+[ext_resource type="Script" path="res://scripts/enemy_squid.gd" id="1_1ijrv"]
+[ext_resource type="Texture2D" uid="uid://f85msdwvtqbv" path="res://assets/squid.png" id="2_5pt55"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d00qx"]
+radius = 11.0
+height = 46.0
+
+[sub_resource type="Animation" id="Animation_g3eth"]
+resource_name = "boiling"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_jkbkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qo2i"]
+_data = {
+"RESET": SubResource("Animation_jkbkw"),
+"boiling": SubResource("Animation_g3eth")
+}
+
+[node name="EnemySquid" type="Area2D" groups=["enemy"]]
+script = ExtResource("1_1ijrv")
+health = 4
+score_value = 25
+explosion_scale = 0.26
+speed_variance = 20.0
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(-11, 2)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_5pt55")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d00qx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4qo2i")
+}
+
+[node name="SpeedResetTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="FireRate" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="BulletSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(-12, 0)
+
+[node name="BulletTargetMarker" type="Marker2D" parent="."]
+position = Vector2(-35, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="SpeedResetTimer" to="." method="_on_speed_reset_timer_timeout"]
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

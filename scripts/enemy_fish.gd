@@ -2,8 +2,8 @@ class_name EnemyFish
 extends Enemy
 
 
-@export var hold_range: float = 150
-@export var fire_range: float = 700
+@export var hold_range: float = 175
+@export var fire_range: float = 600
 @export var fire_rate_time: float = 1
 @export var fire_rate_variance: float = 0.5
 
@@ -27,10 +27,11 @@ func _process(delta):
 	else:
 		speed = _original_speed
 	
-	super._process(delta)
 	look_at(Globals.player_position)
 	
 	direction = _direction_to_player()
+	
+	super._process(delta)
 	
 	# Flip sprite vertically if facing left to keep it upright
 	if direction.x < 0:
