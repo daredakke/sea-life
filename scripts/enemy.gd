@@ -13,6 +13,7 @@ signal defeated(score: int)
 var direction: Vector2
 
 var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
+var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bullet.tscn")
 
 
 func _ready() -> void:

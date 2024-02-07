@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyGroup" load_steps=3 format=3 uid="uid://wdidlifu25sc"]
+
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="1_7md1j"]
+[ext_resource type="PackedScene" uid="uid://f2fnv1w2k1vw" path="res://scenes/enemies/enemy_crab.tscn" id="1_10spb"]
+
+[resource]
+script = ExtResource("1_7md1j")
+node_scene = ExtResource("1_10spb")
+nodes_to_spawn = 12
+node_health = 0
+node_speed = 90
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 1.8
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0

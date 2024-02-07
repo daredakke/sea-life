@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://damxl450n0mfe"]
+[gd_scene load_steps=9 format=3 uid="uid://damxl450n0mfe"]
 
 [ext_resource type="Script" path="res://scripts/enemy_fish.gd" id="1_ovupi"]
 [ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/fish3.png" id="2_jccfy"]
@@ -49,14 +49,16 @@ height = 56.0
 radius = 16.0
 height = 100.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1uif0"]
+
 [node name="EnemyFish" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ovupi")
 health = 5
-score_value = 30
+score_value = 18
 explosion_scale = 0.24
-speed = 75.0
-speed_variance = 25.0
+speed = 100.0
+speed_variance = 30.0
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.329412, 0.329412, 1)
@@ -76,6 +78,11 @@ shape = SubResource("CapsuleShape2D_c25ok")
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sesbn")
+
+[node name="NoseCollision" type="CollisionShape2D" parent="."]
+position = Vector2(44, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1uif0")
 
 [node name="FireRate" type="Timer" parent="."]
 autostart = true

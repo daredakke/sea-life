@@ -8,8 +8,6 @@ const ARC: int = 360
 @export var salvo_count: int = 3
 @export var bullet_speed: float = 110
 
-var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bullet.tscn")
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 

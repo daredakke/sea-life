@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx2tsm6edat3p"]
+
+[ext_resource type="Script" path="res://scripts/node_spawner.gd" id="1_llk48"]
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="2_fjlim"]
+
+[node name="Wave5c" type="Node2D"]
+script = ExtResource("1_llk48")
+node_scene = ExtResource("2_fjlim")
+nodes_to_spawn = 12
+node_speed = 75
+node_speed_variance = 50
+start_delay = 10.0
+spawn_delay = 2.1
+aim_at_player = true

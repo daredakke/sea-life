@@ -1,11 +1,13 @@
-class_name EnemyFishChaser
+class_name EnemyFish
 extends Enemy
 
 
-@export var hold_range: float = 175
-@export var fire_range: float = 600
+@export var hold_range: float = 150
+@export var fire_range: float = 700
 @export var fire_rate_time: float = 1
 @export var fire_rate_variance: float = 0.5
+
+var _enemy_bullet_scene: PackedScene = preload("res://scenes/enemies/enemy_bullet.tscn")
 
 @onready var enemy_sprite: Sprite2D = $EnemySprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -25,11 +27,10 @@ func _process(delta):
 	else:
 		speed = _original_speed
 	
+	super._process(delta)
 	look_at(Globals.player_position)
 	
 	direction = _direction_to_player()
-	
-	super._process(delta)
 	
 	# Flip sprite vertically if facing left to keep it upright
 	if direction.x < 0:
@@ -46,7 +47,7 @@ func _on_fire_rate_timeout() -> void:
 	
 	fire_rate.wait_time = fire_rate_time + randf_range(0, fire_rate_variance)
 	
-	var enemy_bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
+	var enemy_bullet_instance := _enemy_bullet_scene.instantiate() as Area2D
 	enemy_bullet_instance.position = self.position
 	enemy_bullet_instance.direction = _direction_to_player()
 	

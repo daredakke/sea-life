@@ -48,7 +48,7 @@ _data = {
 [node name="EnemyCrab" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_aevtm")
 health = 6
-score_value = 25
+score_value = 20
 explosion_scale = 0.3
 
 [node name="EnemySprite" type="Sprite2D" parent="."]

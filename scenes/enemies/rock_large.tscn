@@ -48,7 +48,7 @@ _data = {
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_gggfv")
 health = 9
-score_value = 20
+score_value = 10
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.799, 0.33, 1)
