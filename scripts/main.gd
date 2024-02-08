@@ -4,10 +4,12 @@ extends Node2D
 
 const BASE_SPREAD_RANGE: float = 0.12
 const POINTS_PER_WAVE: int = 2
-const MAX_SCORE_MULTIPLIER: int = 9999
+const MAX_SCORE_MULTIPLIER: int = 999
 const MAX_SPECIAL_CHARGES: int = 3
 const INITIAL_WAVE: int = -1
 const MAX_FINAL_WAVE_CHANGES: int = 12
+const SPAWN_DELAY_MIN: float = 0.05
+const START_DELAY_MIN: float = 5.0
 
 var _game_started: bool = false
 var _game_paused: bool = true
@@ -34,14 +36,12 @@ var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawne
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.tscn")
 var _final_wave_changes: Dictionary = {
-	"nodes_to_spawn": 3,
-	"node_health": 3,
-	"node_speed": 2.5,
+	"nodes_to_spawn": 2,
+	"node_health": 1,
+	"node_speed": 2,
 	"node_speed_variance": 2,
-	"spawn_delay": -0.2,
-	"spawn_delay_min": 0.05,
-	"start_delay": -0.25,
-	"start_delay_min": 5,
+	"spawn_delay": -0.1,
+	"start_delay": -0.1,
 }
 
 @onready var wave_start_timer: Timer = %WaveStartTimer
@@ -143,20 +143,31 @@ func _start_wave() -> void:
 	Waves.set_enemies_in_wave(_wave)
 	
 	var wave_composition = Waves.get_wave_composition(_wave)
+	var wave_count: int = Waves.get_wave_count()
 	
 	for group in wave_composition:
 		var node_spawner_instance := _node_spawner_scene.instantiate() as NodeSpawner
+		var group_config = group
 		
-		#if _wave > Waves.get_wave_count():
-		#	# Increment stats 10 times
-		#	# Increase nodes_to_spawn by 3
-		#	# Increase node_speed by 3
-		#	# Increase node_speed_variance by 2
-		#	# Decrease spawn_delay by 0.2, min 0.05
-		#	# Decrease start_delay by 0.4, min 5
-		#	pass
+		# Increase difficulty of final wave over time
+		if _wave > wave_count:
+			var increment: int = clampi(_wave - wave_count, 0, MAX_FINAL_WAVE_CHANGES)
+			print("increment: " + str(increment))
+			print("n2s pre: " + str(group_config.nodes_to_spawn))
+			
+			group_config.nodes_to_spawn += _final_wave_changes["nodes_to_spawn"] * increment
+			group_config.node_health += _final_wave_changes["node_health"] * increment
+			group_config.node_speed += _final_wave_changes["node_speed"] * increment
+			group_config.node_speed_variance += _final_wave_changes["node_speed_variance"] * increment
+			group_config.spawn_delay += _final_wave_changes["spawn_delay"] * increment
+			group_config.start_delay += _final_wave_changes["start_delay"] * increment
+			
+			print("n2s post: " + str(group_config.nodes_to_spawn))
+			
+			group_config.spawn_delay = clampf(group_config.spawn_delay, SPAWN_DELAY_MIN, 999)
+			group_config.start_delay = clampf(group_config.start_delay, START_DELAY_MIN, 999)
 		
-		node_spawner_instance.configuration = group
+		node_spawner_instance.configuration = group_config
 		
 		enemies.add_child(node_spawner_instance)
 

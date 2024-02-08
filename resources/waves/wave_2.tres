@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaveComposition" load_steps=3 format=3 uid="uid://d324o4j2tqu7f"]
 
-[ext_resource type="Resource" uid="uid://wdidlifu25sc" path="res://resources/enemy_groups/group_2.tres" id="1_76i84"]
+[ext_resource type="Resource" uid="uid://wdidlifu25sc" path="res://scenes/enemy_groups/group_2.tres" id="1_76i84"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_w02f3"]
 
 [resource]

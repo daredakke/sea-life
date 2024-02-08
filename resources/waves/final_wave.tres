@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="WaveComposition" load_steps=2 format=3 uid="uid://dstjei3frbr42"]
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=4 format=3 uid="uid://dstjei3frbr42"]
 
+[ext_resource type="Resource" uid="uid://b8vrg7oe4hfop" path="res://resources/enemy_groups/final_a.tres" id="1_6rt43"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_x8rm0"]
+[ext_resource type="Resource" uid="uid://1mt8f5co5g75" path="res://resources/enemy_groups/final_b.tres" id="2_18nuf"]
 
 [resource]
 script = ExtResource("1_x8rm0")
-composition = Array[Resource("res://scripts/enemy_group.gd")]([])
+composition = Array[Resource("res://scripts/enemy_group.gd")]([ExtResource("1_6rt43"), ExtResource("2_18nuf")])
