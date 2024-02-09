@@ -6,12 +6,12 @@
 [resource]
 script = ExtResource("1_0lb6f")
 node_scene = ExtResource("1_kld06")
-nodes_to_spawn = 8
+nodes_to_spawn = 80
 node_health = 0
 node_speed = 90
 node_speed_variance = 30
 start_delay = 0.05
-spawn_delay = 2.4
+spawn_delay = 2.5
 aim_at_player = false
 target_x_variance = 150.0
 target_y_variance = 150.0

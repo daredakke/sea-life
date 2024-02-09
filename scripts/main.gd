@@ -26,6 +26,11 @@ var _special_charges: int = 1:
 	set(new_value):
 		_special_charges = new_value
 		special.set_special_charges(_special_charges)
+		
+		if _special_charges == MAX_SPECIAL_CHARGES:
+			Waves.can_increase_enemy_defeated_combo = false
+		else:
+			Waves.can_increase_enemy_defeated_combo = true
 var _bullet_power: int = 1
 var _bullet_pierce_count: int = 0
 var _bullet_pierce_chance: float = 0
@@ -51,6 +56,7 @@ var _final_wave_changes: Dictionary = {
 @onready var enemies: Node = %Enemies
 @onready var screen_centre: Marker2D = %ScreenCentre
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
+@onready var player_special_bar: PlayerSpecialBar = %PlayerSpecialBar
 @onready var special: Special = %Special	
 @onready var score: Score = %Score
 @onready var stats: Stats = %Stats
@@ -76,6 +82,7 @@ func _ready() -> void:
 	fade_out.animation_finished.connect(_show_game_over_screen)
 	Waves.wave_over.connect(_wave_end)
 	Waves.score_increased.connect(_increase_score)
+	Waves.special_increased.connect(_update_player_special_bar)
 	Waves.special_charged.connect(_increase_special_charge)
 	
 	_handle_pause_state()
@@ -157,8 +164,6 @@ func _start_wave() -> void:
 		# Increase difficulty of final wave over time
 		if _wave > wave_count:
 			var increment: int = clampi(_wave - wave_count, 0, MAX_FINAL_WAVE_CHANGES)
-			print("increment: " + str(increment))
-			print("n2s pre: " + str(group_config.nodes_to_spawn))
 			
 			group_config.nodes_to_spawn += _final_wave_changes["nodes_to_spawn"] * increment
 			group_config.node_health += _final_wave_changes["node_health"] * increment
@@ -166,8 +171,6 @@ func _start_wave() -> void:
 			group_config.node_speed_variance += _final_wave_changes["node_speed_variance"] * increment
 			group_config.spawn_delay += _final_wave_changes["spawn_delay"] * increment
 			group_config.start_delay += _final_wave_changes["start_delay"] * increment
-			
-			print("n2s post: " + str(group_config.nodes_to_spawn))
 			
 			group_config.spawn_delay = clampf(group_config.spawn_delay, SPAWN_DELAY_MIN, 999)
 			group_config.start_delay = clampf(group_config.start_delay, START_DELAY_MIN, 999)
@@ -234,6 +237,11 @@ func _increase_special_charge() -> void:
 
 func _update_player_health_bar(hp: int, max_hp: int) -> void:
 	player_health_bar.update_health_bar(hp, max_hp)
+
+
+func _update_player_special_bar(value: int, max_value: int) -> void:
+	if _special_charges < MAX_SPECIAL_CHARGES:
+		player_special_bar.update_special_bar(value, max_value)
 
 
 func _on_fire_bullet(pos: Vector2, direction: Vector2) -> void:

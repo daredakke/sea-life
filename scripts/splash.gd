@@ -11,6 +11,7 @@ signal splash_ended
 
 
 func _ready() -> void:
+	self.show()
 	animation_player.play("boiling")
 	
 	if bypass_splash:
