@@ -57,6 +57,7 @@ var _final_wave_changes: Dictionary = {
 @onready var game_over: GameOver = %GameOver
 @onready var fade_out: FadeOut = $UI/FadeOut
 @onready var pause: Pause = %Pause
+@onready var splash: Splash = %Splash
 
 
 func _ready() -> void:
@@ -85,6 +86,10 @@ func _process(_delta: float) -> void:
 		_game_paused = !_game_paused
 		
 		_handle_pause_state()
+
+
+func _enable_buttons() -> void:
+	pause.enable_buttons()
 
 
 func _start_new_game() -> void:

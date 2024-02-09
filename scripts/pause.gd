@@ -28,6 +28,16 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 func _ready() -> void:
 	display_highscores()
 	continue_button.hide()
+	
+	new_game_button.disabled = true
+	quit_button.disabled = true
+	resolution_button.disabled = true
+
+
+func enable_buttons() -> void:
+	new_game_button.disabled = false
+	quit_button.disabled = false
+	resolution_button.disabled = false
 
 
 func display_highscores() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=16 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 [ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
 [ext_resource type="PackedScene" uid="uid://ceckwpqwfrg3b" path="res://scenes/fade_out.tscn" id="9_31iox"]
+[ext_resource type="PackedScene" uid="uid://df5usyx3eek3n" path="res://scenes/splash.tscn" id="15_wibfs"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -109,6 +110,11 @@ unique_name_in_owner = true
 process_mode = 2
 visible = false
 
+[node name="Splash" parent="UI" instance=ExtResource("15_wibfs")]
+unique_name_in_owner = true
+bypass_splash = true
+
 [connection signal="timeout" from="WaveStartTimer" to="." method="_start_wave"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
+[connection signal="splash_ended" from="UI/Splash" to="." method="_enable_buttons"]
