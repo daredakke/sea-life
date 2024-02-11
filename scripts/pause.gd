@@ -25,15 +25,17 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var resolution_button: Button = %ResolutionButton
 @onready var highscore_v_box: VBoxContainer = %HighscoreVBox
-@onready var options_margin: MarginContainer = %OptionsMargin
-@onready var highscores_margin: MarginContainer = %HighscoresMargin
+@onready var options: MarginContainer = %Options
+@onready var highscores: MarginContainer = %Highscores
+@onready var instructions: Instructions = %Instructions
 
 
 func _ready() -> void:
 	display_highscores()
 	continue_button.hide()
-	options_margin.hide()
-	highscores_margin.hide()
+	options.hide()
+	highscores.hide()
+	instructions.hide()
 	
 	new_game_button.disabled = true
 	quit_button.disabled = true
@@ -112,16 +114,25 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
-	options_margin.show()
+	options.show()
 
 
 func _on_options_close_button_pressed() -> void:
-	options_margin.hide()
+	options.hide()
 
 
 func _on_highscores_button_pressed() -> void:
-	highscores_margin.show()
+	highscores.show()
 
 
 func _on_close_highscores_button_pressed() -> void:
-	highscores_margin.hide()
+	highscores.hide()
+
+
+func _on_instructions_button_pressed() -> void:
+	instructions.change_page(1)
+	instructions.show()
+
+
+func _on_close_instructions_button_pressed() -> void:
+	instructions.hide()

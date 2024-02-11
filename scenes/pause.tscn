@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbl8rqlmhufue"]
+[gd_scene load_steps=9 format=3 uid="uid://bbl8rqlmhufue"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
 [ext_resource type="Texture2D" uid="uid://bfrnyu45n68wy" path="res://assets/backgrounds/composite.jpg" id="3_eiapf"]
 [ext_resource type="Theme" uid="uid://b1nhdvg4pw6r5" path="res://resources/smaller_label.tres" id="3_s5e44"]
 [ext_resource type="PackedScene" uid="uid://bnpvbp3lbtnq5" path="res://scenes/highscore_row.tscn" id="5_6o1ed"]
+[ext_resource type="Texture2D" uid="uid://d37xaw2l3b0fr" path="res://assets/scrot.png" id="6_ephfk"]
+[ext_resource type="Script" path="res://scripts/Instructions.gd" id="6_mle20"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xner5"]
 texture = ExtResource("3_eiapf")
@@ -111,130 +113,7 @@ theme_override_constants/margin_top = 136
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 32
 
-[node name="InstructionsVBox" type="VBoxContainer" parent="Panel/RightMargin"]
-custom_minimum_size = Vector2(480, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="ControlsLabel" type="Label" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-theme = ExtResource("1_kqgi4")
-text = "CONTROLS"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "LMB"
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 56
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "SHOOT"
-horizontal_alignment = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "RMB"
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 56
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "SPECIAL
-"
-horizontal_alignment = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "WASD"
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 56
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer3"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "MOVEMENT
-"
-horizontal_alignment = 2
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "SHIFT"
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 56
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer5"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "FOCUSED MOVEMENT
-"
-horizontal_alignment = 2
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/RightMargin/InstructionsVBox"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 32
-
-[node name="Label" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "ESCAPE"
-
-[node name="HSeparator" type="HSeparator" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 56
-
-[node name="Label2" type="Label" parent="Panel/RightMargin/InstructionsVBox/HBoxContainer4"]
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "TITLE / PAUSE"
-horizontal_alignment = 2
-
-[node name="OptionsMargin" type="MarginContainer" parent="."]
+[node name="Options" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -248,11 +127,11 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Panel" type="Panel" parent="OptionsMargin"]
+[node name="Panel" type="Panel" parent="Options"]
 layout_mode = 2
 theme = ExtResource("1_kqgi4")
 
-[node name="MarginContainer" type="MarginContainer" parent="OptionsMargin/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Options/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -264,30 +143,30 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="OptionsMargin/Panel/MarginContainer"]
+[node name="Label" type="Label" parent="Options/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("1_kqgi4")
 text = "OPTIONS"
 
-[node name="ControlsVBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer"]
+[node name="ControlsVBox" type="VBoxContainer" parent="Options/Panel/MarginContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 24
 
-[node name="MusicHBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+[node name="MusicHBox" type="VBoxContainer" parent="Options/Panel/MarginContainer/ControlsVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="MusicLabel" type="Label" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox"]
+[node name="MusicLabel" type="Label" parent="Options/Panel/MarginContainer/ControlsVBox/MusicHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "MUSIC - 100%"
 
-[node name="MusicSlider" type="HSlider" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox"]
+[node name="MusicSlider" type="HSlider" parent="Options/Panel/MarginContainer/ControlsVBox/MusicHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -295,18 +174,18 @@ size_flags_vertical = 4
 theme = ExtResource("1_kqgi4")
 value = 100.0
 
-[node name="SFXHBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+[node name="SFXHBox" type="VBoxContainer" parent="Options/Panel/MarginContainer/ControlsVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="SFXLabel" type="Label" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox"]
+[node name="SFXLabel" type="Label" parent="Options/Panel/MarginContainer/ControlsVBox/SFXHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_s5e44")
 text = "SFX - 100%"
 
-[node name="SFXSlider" type="HSlider" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox"]
+[node name="SFXSlider" type="HSlider" parent="Options/Panel/MarginContainer/ControlsVBox/SFXHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -314,19 +193,19 @@ size_flags_vertical = 4
 theme = ExtResource("1_kqgi4")
 value = 100.0
 
-[node name="ResolutionButton" type="Button" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+[node name="ResolutionButton" type="Button" parent="Options/Panel/MarginContainer/ControlsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "FULLSCREEN"
 
-[node name="OptionsCloseButton" type="Button" parent="OptionsMargin/Panel/MarginContainer"]
+[node name="OptionsCloseButton" type="Button" parent="Options/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_default_cursor_shape = 2
 text = "CLOSE"
 
-[node name="HighscoresMargin" type="MarginContainer" parent="."]
+[node name="Highscores" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -340,11 +219,11 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Panel" type="Panel" parent="HighscoresMargin"]
+[node name="Panel" type="Panel" parent="Highscores"]
 layout_mode = 2
 theme = ExtResource("1_kqgi4")
 
-[node name="MarginContainer" type="MarginContainer" parent="HighscoresMargin/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Highscores/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -356,18 +235,18 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="HighscoresMargin/Panel/MarginContainer"]
+[node name="Label" type="Label" parent="Highscores/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "HIGHSCORES"
 
-[node name="CloseHighscoresButton" type="Button" parent="HighscoresMargin/Panel/MarginContainer"]
+[node name="CloseHighscoresButton" type="Button" parent="Highscores/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_default_cursor_shape = 2
 text = "CLOSE"
 
-[node name="ScoresMargin" type="MarginContainer" parent="HighscoresMargin/Panel"]
+[node name="ScoresMargin" type="MarginContainer" parent="Highscores/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,7 +256,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 88
 
-[node name="HighscoreVBox" type="VBoxContainer" parent="HighscoresMargin/Panel/ScoresMargin"]
+[node name="HighscoreVBox" type="VBoxContainer" parent="Highscores/Panel/ScoresMargin"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -386,43 +265,260 @@ size_flags_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="HighscoreRow" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow2" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow2" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow3" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow3" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow4" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow4" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow5" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow5" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow6" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow6" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow7" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow7" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow8" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow8" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow9" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow9" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
 
-[node name="HighscoreRow10" parent="HighscoresMargin/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
+[node name="HighscoreRow10" parent="Highscores/Panel/ScoresMargin/HighscoreVBox" instance=ExtResource("5_6o1ed")]
 layout_mode = 2
+
+[node name="Instructions" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("6_mle20")
+
+[node name="Panel" type="Panel" parent="Instructions"]
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "HOW TO PLAY"
+
+[node name="PageLabel" type="Label" parent="Instructions/Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("1_kqgi4")
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Instructions/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="PrevButton" type="Button" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "PREV"
+
+[node name="InstructionsVBox" type="VBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "LMB"
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 56
+
+[node name="Label2" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SHOOT"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "RMB"
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 56
+
+[node name="Label2" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SPECIAL
+"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "WASD"
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 56
+
+[node name="Label2" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "MOVEMENT
+"
+horizontal_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SHIFT"
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 56
+
+[node name="Label2" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "FOCUSED MOVEMENT
+"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "ESCAPE"
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 56
+
+[node name="Label2" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "TITLE / PAUSE"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="HSeparator" type="HSeparator" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HowToLabel" type="Label" parent="Instructions/Panel/MarginContainer/HBoxContainer/InstructionsVBox/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "- UPGRADE STATS AFTER EACH WAVE
+- FINAL WAVE GETS INCREASINGLY HARDER"
+
+[node name="ScreenshotSpacerPanel" type="Panel" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ScreenshotSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(460, 0)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_ephfk")
+
+[node name="NextButton" type="Button" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "NEXT"
+
+[node name="CloseInstructionsButton" type="Button" parent="Instructions/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+text = "CLOSE"
 
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/HighscoresButton" to="." method="_on_highscores_button_pressed"]
+[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/InstructionsButton" to="." method="_on_instructions_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="value_changed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]
-[connection signal="pressed" from="OptionsMargin/Panel/MarginContainer/OptionsCloseButton" to="." method="_on_options_close_button_pressed"]
-[connection signal="pressed" from="HighscoresMargin/Panel/MarginContainer/CloseHighscoresButton" to="." method="_on_close_highscores_button_pressed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Options/Panel/MarginContainer/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]
+[connection signal="pressed" from="Options/Panel/MarginContainer/OptionsCloseButton" to="." method="_on_options_close_button_pressed"]
+[connection signal="pressed" from="Highscores/Panel/MarginContainer/CloseHighscoresButton" to="." method="_on_close_highscores_button_pressed"]
+[connection signal="pressed" from="Instructions/Panel/MarginContainer/HBoxContainer/PrevButton" to="Instructions" method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Instructions/Panel/MarginContainer/HBoxContainer/NextButton" to="Instructions" method="_on_next_button_pressed"]
+[connection signal="pressed" from="Instructions/Panel/MarginContainer/CloseInstructionsButton" to="." method="_on_close_instructions_button_pressed"]
