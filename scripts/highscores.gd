@@ -3,7 +3,7 @@ extends Node
 
 const SCORE_LIST: String = "user://scores.dat"
 const BLANK_SCORES: Dictionary = { "scores": [], "names": [] }
-const MAX_SCORES: int = 8
+const MAX_SCORES: int = 10
 
 var scores: Dictionary = BLANK_SCORES
 

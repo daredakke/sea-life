@@ -16,6 +16,8 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 @onready var continue_button: Button = %ContinueButton
 @onready var new_game_button: Button = %NewGameButton
 @onready var options_button: Button = %OptionsButton
+@onready var highscores_button: Button = %HighscoresButton
+@onready var instructions_button: Button = %InstructionsButton
 @onready var quit_button: Button = %QuitButton
 @onready var music_label: Label = %MusicLabel
 @onready var music_slider: HSlider = %MusicSlider
@@ -24,13 +26,14 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 @onready var resolution_button: Button = %ResolutionButton
 @onready var highscore_v_box: VBoxContainer = %HighscoreVBox
 @onready var options_margin: MarginContainer = %OptionsMargin
-
+@onready var highscores_margin: MarginContainer = %HighscoresMargin
 
 
 func _ready() -> void:
 	display_highscores()
 	continue_button.hide()
 	options_margin.hide()
+	highscores_margin.hide()
 	
 	new_game_button.disabled = true
 	quit_button.disabled = true
@@ -54,6 +57,7 @@ func display_highscores() -> void:
 		var score = Highscores.scores["scores"][i]
 		var highscore_row_instance := _highscore_row_scene.instantiate() as HBoxContainer
 		
+		highscore_row_instance.rank_text = i + 1
 		highscore_row_instance.name_text = score_name
 		highscore_row_instance.score = score
 		
@@ -113,3 +117,11 @@ func _on_options_button_pressed() -> void:
 
 func _on_options_close_button_pressed() -> void:
 	options_margin.hide()
+
+
+func _on_highscores_button_pressed() -> void:
+	highscores_margin.show()
+
+
+func _on_close_highscores_button_pressed() -> void:
+	highscores_margin.hide()
