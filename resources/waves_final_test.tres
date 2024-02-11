@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=3 format=3 uid="uid://ce7rs28w8mgog"]
-
-[ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_7w3wb"]
-[ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_mpn0j"]
-
-[resource]
-script = ExtResource("1_7w3wb")
-collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_mpn0j")])

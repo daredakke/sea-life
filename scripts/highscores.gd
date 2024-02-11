@@ -5,7 +5,7 @@ const SCORE_LIST: String = "user://scores.dat"
 const BLANK_SCORES: Dictionary = { "scores": [], "names": [] }
 const MAX_SCORES: int = 8
 
-var scores: Dictionary
+var scores: Dictionary = BLANK_SCORES
 
 
 func _ready() -> void:

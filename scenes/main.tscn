@@ -117,7 +117,6 @@ visible = false
 [node name="Splash" parent="UI" instance=ExtResource("15_wibfs")]
 unique_name_in_owner = true
 visible = false
-bypass_splash = true
 
 [connection signal="timeout" from="WaveStartTimer" to="." method="_start_wave"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]

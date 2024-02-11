@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=6 format=3 uid="uid://dn0ydxusv5dmg"]
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=3 format=3 uid="uid://dwhic14as3vnp"]
 
-[ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_2o0d5"]
+[ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_3wox8"]
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_p5616"]
-[ext_resource type="Resource" uid="uid://d324o4j2tqu7f" path="res://resources/waves/wave_2.tres" id="2_5jdlc"]
-[ext_resource type="Resource" uid="uid://ch4jmdlpxnexl" path="res://resources/waves/wave_3.tres" id="3_0mw1o"]
-[ext_resource type="Resource" uid="uid://j5457psok07w" path="res://resources/waves/wave_4.tres" id="4_h2qdl"]
 
 [resource]
 script = ExtResource("1_p5616")
-collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_2o0d5"), ExtResource("2_5jdlc"), ExtResource("3_0mw1o"), ExtResource("4_h2qdl")])
+collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_3wox8")])
