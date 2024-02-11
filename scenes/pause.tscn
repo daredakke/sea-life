@@ -73,62 +73,16 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 text = "NEW GAME"
 
+[node name="OptionsButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "OPTIONS"
+
 [node name="QuitButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "QUIT"
-
-[node name="ControlsVBox" type="VBoxContainer" parent="Panel/LeftMargin"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_constants/separation = 24
-
-[node name="MusicHBox" type="VBoxContainer" parent="Panel/LeftMargin/ControlsVBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="MusicLabel" type="Label" parent="Panel/LeftMargin/ControlsVBox/MusicHBox"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "MUSIC - 100%"
-
-[node name="MusicSlider" type="HSlider" parent="Panel/LeftMargin/ControlsVBox/MusicHBox"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("1_kqgi4")
-value = 100.0
-
-[node name="SFXHBox" type="VBoxContainer" parent="Panel/LeftMargin/ControlsVBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="SFXLabel" type="Label" parent="Panel/LeftMargin/ControlsVBox/SFXHBox"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("3_s5e44")
-text = "SFX - 100%"
-
-[node name="SFXSlider" type="HSlider" parent="Panel/LeftMargin/ControlsVBox/SFXHBox"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("1_kqgi4")
-value = 100.0
-
-[node name="ResolutionButton" type="Button" parent="Panel/LeftMargin/ControlsVBox"]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_default_cursor_shape = 2
-text = "FULLSCREEN"
 
 [node name="RightMargin" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -282,9 +236,102 @@ theme = ExtResource("3_s5e44")
 text = "TITLE / PAUSE"
 horizontal_alignment = 2
 
+[node name="OptionsMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="OptionsMargin"]
+layout_mode = 2
+theme = ExtResource("1_kqgi4")
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsMargin/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="OptionsMargin/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_kqgi4")
+text = "OPTIONS"
+
+[node name="ControlsVBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="MusicHBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MusicLabel" type="Label" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "MUSIC - 100%"
+
+[node name="MusicSlider" type="HSlider" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="SFXHBox" type="VBoxContainer" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SFXLabel" type="Label" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s5e44")
+text = "SFX - 100%"
+
+[node name="SFXSlider" type="HSlider" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_kqgi4")
+value = 100.0
+
+[node name="ResolutionButton" type="Button" parent="OptionsMargin/Panel/MarginContainer/ControlsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "FULLSCREEN"
+
+[node name="OptionsCloseButton" type="Button" parent="OptionsMargin/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "CLOSE"
+
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="value_changed" from="Panel/LeftMargin/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="Panel/LeftMargin/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="Panel/LeftMargin/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]
+[connection signal="value_changed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="OptionsMargin/Panel/MarginContainer/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]
+[connection signal="pressed" from="OptionsMargin/Panel/MarginContainer/OptionsCloseButton" to="." method="_on_options_close_button_pressed"]

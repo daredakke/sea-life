@@ -15,6 +15,7 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 
 @onready var continue_button: Button = %ContinueButton
 @onready var new_game_button: Button = %NewGameButton
+@onready var options_button: Button = %OptionsButton
 @onready var quit_button: Button = %QuitButton
 @onready var music_label: Label = %MusicLabel
 @onready var music_slider: HSlider = %MusicSlider
@@ -22,12 +23,14 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var resolution_button: Button = %ResolutionButton
 @onready var highscore_v_box: VBoxContainer = %HighscoreVBox
+@onready var options_margin: MarginContainer = %OptionsMargin
 
 
 
 func _ready() -> void:
 	display_highscores()
 	continue_button.hide()
+	options_margin.hide()
 	
 	new_game_button.disabled = true
 	quit_button.disabled = true
@@ -102,3 +105,11 @@ func _on_new_game_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
+
+
+func _on_options_button_pressed() -> void:
+	options_margin.show()
+
+
+func _on_options_close_button_pressed() -> void:
+	options_margin.hide()
