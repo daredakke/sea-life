@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d37xaw2l3b0fr"
-path="res://.godot/imported/scrot.png-4014157d08bcdeaf258f04cce090db46.ctex"
+uid="uid://dukl03qbc0oe2"
+path="res://.godot/imported/score-multiplier-text.png-8277406c5e5e36034aded5b0c286a1b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scrot.png"
-dest_files=["res://.godot/imported/scrot.png-4014157d08bcdeaf258f04cce090db46.ctex"]
+source_file="res://assets/how_to_play/score-multiplier-text.png"
+dest_files=["res://.godot/imported/score-multiplier-text.png-8277406c5e5e36034aded5b0c286a1b0.ctex"]
 
 [params]
 

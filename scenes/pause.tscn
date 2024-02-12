@@ -1,12 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbl8rqlmhufue"]
+[gd_scene load_steps=15 format=3 uid="uid://bbl8rqlmhufue"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
 [ext_resource type="Texture2D" uid="uid://bfrnyu45n68wy" path="res://assets/backgrounds/composite.jpg" id="3_eiapf"]
 [ext_resource type="Theme" uid="uid://b1nhdvg4pw6r5" path="res://resources/smaller_label.tres" id="3_s5e44"]
 [ext_resource type="PackedScene" uid="uid://bnpvbp3lbtnq5" path="res://scenes/highscore_row.tscn" id="5_6o1ed"]
-[ext_resource type="Texture2D" uid="uid://d37xaw2l3b0fr" path="res://assets/scrot.png" id="6_ephfk"]
+[ext_resource type="Texture2D" uid="uid://d37xaw2l3b0fr" path="res://assets/how_to_play/scrot.png" id="6_ephfk"]
 [ext_resource type="Script" path="res://scripts/Instructions.gd" id="6_mle20"]
+[ext_resource type="Texture2D" uid="uid://dukl03qbc0oe2" path="res://assets/how_to_play/score-multiplier-text.png" id="8_a3k4a"]
+[ext_resource type="Texture2D" uid="uid://cdbyi5vlwnm37" path="res://assets/how_to_play/score-text.png" id="9_f1fsy"]
+[ext_resource type="Texture2D" uid="uid://cdxp1mei81h0b" path="res://assets/how_to_play/special-charges-text.png" id="10_77wmg"]
+[ext_resource type="Texture2D" uid="uid://drtexlxm7huks" path="res://assets/how_to_play/special-bar-text.png" id="11_1y2he"]
+[ext_resource type="Texture2D" uid="uid://clr3p716qubjb" path="res://assets/how_to_play/health-text.png" id="12_mohbj"]
+[ext_resource type="Texture2D" uid="uid://blti8vl43l0y8" path="res://assets/how_to_play/player-text.png" id="13_oyvmf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xner5"]
 texture = ExtResource("3_eiapf")
@@ -105,6 +111,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = 195.0
+offset_right = -39.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -325,15 +335,10 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="Instructions/Panel/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "HOW TO PLAY"
-
 [node name="PageLabel" type="Label" parent="Instructions/Panel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_kqgi4")
 text = "CONTROLS"
@@ -353,6 +358,7 @@ text = "PREV"
 
 [node name="InstructionsVBox" type="VBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -484,7 +490,6 @@ text = "- UPGRADE STATS AFTER EACH WAVE
 
 [node name="ScreenshotSpacerPanel" type="Panel" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -493,6 +498,30 @@ size_flags_vertical = 4
 position = Vector2(460, 0)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_ephfk")
+
+[node name="ScoreMultiplierSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(595, -123)
+texture = ExtResource("8_a3k4a")
+
+[node name="ScoreSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(391, -129)
+texture = ExtResource("9_f1fsy")
+
+[node name="SpecialChargesSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(488, -80)
+texture = ExtResource("10_77wmg")
+
+[node name="ToNextSpecialSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(642, 105)
+texture = ExtResource("11_1y2he")
+
+[node name="HealthSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(348, 118)
+texture = ExtResource("12_mohbj")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(379, -14)
+texture = ExtResource("13_oyvmf")
 
 [node name="NextButton" type="Button" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
