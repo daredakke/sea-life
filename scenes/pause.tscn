@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbl8rqlmhufue"]
+[gd_scene load_steps=21 format=3 uid="uid://bbl8rqlmhufue"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://drtexlxm7huks" path="res://assets/how_to_play/special-bar-text.png" id="11_1y2he"]
 [ext_resource type="Texture2D" uid="uid://clr3p716qubjb" path="res://assets/how_to_play/health-text.png" id="12_mohbj"]
 [ext_resource type="Texture2D" uid="uid://blti8vl43l0y8" path="res://assets/how_to_play/player-text.png" id="13_oyvmf"]
+[ext_resource type="Texture2D" uid="uid://cs6g54eutppjs" path="res://assets/how_to_play/player-arrow.png" id="14_2m8fh"]
+[ext_resource type="Texture2D" uid="uid://bv0v023ufr6pu" path="res://assets/how_to_play/health-arrow.png" id="15_m1ssf"]
+[ext_resource type="Texture2D" uid="uid://g4ffakjwbmvx" path="res://assets/how_to_play/score-arrow.png" id="16_qqpjr"]
+[ext_resource type="Texture2D" uid="uid://b2c5065ude8ts" path="res://assets/how_to_play/special-charge-arrow.png" id="17_u7w6t"]
+[ext_resource type="Texture2D" uid="uid://cifgjfdx0jiro" path="res://assets/how_to_play/special-meter-arrow.png" id="18_grbh6"]
+[ext_resource type="Texture2D" uid="uid://duuhfoxoj1w31" path="res://assets/how_to_play/special-multiplier-arrow.png" id="19_gn2r5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xner5"]
 texture = ExtResource("3_eiapf")
@@ -500,28 +506,58 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_ephfk")
 
 [node name="ScoreMultiplierSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(595, -123)
+position = Vector2(676, -122)
 texture = ExtResource("8_a3k4a")
 
 [node name="ScoreSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(391, -129)
+position = Vector2(305, -153)
 texture = ExtResource("9_f1fsy")
 
 [node name="SpecialChargesSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(488, -80)
+position = Vector2(490, -72)
 texture = ExtResource("10_77wmg")
 
 [node name="ToNextSpecialSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(642, 105)
+position = Vector2(646, 81)
 texture = ExtResource("11_1y2he")
 
 [node name="HealthSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(348, 118)
+position = Vector2(300, 113)
 texture = ExtResource("12_mohbj")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(379, -14)
+position = Vector2(277, -15)
 texture = ExtResource("13_oyvmf")
+
+[node name="PlayerArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(389, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_2m8fh")
+
+[node name="HealthArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(299, 148)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_m1ssf")
+
+[node name="ScoreArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(401, -163)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_qqpjr")
+
+[node name="SpecialChargeArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(472, -134)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_u7w6t")
+
+[node name="SpecialMeterArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(637, 142)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_grbh6")
+
+[node name="ScoreMultiplierArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
+position = Vector2(528, -167)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_gn2r5")
 
 [node name="NextButton" type="Button" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
