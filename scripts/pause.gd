@@ -13,6 +13,7 @@ var sfx_bus := AudioServer.get_bus_index("SFX")
 var _is_fullscreen: bool = false
 var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn")
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var continue_button: Button = %ContinueButton
 @onready var new_game_button: Button = %NewGameButton
 @onready var options_button: Button = %OptionsButton
@@ -31,6 +32,7 @@ var _highscore_row_scene: PackedScene = preload("res://scenes/highscore_row.tscn
 
 
 func _ready() -> void:
+	animation_player.play("boiling")
 	display_highscores()
 	continue_button.hide()
 	options.hide()
