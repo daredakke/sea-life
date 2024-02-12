@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di0d5d50s4vl4"
-path="res://.godot/imported/starfish.png-0d5f385a2a646a44fd9af053083981f7.ctex"
+uid="uid://f85msdwvtqbv"
+path="res://.godot/imported/squid.png-35b5b44f3fae63a51689e20974a50186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/starfish.png"
-dest_files=["res://.godot/imported/starfish.png-0d5f385a2a646a44fd9af053083981f7.ctex"]
+source_file="res://assets/entities/squid.png"
+dest_files=["res://.godot/imported/squid.png-35b5b44f3fae63a51689e20974a50186.ctex"]
 
 [params]
 

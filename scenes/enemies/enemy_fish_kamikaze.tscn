@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c36kupih0uhmn"]
 
 [ext_resource type="Script" path="res://scripts/enemy_fish_kamikaze.gd" id="1_tx1g7"]
-[ext_resource type="Texture2D" uid="uid://cbs3xa8um7t1l" path="res://assets/fish4.png" id="2_rp2ve"]
+[ext_resource type="Texture2D" uid="uid://cbs3xa8um7t1l" path="res://assets/entities/fish4.png" id="2_rp2ve"]
 
 [sub_resource type="Animation" id="Animation_e8mtc"]
 length = 0.001

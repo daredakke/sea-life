@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://damxl450n0mfe"]
 
 [ext_resource type="Script" path="res://scripts/enemy_fish.gd" id="1_ovupi"]
-[ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/fish3.png" id="2_jccfy"]
+[ext_resource type="Texture2D" uid="uid://jvdb1x1rfxel" path="res://assets/entities/fish3.png" id="2_jccfy"]
 
 [sub_resource type="Animation" id="Animation_g2poo"]
 length = 0.001

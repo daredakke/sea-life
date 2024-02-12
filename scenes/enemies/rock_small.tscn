@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://v6n87qvsl1mo"]
 
 [ext_resource type="Script" path="res://scripts/rock_small.gd" id="1_hwrrp"]
-[ext_resource type="Texture2D" uid="uid://dc6smur40ecn6" path="res://assets/rock-small.png" id="2_dq5r6"]
+[ext_resource type="Texture2D" uid="uid://dc6smur40ecn6" path="res://assets/entities/rock-small.png" id="2_dq5r6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5iyr"]
 radius = 30.0

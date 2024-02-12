@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dh7r67xccniya"]
 
 [ext_resource type="Script" path="res://scripts/enemy_jellyfish.gd" id="1_ibfrt"]
-[ext_resource type="Texture2D" uid="uid://2565e2g03rq8" path="res://assets/jellyfish.png" id="2_lq4te"]
+[ext_resource type="Texture2D" uid="uid://2565e2g03rq8" path="res://assets/entities/jellyfish.png" id="2_lq4te"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2o3uf"]
 radius = 20.0

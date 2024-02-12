@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bbl8rqlmhufue"]
+[gd_scene load_steps=20 format=3 uid="uid://bbl8rqlmhufue"]
 
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_0ix73"]
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_kqgi4"]
@@ -20,12 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://cifgjfdx0jiro" path="res://assets/how_to_play/special-meter-arrow.png" id="18_grbh6"]
 [ext_resource type="Texture2D" uid="uid://duuhfoxoj1w31" path="res://assets/how_to_play/special-multiplier-arrow.png" id="19_gn2r5"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xner5"]
-texture = ExtResource("3_eiapf")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-modulate_color = Color(0.4, 0.4, 0.4, 1)
-
 [node name="Pause" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -34,20 +28,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_kqgi4")
 script = ExtResource("1_0ix73")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_kqgi4")
-theme_override_styles/panel = SubResource("StyleBoxTexture_xner5")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 359)
+texture = ExtResource("3_eiapf")
 
-[node name="LeftMargin" type="MarginContainer" parent="Panel"]
+[node name="LeftMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,14 +48,15 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
 
-[node name="ButtonsVBox" type="VBoxContainer" parent="Panel/LeftMargin"]
+[node name="ButtonsVBox" type="VBoxContainer" parent="LeftMargin"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="TitleLabel" type="Label" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="TitleLabel" type="Label" parent="LeftMargin/ButtonsVBox"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -75,59 +64,42 @@ theme = ExtResource("1_kqgi4")
 theme_override_font_sizes/font_size = 72
 text = "SEA LIFE"
 
-[node name="ContinueButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="ContinueButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "CONTINUE"
 
-[node name="NewGameButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="NewGameButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 text = "NEW GAME"
 
-[node name="OptionsButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="OptionsButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "OPTIONS"
 
-[node name="HighscoresButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="HighscoresButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "HIGHSCORES"
 
-[node name="InstructionsButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="InstructionsButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "HOW TO PLAY"
 
-[node name="QuitButton" type="Button" parent="Panel/LeftMargin/ButtonsVBox"]
+[node name="QuitButton" type="Button" parent="LeftMargin/ButtonsVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "QUIT"
-
-[node name="RightMargin" type="MarginContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -39.0
-offset_top = 195.0
-offset_right = -39.0
-offset_bottom = 195.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 136
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 32
 
 [node name="Options" type="MarginContainer" parent="."]
 unique_name_in_owner = true
@@ -313,6 +285,7 @@ layout_mode = 2
 
 [node name="Instructions" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -343,6 +316,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="PageLabel" type="Label" parent="Instructions/Panel/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -573,12 +547,12 @@ size_flags_vertical = 8
 mouse_default_cursor_shape = 2
 text = "CLOSE"
 
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/HighscoresButton" to="." method="_on_highscores_button_pressed"]
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/InstructionsButton" to="." method="_on_instructions_button_pressed"]
-[connection signal="pressed" from="Panel/LeftMargin/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/HighscoresButton" to="." method="_on_highscores_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/InstructionsButton" to="." method="_on_instructions_button_pressed"]
+[connection signal="pressed" from="LeftMargin/ButtonsVBox/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="Options/Panel/MarginContainer/ControlsVBox/MusicHBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Options/Panel/MarginContainer/ControlsVBox/SFXHBox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="Options/Panel/MarginContainer/ControlsVBox/ResolutionButton" to="." method="_on_resolution_button_pressed"]

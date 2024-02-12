@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://f2fnv1w2k1vw"]
 
 [ext_resource type="Script" path="res://scripts/enemy_crab.gd" id="1_aevtm"]
-[ext_resource type="Texture2D" uid="uid://dwe5xyelh40gh" path="res://assets/crab.png" id="2_u562s"]
+[ext_resource type="Texture2D" uid="uid://dwe5xyelh40gh" path="res://assets/entities/crab.png" id="2_u562s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hy6tl"]
 radius = 16.0

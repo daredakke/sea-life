@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dr5qvryr3aik7"]
 
 [ext_resource type="Script" path="res://scripts/rock_large.gd" id="1_gggfv"]
-[ext_resource type="Texture2D" uid="uid://dh36lwc8jr1kk" path="res://assets/rock-large.png" id="2_vrmew"]
+[ext_resource type="Texture2D" uid="uid://dh36lwc8jr1kk" path="res://assets/entities/rock-large.png" id="2_vrmew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gikw"]
 radius = 43.1045

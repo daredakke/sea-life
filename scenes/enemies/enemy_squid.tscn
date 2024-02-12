@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dg325iwinn4xs"]
 
 [ext_resource type="Script" path="res://scripts/enemy_squid.gd" id="1_1ijrv"]
-[ext_resource type="Texture2D" uid="uid://f85msdwvtqbv" path="res://assets/squid.png" id="2_5pt55"]
+[ext_resource type="Texture2D" uid="uid://f85msdwvtqbv" path="res://assets/entities/squid.png" id="2_5pt55"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d00qx"]
 radius = 11.0
