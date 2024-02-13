@@ -51,6 +51,11 @@ process_mode = 1
 z_index = 1
 position = Vector2(590, 379)
 
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)
+anchor_mode = 0
+
 [node name="Enemies" type="Node" parent="."]
 unique_name_in_owner = true
 process_mode = 1

@@ -11,6 +11,12 @@ const MAX_FINAL_WAVE_CHANGES: int = 12
 const SPAWN_DELAY_MIN: float = 0.05
 const START_DELAY_MIN: float = 5.0
 
+const NOISE_SHAKE_SPEED: float = 30.0
+const NOISE_SHAKE_STRENGTH: float = 60.0
+const SHAKE_DECAY_RATE: float = 5.0
+
+var _noise_i: float = 0.0
+var _shake_strength: float = 0.0
 var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0:
@@ -53,6 +59,7 @@ var _final_wave_changes: Dictionary = {
 @onready var wave_end_timer: Timer = %WaveEndTimer
 @onready var projectiles: Node = %Projectiles
 @onready var player: Player = %Player
+@onready var camera: Camera2D = %Camera
 @onready var enemies: Node = %Enemies
 @onready var screen_centre: Marker2D = %ScreenCentre
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
@@ -64,9 +71,15 @@ var _final_wave_changes: Dictionary = {
 @onready var fade_out: FadeOut = $UI/FadeOut
 @onready var pause: Pause = %Pause
 @onready var splash: Splash = %Splash
+@onready var rand = RandomNumberGenerator.new()
+@onready var noise = FastNoiseLite.new()
 
 
 func _ready() -> void:
+	rand.randomize()
+	noise.seed = randi()
+	noise.frequency = 0.5
+	
 	Globals.screen_centre = screen_centre.global_position
 	pause.start_new_game.connect(_start_new_game)
 	pause.continue_game.connect(_continue_game)
@@ -88,11 +101,33 @@ func _ready() -> void:
 	_handle_pause_state()
 
 
-func _process(_delta: float) -> void:
-	if _game_started and Input.is_action_just_pressed("pause"):
+func _process(delta: float) -> void:
+	if not _game_started:
+		return
+	
+	_shake_strength = lerp(_shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
+	camera.offset = _get_noise_offset(delta)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		_apply_noise_shake()
+	
+	if Input.is_action_just_pressed("pause"):
 		_game_paused = !_game_paused
 		
 		_handle_pause_state()
+
+
+func _apply_noise_shake() -> void:
+	_shake_strength = NOISE_SHAKE_STRENGTH
+
+
+func _get_noise_offset(delta: float) -> Vector2:
+	_noise_i += delta * NOISE_SHAKE_SPEED
+	
+	return Vector2(
+		noise.get_noise_2d(1, _noise_i) * _shake_strength,
+		noise.get_noise_2d(100, _noise_i) * _shake_strength
+	)
 
 
 func _enable_buttons() -> void:
