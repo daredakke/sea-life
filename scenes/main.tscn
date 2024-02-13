@@ -1,33 +1,36 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=15 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
-[ext_resource type="PackedScene" uid="uid://nj81u3qmrwq7" path="res://scenes/background.tscn" id="1_t8rk7"]
-[ext_resource type="Texture2D" uid="uid://dl86v415yle3d" path="res://assets/backgrounds/sea-life.png" id="2_pc202"]
-[ext_resource type="Texture2D" uid="uid://j7s2wmdxfvtw" path="res://assets/backgrounds/waves.jpg" id="3_jsfnp"]
-[ext_resource type="Texture2D" uid="uid://cmijt3pn8jtfq" path="res://assets/backgrounds/foam.jpg" id="4_2kfm5"]
+[ext_resource type="Shader" path="res://assets/bg_repeat.gdshader" id="2_2vt54"]
+[ext_resource type="Texture2D" uid="uid://bbwf5x12dmw0p" path="res://assets/backgrounds/checkerboard.png" id="3_esnsv"]
 [ext_resource type="PackedScene" uid="uid://bbl8rqlmhufue" path="res://scenes/pause.tscn" id="4_8d2ge"]
-[ext_resource type="Texture2D" uid="uid://86ej0ddc0jjh" path="res://assets/backgrounds/bubbles-30-opacity.png" id="4_bnkoc"]
 [ext_resource type="PackedScene" uid="uid://bi7e6b8a2ue6p" path="res://scenes/player_health_bar.tscn" id="4_kc4cn"]
 [ext_resource type="PackedScene" uid="uid://bstxmoqmg6epi" path="res://scenes/score.tscn" id="4_qno8n"]
 [ext_resource type="PackedScene" uid="uid://ckfabkssvqr3s" path="res://scenes/special.tscn" id="5_bwqbv"]
-[ext_resource type="Texture2D" uid="uid://b7q5d5urbahnh" path="res://assets/backgrounds/ripples.jpg" id="5_sbo20"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 [ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
 [ext_resource type="PackedScene" uid="uid://ceckwpqwfrg3b" path="res://scenes/fade_out.tscn" id="9_31iox"]
 [ext_resource type="PackedScene" uid="uid://hmvp10l45rdd" path="res://scenes/player_special_bar.tscn" id="9_d3dsw"]
 [ext_resource type="PackedScene" uid="uid://df5usyx3eek3n" path="res://scenes/splash.tscn" id="15_wibfs"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0h7u"]
+shader = ExtResource("2_2vt54")
+shader_parameter/direction = Vector2(0.4, -1)
+shader_parameter/speed_scale = 0.04
+
 [node name="Main" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_bw2ht")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.141176, 0.176471, 0.270588, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u0h7u")
 position = Vector2(-139, -98)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_pc202")
+texture = ExtResource("3_esnsv")
 centered = false
-hframes = 3
 
 [node name="WaveStartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -39,16 +42,6 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 1.75
 one_shot = true
-
-[node name="Background" parent="." instance=ExtResource("1_t8rk7")]
-process_mode = 1
-visible = false
-base_texture = ExtResource("3_jsfnp")
-lower_texture = ExtResource("4_bnkoc")
-middle_texture = ExtResource("4_2kfm5")
-top_texture = ExtResource("5_sbo20")
-lower_rotation = -2.0
-top_rotation = -5.0
 
 [node name="Projectiles" type="Node" parent="."]
 unique_name_in_owner = true

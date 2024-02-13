@@ -1,9 +1,29 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=4 format=3 uid="uid://dwhic14as3vnp"]
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=9 format=3 uid="uid://dwhic14as3vnp"]
 
 [ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_3wox8"]
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_p5616"]
 [ext_resource type="Resource" uid="uid://cl2cdpfb1v2ya" path="res://resources/waves/wave_2.tres" id="2_xbh26"]
+[ext_resource type="PackedScene" uid="uid://dg325iwinn4xs" path="res://scenes/enemies/enemy_squid.tscn" id="3_oc8t5"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="4_t7ujw"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="5_f1rxo"]
+
+[sub_resource type="Resource" id="Resource_h5ggd"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("3_oc8t5")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 90
+node_speed_variance = 25
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_x58jc"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_h5ggd")])
 
 [resource]
 script = ExtResource("1_p5616")
-collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_3wox8"), ExtResource("2_xbh26")])
+collection = Array[ExtResource("5_f1rxo")]([ExtResource("1_3wox8"), ExtResource("2_xbh26"), SubResource("Resource_x58jc")])
