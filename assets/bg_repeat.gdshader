@@ -1,3 +1,4 @@
+// https://forum.godotengine.org/t/how-to-make-an-infinite-scrolling-background/24114/2
 shader_type canvas_item;
 
 uniform vec2 direction = vec2(1.0, 0.0);

@@ -212,6 +212,7 @@ func _handle_pause_state() -> void:
 		pause.show()
 	else:
 		pause.hide()
+		pause.close_modals()
 
 
 func _on_close_stats_screen() -> void:

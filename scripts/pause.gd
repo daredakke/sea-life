@@ -35,9 +35,7 @@ func _ready() -> void:
 	animation_player.play("boiling")
 	display_highscores()
 	continue_button.hide()
-	options.hide()
-	highscores.hide()
-	instructions.hide()
+	close_modals()
 	
 	new_game_button.disabled = true
 	quit_button.disabled = true
@@ -48,6 +46,12 @@ func enable_buttons() -> void:
 	new_game_button.disabled = false
 	quit_button.disabled = false
 	resolution_button.disabled = false
+
+
+func close_modals() -> void:
+	options.hide()
+	highscores.hide()
+	instructions.hide()
 
 
 func display_highscores() -> void:
