@@ -12,11 +12,14 @@ const SPAWN_DELAY_MIN: float = 0.05
 const START_DELAY_MIN: float = 5.0
 
 const NOISE_SHAKE_SPEED: float = 30.0
-const NOISE_SHAKE_STRENGTH: float = 60.0
-const SHAKE_DECAY_RATE: float = 5.0
+const SHAKE_STRENGTH_DEFAULT: float = 8.33
+const SHAKE_STRENGTH_PLAYER: float = 50.0
+const SHAKE_DECAY_RATE_DEFAULT: float = 14.0
+const SHAKE_DECAY_RATE_PLAYER: float = 1.0
 
 var _noise_i: float = 0.0
 var _shake_strength: float = 0.0
+var _shake_decay_rate: float = 0.0
 var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0:
@@ -97,6 +100,7 @@ func _ready() -> void:
 	Waves.score_increased.connect(_increase_score)
 	Waves.special_increased.connect(_update_player_special_bar)
 	Waves.special_charged.connect(_increase_special_charge)
+	Waves.shake_screen.connect(_enemy_defeated_screen_shake)
 	
 	_handle_pause_state()
 
@@ -105,11 +109,9 @@ func _process(delta: float) -> void:
 	if not _game_started:
 		return
 	
-	_shake_strength = lerp(_shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
+	# Screen shake decay
+	_shake_strength = lerp(_shake_strength, 0.0, _shake_decay_rate * delta)
 	camera.offset = _get_noise_offset(delta)
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		_apply_noise_shake()
 	
 	if Input.is_action_just_pressed("pause"):
 		_game_paused = !_game_paused
@@ -117,8 +119,8 @@ func _process(delta: float) -> void:
 		_handle_pause_state()
 
 
-func _apply_noise_shake() -> void:
-	_shake_strength = NOISE_SHAKE_STRENGTH
+func _apply_noise_shake(strength: float) -> void:
+	_shake_strength = strength
 
 
 func _get_noise_offset(delta: float) -> Vector2:
@@ -157,6 +159,7 @@ func _reset_game_state() -> void:
 	_score = 0
 	_score_multiplier = 1
 	_special_charges = 1
+	_shake_decay_rate = SHAKE_DECAY_RATE_DEFAULT
 
 
 func _restart_game() -> void:
@@ -168,7 +171,14 @@ func _restart_game() -> void:
 	_handle_pause_state()
 
 
+func _enemy_defeated_screen_shake() -> void:
+	_apply_noise_shake(SHAKE_STRENGTH_DEFAULT + randf_range(-1.0, 1.0))
+
+
 func _fade_out_on_death() -> void:
+	_shake_decay_rate = SHAKE_DECAY_RATE_PLAYER
+	
+	_apply_noise_shake(SHAKE_STRENGTH_PLAYER)
 	fade_out.show()
 	fade_out.start_animation()
 

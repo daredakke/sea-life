@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=3 format=3 uid="uid://cl2cdpfb1v2ya"]
+
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_56j7n"]
+[ext_resource type="Resource" uid="uid://wdidlifu25sc" path="res://resources/enemy_groups/group_2.tres" id="1_qwnp6"]
+
+[resource]
+script = ExtResource("1_56j7n")
+composition = Array[Resource("res://scripts/enemy_group.gd")]([ExtResource("1_qwnp6")])

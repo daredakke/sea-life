@@ -5,6 +5,7 @@ signal wave_over
 signal score_increased(value: int, increase_multiplier: bool)
 signal special_increased(value: int, max_value: int)
 signal special_charged
+signal shake_screen
 
 const MAX_ENEMY_DEFEATED_MILESTONE: int = 125
 
@@ -61,6 +62,7 @@ func enemy_defeated(score_value: int) -> void:
 	_enemies_defeated_combo += 1
 	
 	if score_value > 0:
+		shake_screen.emit()
 		score_increased.emit(score_value, true)
 	
 	if _enemies_defeated_this_wave >= _enemies_in_wave:
