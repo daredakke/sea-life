@@ -15,7 +15,10 @@ const SHAKE_STRENGTH_DEFAULT: float = 8.33
 const SHAKE_STRENGTH_PLAYER: float = 60.0
 const SHAKE_DECAY_RATE_DEFAULT: float = 13.5
 const SHAKE_DECAY_RATE_PLAYER: float = 1.0
+const DEFAULT_BACKGROUND_DIRECTION := Vector2(0.4, -1)
 
+var _background_direction: Vector2 = DEFAULT_BACKGROUND_DIRECTION
+var _background_hue: float = 0.5
 var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0:
@@ -59,6 +62,8 @@ var _final_wave_changes: Dictionary = {
 var _cursor_arrow := preload("res://assets/cursor.png")
 var _cursor_crosshair := preload("res://assets/crosshair.png")
 
+@onready var background: Sprite2D = %Background
+@onready var background_change_timer: Timer = %BackgroundChangeTimer
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
 @onready var projectiles: Node = %Projectiles
@@ -355,3 +360,15 @@ func _reset_stats() -> void:
 	_bullet_speed_multiplier = 1
 
 	player.set_fire_rate(0)
+
+
+func _on_background_change_timer_timeout() -> void:
+	_background_hue += 0.0001 + (_wave * 0.001)
+	
+	if _background_hue > 1.0:
+		_background_hue = 0.0
+	
+	background.modulate = Color.from_hsv(_background_hue, 0.5, 0.25, 1)
+	
+	#_background_direction = _background_direction.rotated(0.1)
+	#background.material.set_shader_parameter("direction", _background_direction)

@@ -2,7 +2,7 @@
 shader_type canvas_item;
 
 varying vec4 v_vertex_color;
-uniform vec2 direction = vec2(1.0, 0.0);
+uniform vec2 direction = vec2(0.4, -1.0);
 uniform float speed_scale = 0.05;
 
 void vertex() {
