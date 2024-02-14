@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=9 format=3 uid="uid://dwhic14as3vnp"]
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=29 format=3 uid="uid://dwhic14as3vnp"]
 
 [ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_3wox8"]
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_p5616"]
@@ -6,16 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://dg325iwinn4xs" path="res://scenes/enemies/enemy_squid.tscn" id="3_oc8t5"]
 [ext_resource type="Script" path="res://scripts/enemy_group.gd" id="4_t7ujw"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="5_f1rxo"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="6_p0wlh"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="7_2xwul"]
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="8_phpvv"]
+[ext_resource type="PackedScene" uid="uid://f2fnv1w2k1vw" path="res://scenes/enemies/enemy_crab.tscn" id="9_iw3ip"]
+[ext_resource type="PackedScene" uid="uid://c36kupih0uhmn" path="res://scenes/enemies/enemy_fish_kamikaze.tscn" id="10_5oi6l"]
+[ext_resource type="PackedScene" uid="uid://ulwbeuk17l4a" path="res://scenes/enemies/enemy_starfish.tscn" id="11_i5ksg"]
 
 [sub_resource type="Resource" id="Resource_h5ggd"]
 script = ExtResource("4_t7ujw")
 node_scene = ExtResource("3_oc8t5")
 nodes_to_spawn = 10
 node_health = 0
-node_speed = 90
-node_speed_variance = 25
+node_speed = 110
+node_speed_variance = 30
 start_delay = 0.05
-spawn_delay = 1.0
+spawn_delay = 0.8
 aim_at_player = false
 target_x_variance = 150.0
 target_y_variance = 150.0
@@ -24,6 +30,143 @@ target_y_variance = 150.0
 script = ExtResource("5_f1rxo")
 composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_h5ggd")])
 
+[sub_resource type="Resource" id="Resource_fgcd6"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("6_p0wlh")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 100
+node_speed_variance = 25
+start_delay = 0.05
+spawn_delay = 0.05
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_lt021"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("7_2xwul")
+nodes_to_spawn = 5
+node_health = 0
+node_speed = 70
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_n0v56"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("8_phpvv")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 70
+node_speed_variance = 25
+start_delay = 3.0
+spawn_delay = 1.3
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_h0sio"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_fgcd6"), SubResource("Resource_lt021"), SubResource("Resource_n0v56")])
+
+[sub_resource type="Resource" id="Resource_lg61h"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("9_iw3ip")
+nodes_to_spawn = 14
+node_health = 0
+node_speed = 100
+node_speed_variance = 30
+start_delay = 0.05
+spawn_delay = 2.0
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_1b577"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("6_p0wlh")
+nodes_to_spawn = 24
+node_health = 0
+node_speed = 100
+node_speed_variance = 25
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_u2hdp"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_lg61h"), SubResource("Resource_1b577")])
+
+[sub_resource type="Resource" id="Resource_j8blv"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("10_5oi6l")
+nodes_to_spawn = 16
+node_health = 0
+node_speed = 100
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 0.9
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_f7xvn"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_j8blv")])
+
+[sub_resource type="Resource" id="Resource_x16ei"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("9_iw3ip")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 100
+node_speed_variance = 50
+start_delay = 0.05
+spawn_delay = 2.0
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_k4pc5"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("3_oc8t5")
+nodes_to_spawn = 20
+node_health = 0
+node_speed = 110
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_lb6sc"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_x16ei"), SubResource("Resource_k4pc5")])
+
+[sub_resource type="Resource" id="Resource_y7lms"]
+script = ExtResource("4_t7ujw")
+node_scene = ExtResource("11_i5ksg")
+nodes_to_spawn = 16
+node_health = 0
+node_speed = 90
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 0.7
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_0qekq"]
+script = ExtResource("5_f1rxo")
+composition = Array[ExtResource("4_t7ujw")]([SubResource("Resource_y7lms")])
+
 [resource]
 script = ExtResource("1_p5616")
-collection = Array[ExtResource("5_f1rxo")]([ExtResource("1_3wox8"), ExtResource("2_xbh26"), SubResource("Resource_x58jc")])
+collection = Array[ExtResource("5_f1rxo")]([ExtResource("1_3wox8"), ExtResource("2_xbh26"), SubResource("Resource_x58jc"), SubResource("Resource_h0sio"), SubResource("Resource_u2hdp"), SubResource("Resource_f7xvn"), SubResource("Resource_lb6sc"), SubResource("Resource_0qekq")])

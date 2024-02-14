@@ -3,9 +3,9 @@ extends Enemy
 
 
 @export var hold_range: float = 175
-@export var fire_range: float = 600
-@export var fire_rate_time: float = 1
-@export var fire_rate_variance: float = 0.5
+@export var fire_range: float = 500
+@export var fire_rate_time: float = 1.25
+@export var fire_rate_variance: float = 0.67
 
 @onready var enemy_sprite: Sprite2D = $EnemySprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

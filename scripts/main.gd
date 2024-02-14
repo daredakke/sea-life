@@ -15,10 +15,8 @@ const SHAKE_STRENGTH_DEFAULT: float = 8.33
 const SHAKE_STRENGTH_PLAYER: float = 60.0
 const SHAKE_DECAY_RATE_DEFAULT: float = 13.5
 const SHAKE_DECAY_RATE_PLAYER: float = 1.0
-const DEFAULT_BACKGROUND_DIRECTION := Vector2(0.4, -1)
 
-var _background_direction: Vector2 = DEFAULT_BACKGROUND_DIRECTION
-var _background_hue: float = 0.5
+var _background_direction: Vector2
 var _game_started: bool = false
 var _game_paused: bool = true
 var _score: int = 0:
@@ -59,6 +57,7 @@ var _final_wave_changes: Dictionary = {
 	"spawn_delay": -0.1,
 	"start_delay": -0.1,
 }
+var _background_hue: float
 var _cursor_arrow := preload("res://assets/cursor.png")
 var _cursor_crosshair := preload("res://assets/crosshair.png")
 
@@ -88,6 +87,10 @@ func _ready() -> void:
 	rand.randomize()
 	noise.seed = randi()
 	noise.frequency = 0.5
+	_background_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+	_background_hue = randf()
+
+	background.material.set_shader_parameter("direction", _background_direction)
 	
 	Globals.screen_centre = screen_centre.global_position
 	pause.start_new_game.connect(_start_new_game)
@@ -114,6 +117,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not _game_started:
 		return
+	
+	var speed_up: float = (_wave * 0.000001)
+	_background_hue += 0.0001 + speed_up
+	
+	if _background_hue > 1.0:
+		_background_hue = 0.0
+	
+	background.modulate = Color.from_hsv(_background_hue, 0.5, 0.25, 1)
+	
+	_background_direction = _background_direction.rotated(0.0001 + speed_up).normalized()
+	background.material.set_shader_parameter("direction", _background_direction)
 	
 	# Screen shake decay
 	_shake_strength = lerp(_shake_strength, 0.0, _shake_decay_rate * delta)
@@ -152,6 +166,11 @@ func _start_new_game() -> void:
 
 
 func _reset_game_state() -> void:
+	rand.randomize()
+	noise.seed = randi()
+	_background_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
+	_background_hue = randf()
+	
 	# Clear any bullets or enemies from an existing game
 	Globals.remove_child_nodes(projectiles)
 	Globals.remove_child_nodes(enemies)
@@ -363,12 +382,4 @@ func _reset_stats() -> void:
 
 
 func _on_background_change_timer_timeout() -> void:
-	_background_hue += 0.0001 + (_wave * 0.001)
-	
-	if _background_hue > 1.0:
-		_background_hue = 0.0
-	
-	background.modulate = Color.from_hsv(_background_hue, 0.5, 0.25, 1)
-	
-	#_background_direction = _background_direction.rotated(0.1)
-	#background.material.set_shader_parameter("direction", _background_direction)
+	pass
