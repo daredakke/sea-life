@@ -56,6 +56,8 @@ var _final_wave_changes: Dictionary = {
 	"spawn_delay": -0.1,
 	"start_delay": -0.1,
 }
+var _cursor_arrow := preload("res://assets/cursor.png")
+var _cursor_crosshair := preload("res://assets/crosshair.png")
 
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
@@ -185,6 +187,7 @@ func _fade_out_on_death() -> void:
 func _show_game_over_screen() -> void:
 	Globals.remove_child_nodes(projectiles)
 	Globals.remove_child_nodes(enemies)
+	Input.set_custom_mouse_cursor(_cursor_arrow, Input.CURSOR_ARROW, Vector2(0, 0))
 	
 	_game_started = false
 	game_over.show()
@@ -233,6 +236,7 @@ func _wave_end() -> void:
 
 
 func _show_stats_screen() -> void:
+	Input.set_custom_mouse_cursor(_cursor_arrow, Input.CURSOR_ARROW, Vector2(0, 0))
 	# Remove any stray bullets so they don't threaten the player
 	for node in enemies.get_children():
 		enemies.remove_child(node)
@@ -254,13 +258,18 @@ func _handle_pause_state() -> void:
 	
 	if _game_paused:
 		pause.show()
+		Input.set_custom_mouse_cursor(_cursor_arrow, Input.CURSOR_ARROW, Vector2(0, 0))
 	else:
 		pause.hide()
 		pause.close_modals()
+		
+		if not stats.visible:
+			Input.set_custom_mouse_cursor(_cursor_crosshair, Input.CURSOR_ARROW, Vector2(24, 24))
 
 
 func _on_close_stats_screen() -> void:
 	player.set_process(true)
+	Input.set_custom_mouse_cursor(_cursor_crosshair, Input.CURSOR_ARROW, Vector2(24, 24))
 	wave_start_timer.start()
 
 

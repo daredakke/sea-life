@@ -76,7 +76,7 @@ theme = ExtResource("1_kqgi4")
 script = ExtResource("1_0ix73")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.121569, 0.231373, 0.388235, 1)
+modulate = Color(0.101961, 0.2, 0.341176, 1)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ydaqp")
 position = Vector2(640, 359)
