@@ -62,7 +62,6 @@ var _cursor_arrow := preload("res://assets/cursor.png")
 var _cursor_crosshair := preload("res://assets/crosshair.png")
 
 @onready var background: Sprite2D = %Background
-@onready var background_change_timer: Timer = %BackgroundChangeTimer
 @onready var wave_start_timer: Timer = %WaveStartTimer
 @onready var wave_end_timer: Timer = %WaveEndTimer
 @onready var projectiles: Node = %Projectiles
@@ -377,9 +376,6 @@ func _reset_stats() -> void:
 	_bullet_pierce_chance = 0
 	_spread_range = BASE_SPREAD_RANGE
 	_bullet_speed_multiplier = 1
-
+	
 	player.set_fire_rate(0)
 
-
-func _on_background_change_timer_timeout() -> void:
-	pass

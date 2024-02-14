@@ -33,11 +33,6 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_esnsv")
 centered = false
 
-[node name="BackgroundChangeTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.05
-autostart = true
-
 [node name="WaveStartTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 process_mode = 1
@@ -131,7 +126,6 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[connection signal="timeout" from="BackgroundChangeTimer" to="." method="_on_background_change_timer_timeout"]
 [connection signal="timeout" from="WaveStartTimer" to="." method="_start_wave"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
