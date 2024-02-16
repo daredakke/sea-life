@@ -31,14 +31,15 @@ func _ready() -> void:
 
 
 func _process(delta):
-	super._process(delta)
 	rotation += _rotation_speed * delta
 	
-	# Cause station to decelerate after spawn
+	# Cause starfish to decelerate after spawn
 	if speed > _reduced_speed:
 		speed = lerpf(_original_speed, _reduced_speed, _weight)
 		
 		_weight += 0.002
+	
+	super._process(delta)
 
 
 func _on_reload_timer_timeout() -> void:
@@ -53,8 +54,9 @@ func _on_fire_rate_timer_timeout() -> void:
 	
 	for i in range(_bullets_per_salvo):
 		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
-		bullet_instance.position = self.position
-		bullet_instance.direction = self.direction.rotated(self.rotation + deg_to_rad(90) * i)
+		bullet_instance.position = position
+		bullet_instance.direction = direction.rotated(rotation + deg_to_rad(90) * i)
+		
 		add_sibling(bullet_instance)
 	
 	_shots_fired += 1

@@ -85,8 +85,7 @@ process_mode = 1
 metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyDespawner"]
-polygon = PackedVector2Array(-2142, -229, 1495, -245, 1532, 950, -270, 945, -257, -2149, -2195, -2121, -2225, 2538, 3521, 2515, 3400, -2189, -2134, -2068)
-metadata/_edit_lock_ = true
+polygon = PackedVector2Array(-2119, -426, 1787, -423, 1787, 1148, -552, 1148, -551, -2140, -2195, -2121, -2225, 2538, 3521, 2515, 3400, -2189, -2134, -2068)
 
 [node name="ScreenCentre" type="Marker2D" parent="."]
 unique_name_in_owner = true

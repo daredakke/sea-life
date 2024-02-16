@@ -3,7 +3,7 @@ extends Node2D
 
 
 const BASE_SPREAD_RANGE: float = 0.12
-const POINTS_PER_WAVE: int = 2
+const POINTS_PER_WAVE: int = 30
 const MAX_SCORE_MULTIPLIER: int = 999
 const MAX_SPECIAL_CHARGES: int = 3
 const INITIAL_WAVE: int = -1
@@ -12,8 +12,10 @@ const SPAWN_DELAY_MIN: float = 0.05
 const START_DELAY_MIN: float = 5.0
 const NOISE_SHAKE_SPEED: float = 30.0
 const SHAKE_STRENGTH_DEFAULT: float = 8.33
+const SHAKE_STRENGTH_BOSS: float = 52.5
 const SHAKE_STRENGTH_PLAYER: float = 60.0
 const SHAKE_DECAY_RATE_DEFAULT: float = 13.5
+const SHAKE_DECAY_RATE_BOSS: float = 3.0
 const SHAKE_DECAY_RATE_PLAYER: float = 1.0
 
 var _background_direction: Vector2
@@ -195,8 +197,13 @@ func _restart_game() -> void:
 	_handle_pause_state()
 
 
-func _enemy_defeated_screen_shake() -> void:
-	_apply_noise_shake(SHAKE_STRENGTH_DEFAULT + randf_range(-1.0, 1.0))
+func _enemy_defeated_screen_shake(enemy_type: String) -> void:
+	if enemy_type == "Boss":
+		_shake_decay_rate = SHAKE_DECAY_RATE_BOSS
+		_apply_noise_shake(SHAKE_STRENGTH_BOSS + randf_range(-1.0, 1.0))
+	else:
+		_shake_decay_rate = SHAKE_DECAY_RATE_DEFAULT
+		_apply_noise_shake(SHAKE_STRENGTH_DEFAULT + randf_range(-1.0, 1.0))
 
 
 func _fade_out_on_death() -> void:

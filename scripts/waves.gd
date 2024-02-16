@@ -5,7 +5,7 @@ signal wave_over
 signal score_increased(value: int, increase_multiplier: bool)
 signal special_increased(value: int, max_value: int)
 signal special_charged
-signal shake_screen
+signal shake_screen(enemy_type: String)
 
 const MAX_ENEMY_DEFEATED_MILESTONE: int = 125
 
@@ -57,13 +57,13 @@ func set_enemies_in_wave(wave: int) -> void:
 		_enemies_in_wave += group.nodes_to_spawn
 
 
-func enemy_defeated(score_value: int) -> void:
+func enemy_defeated(score_value: int, enemy_type: String) -> void:
 	_enemies_defeated_this_wave += 1
 	_enemies_defeated += 1
 	_enemies_defeated_combo += 1
 	
 	if score_value > 0:
-		shake_screen.emit()
+		shake_screen.emit(enemy_type)
 		score_increased.emit(score_value, true)
 	
 	if _enemies_defeated_this_wave >= _enemies_in_wave:

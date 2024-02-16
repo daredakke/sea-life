@@ -2,8 +2,9 @@ class_name Enemy
 extends Area2D
 
 
-signal defeated(score: int)
+signal defeated(score: int, enemy_type: String)
 
+@export_enum("Enemy", "Boss") var enemy_type: String = "Enemy"
 @export var health: int = 3
 @export var score_value: int = 500
 @export var explosion_scale: float = 0.33
@@ -39,9 +40,9 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _die(score) -> void:
-	defeated.emit(score)
+	defeated.emit(score, enemy_type)
 	_spawn_explosion()
-	self.queue_free()
+	queue_free()
 
 
 func _direction_to_player() -> Vector2:
