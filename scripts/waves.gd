@@ -34,7 +34,8 @@ var _enemies_defeated: int = 0:
 			
 			special_charged.emit()
 
-var _waves_collection: WavesCollection = preload("res://resources/waves_default.tres")
+#var _waves_collection: WavesCollection = preload("res://resources/waves_default.tres")
+var _waves_collection: WavesCollection = preload("res://resources/waves_test.tres")
 # Once out of waves, this one will run on repeat with increasing difficulty
 var _final_wave: WaveComposition = preload("res://resources/waves/final_wave.tres")
 

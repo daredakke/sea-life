@@ -1,0 +1,156 @@
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=37 format=3 uid="uid://cy2i6tw25smj6"]
+
+[ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_dj21a"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_eb331"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_rwfbh"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="3_0psyh"]
+
+[sub_resource type="Resource" id="Resource_ydiev"]
+script = ExtResource("2_rwfbh")
+node_scene = ExtResource("1_eb331")
+nodes_to_spawn = 1
+node_health = 1
+node_speed = 175
+node_speed_variance = 25
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_usbm2"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
+
+[sub_resource type="Resource" id="Resource_j5ckh"]
+script = ExtResource("2_rwfbh")
+node_scene = ExtResource("1_eb331")
+nodes_to_spawn = 1
+node_health = 1
+node_speed = 175
+node_speed_variance = 25
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_r24rs"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_epgne"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_8o138"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_1okjj"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_7006h"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_8whaf"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_248lh"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_qax0o"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_txawi"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_4x3c2"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_t0xyn"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_gtmte"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_ueqhb"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_cbk85"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_1jm1i"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_7vbs7"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_f65aj"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_6pxak"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_ro0ld"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_eepjv"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_dpu1r"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_u5yoy"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_q2pss"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_tp6a0"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_n7866"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_urywc"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_w2733"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_6gpwj"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[sub_resource type="Resource" id="Resource_xvq0s"]
+script = ExtResource("3_0psyh")
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+
+[resource]
+script = ExtResource("1_dj21a")
+collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), SubResource("Resource_r24rs"), SubResource("Resource_epgne"), SubResource("Resource_8o138"), SubResource("Resource_1okjj"), SubResource("Resource_7006h"), SubResource("Resource_8whaf"), SubResource("Resource_248lh"), SubResource("Resource_qax0o"), SubResource("Resource_txawi"), SubResource("Resource_4x3c2"), SubResource("Resource_t0xyn"), SubResource("Resource_gtmte"), SubResource("Resource_ueqhb"), SubResource("Resource_cbk85"), SubResource("Resource_1jm1i"), SubResource("Resource_7vbs7"), SubResource("Resource_f65aj"), SubResource("Resource_6pxak"), SubResource("Resource_ro0ld"), SubResource("Resource_eepjv"), SubResource("Resource_dpu1r"), SubResource("Resource_u5yoy"), SubResource("Resource_q2pss"), SubResource("Resource_tp6a0"), SubResource("Resource_n7866"), SubResource("Resource_urywc"), SubResource("Resource_w2733"), SubResource("Resource_6gpwj"), SubResource("Resource_xvq0s")])
