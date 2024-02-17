@@ -70,7 +70,7 @@ libraries = {
 }
 
 [node name="SpeedResetTimer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 3.0
 autostart = true
 
 [node name="BulletSpawnMarker" type="Marker2D" parent="."]

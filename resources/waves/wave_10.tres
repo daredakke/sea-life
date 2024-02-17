@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=5 format=3 uid="uid://baf07mrkoy3ec"]
+
+[ext_resource type="PackedScene" uid="uid://dh7r67xccniya" path="res://scenes/enemies/enemy_jellyfish.tscn" id="1_x2y5v"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_yu5rw"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_y54wr"]
+
+[sub_resource type="Resource" id="Resource_04ryy"]
+script = ExtResource("2_y54wr")
+node_scene = ExtResource("1_x2y5v")
+nodes_to_spawn = 16
+node_health = 0
+node_speed = 45
+node_speed_variance = 35
+start_delay = 0.05
+spawn_delay = 0.5
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_yu5rw")
+composition = Array[ExtResource("2_y54wr")]([SubResource("Resource_04ryy")])

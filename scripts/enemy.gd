@@ -41,7 +41,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _die(score: int) -> void:
 	defeated.emit(score, enemy_type)
-	_spawn_explosion()
+	explode()
 	queue_free()
 
 
@@ -49,7 +49,7 @@ func _direction_to_player() -> Vector2:
 	return global_position.direction_to(Globals.player_position)
 
 
-func _spawn_explosion() -> void:
+func explode() -> void:
 	var explosion_instance := _explosion_scene.instantiate() as Explosion
 	explosion_instance.global_position = global_position
 	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)

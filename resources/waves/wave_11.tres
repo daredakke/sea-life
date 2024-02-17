@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=11 format=3 uid="uid://dm4mqaq6wodcg"]
+
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_ivxbe"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_mv7pq"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_wahn5"]
+[ext_resource type="PackedScene" uid="uid://dh7r67xccniya" path="res://scenes/enemies/enemy_jellyfish.tscn" id="3_m2h6g"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="4_4dtf2"]
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="5_ustqj"]
+
+[sub_resource type="Resource" id="Resource_o3m6l"]
+script = ExtResource("2_wahn5")
+node_scene = ExtResource("1_mv7pq")
+nodes_to_spawn = 20
+node_health = 0
+node_speed = 110
+node_speed_variance = 30
+start_delay = 0.5
+spawn_delay = 1.5
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_todje"]
+script = ExtResource("2_wahn5")
+node_scene = ExtResource("3_m2h6g")
+nodes_to_spawn = 20
+node_health = 0
+node_speed = 50
+node_speed_variance = 15
+start_delay = 0.05
+spawn_delay = 1.5
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_3nxy6"]
+script = ExtResource("2_wahn5")
+node_scene = ExtResource("4_4dtf2")
+nodes_to_spawn = 7
+node_health = 0
+node_speed = 60
+node_speed_variance = 30
+start_delay = 9.0
+spawn_delay = 0.75
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_w1a4x"]
+script = ExtResource("2_wahn5")
+node_scene = ExtResource("5_ustqj")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 100
+node_speed_variance = 20
+start_delay = 18.0
+spawn_delay = 0.67
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_ivxbe")
+composition = Array[ExtResource("2_wahn5")]([SubResource("Resource_o3m6l"), SubResource("Resource_todje"), SubResource("Resource_3nxy6"), SubResource("Resource_w1a4x")])

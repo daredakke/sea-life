@@ -3,7 +3,7 @@ extends Node2D
 
 
 const BASE_SPREAD_RANGE: float = 0.12
-const POINTS_PER_WAVE: int = 2
+const POINTS_PER_WAVE: int = 30
 const MAX_SCORE_MULTIPLIER: int = 999
 const MAX_SPECIAL_CHARGES: int = 3
 const INITIAL_WAVE: int = -1
@@ -175,6 +175,7 @@ func _reset_game_state() -> void:
 	# Clear any bullets or enemies from an existing game
 	Globals.remove_child_nodes(projectiles)
 	Globals.remove_child_nodes(enemies)
+	Waves.reset_enemies_defeated_combo()
 	player.reset_player()
 	stats.reset_points_and_stat_labels()
 	stats.hide()
@@ -269,6 +270,7 @@ func _show_stats_screen() -> void:
 	Input.set_custom_mouse_cursor(_cursor_arrow, Input.CURSOR_ARROW, Vector2(0, 0))
 	# Remove any stray bullets so they don't threaten the player
 	for node in enemies.get_children():
+		node.explode()
 		enemies.remove_child(node)
 		node.queue_free()
 	

@@ -28,14 +28,14 @@ func _process(delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("special_attack"):
-		_spawn_explosion()
+		explode()
 		self.queue_free()
 	
 	if area.is_in_group("bullet_despawner") or area.is_in_group("player_hitbox"):
 		self.queue_free()
 
 
-func _spawn_explosion() -> void:
+func explode() -> void:
 	var explosion_instance := _explosion_scene.instantiate() as Explosion
 	explosion_instance.global_position = global_position
 	explosion_instance.scale = Vector2(explosion_scale, explosion_scale)

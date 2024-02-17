@@ -23,8 +23,8 @@ var _enemies_defeated_combo: int = 0:
 			special_increased.emit(new_value, _enemies_defeated_milestone)
 # For display on the game over screen
 var _enemies_defeated: int = 0
-var _waves_collection: WavesCollection = preload("res://resources/waves_default.tres")
-#var _waves_collection: WavesCollection = preload("res://resources/waves_test.tres")
+#var _waves_collection: WavesCollection = preload("res://resources/waves_default.tres")
+var _waves_collection: WavesCollection = preload("res://resources/waves_test.tres")
 # Once out of waves, this one will run on repeat with increasing difficulty
 var _final_wave: WaveComposition = preload("res://resources/waves/final_wave.tres")
 
@@ -76,6 +76,11 @@ func _player_killed_enemy(score_value: int, enemy_type: String) -> void:
 	
 	shake_screen.emit(enemy_type)
 	score_increased.emit(score_value, true)
+
+
+func reset_enemies_defeated_combo() -> void:
+	_enemies_defeated_combo = 0
+
 
 func get_wave_count() -> int:
 	return _waves_collection.collection.size()
