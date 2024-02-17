@@ -2,7 +2,7 @@ class_name EnemyJellyfish
 extends Enemy
 
 
-const ARC: int = 360
+const ARC: float = 360.0
 
 @export var bullet_count: int = 8
 @export var salvo_count: int = 3
@@ -21,14 +21,14 @@ func _process(delta: float) -> void:
 
 
 func _die(score) -> void:
-	for i in range(salvo_count):
+	for i in salvo_count:
 		call_deferred("_fire_bullet_ring", i * 1)
 		
 	super._die(score)
 
 
 func _fire_bullet_ring(speed_multiplier: float) -> void:
-	for i in range(bullet_count):
+	for i in bullet_count:
 		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 		bullet_instance.global_position = global_position
 		bullet_instance.speed = bullet_speed

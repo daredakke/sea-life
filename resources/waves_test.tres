@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=19 format=3 uid="uid://cy2i6tw25smj6"]
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=17 format=3 uid="uid://cy2i6tw25smj6"]
 
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_dj21a"]
 [ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_eb331"]
 [ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_rwfbh"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="3_0psyh"]
-[ext_resource type="PackedScene" uid="uid://dyv4rxauc7r01" path="res://scenes/enemies/boss_nautilus.tscn" id="4_5bhrp"]
 [ext_resource type="Resource" uid="uid://dm4mqaq6wodcg" path="res://resources/waves/wave_11.tres" id="4_vyaqd"]
 [ext_resource type="Resource" uid="uid://bvmnve0igvlp0" path="res://resources/waves/wave_15.tres" id="6_wyyxq"]
 
@@ -25,51 +24,38 @@ target_y_variance = 150.0
 script = ExtResource("3_0psyh")
 composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_j5ckh"]
-script = ExtResource("2_rwfbh")
-node_scene = ExtResource("4_5bhrp")
-nodes_to_spawn = 1
-node_health = 0
-node_speed = 150
-node_speed_variance = 0
-start_delay = 0.05
-spawn_delay = 1.0
-aim_at_player = true
-target_x_variance = 150.0
-target_y_variance = 150.0
-
-[sub_resource type="Resource" id="Resource_epgne"]
+[sub_resource type="Resource" id="Resource_xbtxj"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_8o138"]
+[sub_resource type="Resource" id="Resource_dh60m"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_1okjj"]
+[sub_resource type="Resource" id="Resource_iptpg"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_8whaf"]
+[sub_resource type="Resource" id="Resource_t4x3m"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_248lh"]
+[sub_resource type="Resource" id="Resource_4xwsc"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_w2733"]
+[sub_resource type="Resource" id="Resource_l0318"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_6gpwj"]
+[sub_resource type="Resource" id="Resource_4re78"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
-[sub_resource type="Resource" id="Resource_xvq0s"]
+[sub_resource type="Resource" id="Resource_l5u5k"]
 script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_j5ckh")])
+composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
 [resource]
 script = ExtResource("1_dj21a")
-collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), ExtResource("4_vyaqd"), SubResource("Resource_epgne"), SubResource("Resource_8o138"), SubResource("Resource_1okjj"), ExtResource("6_wyyxq"), SubResource("Resource_8whaf"), SubResource("Resource_248lh"), SubResource("Resource_w2733"), SubResource("Resource_6gpwj"), SubResource("Resource_xvq0s")])
+collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), ExtResource("4_vyaqd"), SubResource("Resource_xbtxj"), SubResource("Resource_dh60m"), SubResource("Resource_iptpg"), ExtResource("6_wyyxq"), SubResource("Resource_t4x3m"), SubResource("Resource_4xwsc"), SubResource("Resource_l0318"), SubResource("Resource_4re78"), SubResource("Resource_l5u5k")])

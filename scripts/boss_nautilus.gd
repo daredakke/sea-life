@@ -3,6 +3,7 @@ extends Enemy
 
 
 const ANGULAR_SPEED: float = TAU * 0.08
+const ARC: float = 360.0
 
 @export var final_speed: float = 30
 
@@ -61,7 +62,7 @@ func _on_start_timer_timeout() -> void:
 func _on_ring_timer_timeout() -> void:
 	for i in _bullets_in_ring:
 		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
-		var segments := deg_to_rad(floor(360 / _bullets_in_ring))
+		var segments := deg_to_rad(ARC / _bullets_in_ring)
 		bullet_instance.position = position
 		bullet_instance.direction = direction.rotated(rotation + segments * i)
 		bullet_instance.speed = 100
@@ -74,6 +75,6 @@ func _on_burst_timer_timeout() -> void:
 		var bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 		bullet_instance.position = position
 		bullet_instance.direction = direction.rotated(deg_to_rad(90 * i + (2 * i)))
-		bullet_instance.speed = 30 + (1 * i)
+		bullet_instance.speed = 50 + (1 * i)
 		
 		add_sibling(bullet_instance)

@@ -55,7 +55,7 @@ height = 138.0
 [node name="BossNautilus" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_04spg")
 enemy_type = "Boss"
-health = 3500
+health = 4300
 explosion_scale = 1.0
 speed = 150.0
 speed_variance = 0.0
@@ -85,14 +85,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_yhmcp")
 
 [node name="BurstTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 6.0
 autostart = true
 
 [node name="RingTimer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 3.0
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.75
 one_shot = true
 autostart = true
 
