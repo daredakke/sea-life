@@ -55,7 +55,7 @@ height = 16.0
 
 [node name="EnemyFishKamikaze" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_tx1g7")
-health = 6
+health = 14
 score_value = 15
 explosion_scale = 0.28
 speed_variance = 40.0

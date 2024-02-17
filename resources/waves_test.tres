@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_rwfbh"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="3_0psyh"]
 [ext_resource type="Resource" uid="uid://dm4mqaq6wodcg" path="res://resources/waves/wave_11.tres" id="4_vyaqd"]
+[ext_resource type="Resource" uid="uid://bu3cdkklxaxdv" path="res://resources/waves/wave_12.tres" id="5_duken"]
 [ext_resource type="Resource" uid="uid://bvmnve0igvlp0" path="res://resources/waves/wave_15.tres" id="6_wyyxq"]
 
 [sub_resource type="Resource" id="Resource_ydiev"]
@@ -21,10 +22,6 @@ target_x_variance = 150.0
 target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_usbm2"]
-script = ExtResource("3_0psyh")
-composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
-
-[sub_resource type="Resource" id="Resource_xbtxj"]
 script = ExtResource("3_0psyh")
 composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
@@ -58,4 +55,4 @@ composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
 [resource]
 script = ExtResource("1_dj21a")
-collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), ExtResource("4_vyaqd"), SubResource("Resource_xbtxj"), SubResource("Resource_dh60m"), SubResource("Resource_iptpg"), ExtResource("6_wyyxq"), SubResource("Resource_t4x3m"), SubResource("Resource_4xwsc"), SubResource("Resource_l0318"), SubResource("Resource_4re78"), SubResource("Resource_l5u5k")])
+collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), ExtResource("4_vyaqd"), ExtResource("5_duken"), SubResource("Resource_dh60m"), SubResource("Resource_iptpg"), ExtResource("6_wyyxq"), SubResource("Resource_t4x3m"), SubResource("Resource_4xwsc"), SubResource("Resource_l0318"), SubResource("Resource_4re78"), SubResource("Resource_l5u5k")])

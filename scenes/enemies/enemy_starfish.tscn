@@ -50,7 +50,7 @@ height = 76.3538
 [node name="EnemyStarfish" type="Area2D" groups=["enemy"]]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_eii1d")
-health = 11
+health = 19
 score_value = 33
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
