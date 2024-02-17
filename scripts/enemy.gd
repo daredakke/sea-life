@@ -8,7 +8,7 @@ signal defeated(score: int, enemy_type: String)
 @export var health: int = 3
 @export var score_value: int = 500
 @export var explosion_scale: float = 0.33
-@export var speed: float = 120
+@export var speed: float = 90
 @export var speed_variance: float = 15
 
 var direction: Vector2
@@ -39,7 +39,7 @@ func _on_area_entered(area: Area2D) -> void:
 		_die(0)
 
 
-func _die(score) -> void:
+func _die(score: int) -> void:
 	defeated.emit(score, enemy_type)
 	_spawn_explosion()
 	queue_free()

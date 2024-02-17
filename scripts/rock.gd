@@ -15,4 +15,5 @@ func _ready() -> void:
 
 func _process(delta):
 	super._process(delta)
+	
 	rotation += _rotation_speed * delta
