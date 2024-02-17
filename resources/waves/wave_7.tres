@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=5 format=3 uid="uid://dipuakjh4v3ny"]
+
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="1_gp42r"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_j1cqr"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_7slm3"]
+
+[sub_resource type="Resource" id="Resource_64rgi"]
+script = ExtResource("2_7slm3")
+node_scene = ExtResource("1_gp42r")
+nodes_to_spawn = 12
+node_health = 0
+node_speed = 80
+node_speed_variance = 60
+start_delay = 0.05
+spawn_delay = 0.3
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_j1cqr")
+composition = Array[ExtResource("2_7slm3")]([SubResource("Resource_64rgi")])

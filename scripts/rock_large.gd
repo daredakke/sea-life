@@ -17,9 +17,10 @@ func _die(score: int) -> void:
 	for i in _spawn_count:
 		var _rock_small_instance := _rock_small_scene.instantiate() as RockSmall
 		_rock_small_instance.position = position
-		_rock_small_instance.direction = direction.rotated(deg_to_rad(randf_range(-15, 15)))
-		_rock_small_instance.speed = speed + randf() * 10
+		_rock_small_instance.direction = direction.rotated(deg_to_rad(randf_range(-35, 35)))
+		_rock_small_instance.speed = speed + randf() * 15
 		
+		_rock_small_instance.defeated.connect(Waves.enemy_child_defeated)
 		call_deferred("add_sibling", _rock_small_instance)
 	
 	super._die(score)

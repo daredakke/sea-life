@@ -51,22 +51,31 @@ func enemy_defeated(score_value: int, enemy_type: String) -> void:
 	_enemies_defeated += 1
 	
 	if score_value > 0:
-		_enemies_defeated_combo += 1
-		
-		if _enemies_defeated_combo >= _enemies_defeated_milestone:
-			_enemies_defeated_combo = -1
-			
-			if _enemies_defeated_milestone < MAX_ENEMY_DEFEATED_MILESTONE:
-				_enemies_defeated_milestone += 1
-			
-			special_charged.emit()
-		
-		shake_screen.emit(enemy_type)
-		score_increased.emit(score_value, true)
+		_player_killed_enemy(score_value, enemy_type)
 	
 	if _enemies_defeated_this_wave >= _enemies_in_wave:
 		wave_over.emit()
 
+
+# Children of enemies do not count towards wave completion
+func enemy_child_defeated(score_value: int, enemy_type: String) -> void:
+	if score_value > 0:
+		_player_killed_enemy(score_value, enemy_type)
+
+
+func _player_killed_enemy(score_value: int, enemy_type: String) -> void:
+	_enemies_defeated_combo += 1
+		
+	if _enemies_defeated_combo >= _enemies_defeated_milestone:
+		_enemies_defeated_combo = -1
+		
+		if _enemies_defeated_milestone < MAX_ENEMY_DEFEATED_MILESTONE:
+			_enemies_defeated_milestone += 1
+		
+		special_charged.emit()
+	
+	shake_screen.emit(enemy_type)
+	score_increased.emit(score_value, true)
 
 func get_wave_count() -> int:
 	return _waves_collection.collection.size()

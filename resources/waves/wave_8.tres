@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=9 format=3 uid="uid://dsaem8uskqbww"]
+
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="1_fep0l"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_hbun1"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_bfudq"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="3_5o83u"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="4_o6olh"]
+
+[sub_resource type="Resource" id="Resource_5da1k"]
+script = ExtResource("2_bfudq")
+node_scene = ExtResource("1_fep0l")
+nodes_to_spawn = 20
+node_health = 0
+node_speed = 90
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 0.5
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_t8ul6"]
+script = ExtResource("2_bfudq")
+node_scene = ExtResource("3_5o83u")
+nodes_to_spawn = 18
+node_health = 0
+node_speed = 110
+node_speed_variance = 30
+start_delay = 8.5
+spawn_delay = 0.4
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_qitwa"]
+script = ExtResource("2_bfudq")
+node_scene = ExtResource("4_o6olh")
+nodes_to_spawn = 12
+node_health = 0
+node_speed = 60
+node_speed_variance = 20
+start_delay = 8.0
+spawn_delay = 0.6
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_hbun1")
+composition = Array[ExtResource("2_bfudq")]([SubResource("Resource_5da1k"), SubResource("Resource_t8ul6"), SubResource("Resource_qitwa")])

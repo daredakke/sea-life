@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WavesCollection" load_steps=7 format=3 uid="uid://dwhic14as3vnp"]
+[gd_resource type="Resource" script_class="WavesCollection" load_steps=10 format=3 uid="uid://dwhic14as3vnp"]
 
 [ext_resource type="Resource" uid="uid://cq7582qghtduv" path="res://resources/waves/wave_1.tres" id="1_3wox8"]
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_p5616"]
@@ -6,7 +6,10 @@
 [ext_resource type="Resource" uid="uid://ebt03pvg64gu" path="res://resources/waves/wave_3.tres" id="3_twe4d"]
 [ext_resource type="Resource" uid="uid://bcnbcf5x63as6" path="res://resources/waves/wave_4.tres" id="4_8ikcy"]
 [ext_resource type="Resource" uid="uid://dwuc8hbqojgoa" path="res://resources/waves/wave_5.tres" id="5_7ygma"]
+[ext_resource type="Resource" uid="uid://d3cyxi0vjioae" path="res://resources/waves/wave_6.tres" id="6_w312x"]
+[ext_resource type="Resource" uid="uid://dipuakjh4v3ny" path="res://resources/waves/wave_7.tres" id="7_rxx1j"]
+[ext_resource type="Resource" uid="uid://dsaem8uskqbww" path="res://resources/waves/wave_8.tres" id="8_gfy6m"]
 
 [resource]
 script = ExtResource("1_p5616")
-collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_3wox8"), ExtResource("2_xbh26"), ExtResource("3_twe4d"), ExtResource("4_8ikcy"), ExtResource("5_7ygma")])
+collection = Array[Resource("res://scripts/wave_composition.gd")]([ExtResource("1_3wox8"), ExtResource("2_xbh26"), ExtResource("3_twe4d"), ExtResource("4_8ikcy"), ExtResource("5_7ygma"), ExtResource("6_w312x"), ExtResource("7_rxx1j"), ExtResource("8_gfy6m")])
