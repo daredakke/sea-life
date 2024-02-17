@@ -3,7 +3,7 @@ extends Node2D
 
 
 const BASE_SPREAD_RANGE: float = 0.12
-const POINTS_PER_WAVE: int = 30
+const POINTS_PER_WAVE: int = 2
 const MAX_SCORE_MULTIPLIER: int = 999
 const MAX_SPECIAL_CHARGES: int = 3
 const INITIAL_WAVE: int = -1

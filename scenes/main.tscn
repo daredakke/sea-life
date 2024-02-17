@@ -83,6 +83,7 @@ polygon = PackedVector2Array(-2380, -50, 1330, -50, 1330, 780, -50, 780, -50, -5
 [node name="EnemyDespawner" type="Area2D" parent="." groups=["enemy_despawner"]]
 process_mode = 1
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyDespawner"]
 polygon = PackedVector2Array(-2119, -426, 1787, -423, 1787, 1148, -552, 1148, -551, -2140, -2195, -2121, -2225, 2538, 3521, 2515, 3400, -2189, -2134, -2068)

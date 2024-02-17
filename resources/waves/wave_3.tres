@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=7 format=3 uid="uid://ebt03pvg64gu"]
+
+[ext_resource type="PackedScene" uid="uid://f2fnv1w2k1vw" path="res://scenes/enemies/enemy_crab.tscn" id="1_4oofh"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_fyoto"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_xf7f7"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="3_ur6s6"]
+
+[sub_resource type="Resource" id="Resource_rpssl"]
+script = ExtResource("2_xf7f7")
+node_scene = ExtResource("1_4oofh")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 90
+node_speed_variance = 50
+start_delay = 0.05
+spawn_delay = 1.5
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_2lbbf"]
+script = ExtResource("2_xf7f7")
+node_scene = ExtResource("3_ur6s6")
+nodes_to_spawn = 15
+node_health = 0
+node_speed = 80
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 1.25
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_fyoto")
+composition = Array[ExtResource("2_xf7f7")]([SubResource("Resource_rpssl"), SubResource("Resource_2lbbf")])

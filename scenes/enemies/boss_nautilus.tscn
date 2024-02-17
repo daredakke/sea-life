@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/boss_nautilus.gd" id="1_04spg"]
 [ext_resource type="Texture2D" uid="uid://lscffd4117cm" path="res://assets/entities/nautilus.png" id="2_3dr3l"]
 
+[sub_resource type="Animation" id="Animation_pru22"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_wdckv"]
 resource_name = "boiling"
 length = 0.5
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_pru22"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a0omu"]
@@ -55,7 +55,7 @@ height = 138.0
 [node name="BossNautilus" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_04spg")
 enemy_type = "Boss"
-health = 4000
+health = 3500
 explosion_scale = 1.0
 speed = 150.0
 speed_variance = 0.0

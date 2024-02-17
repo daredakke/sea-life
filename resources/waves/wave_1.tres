@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="WaveComposition" load_steps=3 format=3 uid="uid://cq7582qghtduv"]
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=5 format=3 uid="uid://cq7582qghtduv"]
 
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_nhtqb"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_teryr"]
-[ext_resource type="Resource" uid="uid://ceitoob3rqf01" path="res://resources/enemy_groups/group_1.tres" id="1_u6x4p"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_my1ch"]
+
+[sub_resource type="Resource" id="Resource_t4pib"]
+script = ExtResource("2_my1ch")
+node_scene = ExtResource("1_nhtqb")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 80
+node_speed_variance = 30
+start_delay = 0.05
+spawn_delay = 1.4
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
 
 [resource]
 script = ExtResource("1_teryr")
-composition = Array[Resource("res://scripts/enemy_group.gd")]([ExtResource("1_u6x4p")])
+composition = Array[ExtResource("2_my1ch")]([SubResource("Resource_t4pib")])

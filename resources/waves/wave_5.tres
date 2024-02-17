@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=5 format=3 uid="uid://dwuc8hbqojgoa"]
+
+[ext_resource type="PackedScene" uid="uid://dg325iwinn4xs" path="res://scenes/enemies/enemy_squid.tscn" id="1_750mv"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_kgi03"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_fe53m"]
+
+[sub_resource type="Resource" id="Resource_8eweg"]
+script = ExtResource("2_fe53m")
+node_scene = ExtResource("1_750mv")
+nodes_to_spawn = 10
+node_health = 0
+node_speed = 90
+node_speed_variance = 30
+start_delay = 0.05
+spawn_delay = 1.1
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_kgi03")
+composition = Array[ExtResource("2_fe53m")]([SubResource("Resource_8eweg")])

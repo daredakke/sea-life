@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=8 format=3 uid="uid://bcnbcf5x63as6"]
+
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_fr4n3"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_o77a4"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_3pnqe"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="3_5g083"]
+
+[sub_resource type="Resource" id="Resource_lm1v6"]
+script = ExtResource("2_3pnqe")
+node_scene = ExtResource("1_fr4n3")
+nodes_to_spawn = 6
+node_health = 0
+node_speed = 100
+node_speed_variance = 50
+start_delay = 0.05
+spawn_delay = 0.1
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_3i2co"]
+script = ExtResource("2_3pnqe")
+node_scene = ExtResource("3_5g083")
+nodes_to_spawn = 7
+node_health = 0
+node_speed = 70
+node_speed_variance = 20
+start_delay = 2.0
+spawn_delay = 1.6
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_o6kkw"]
+script = ExtResource("2_3pnqe")
+node_scene = ExtResource("1_fr4n3")
+nodes_to_spawn = 9
+node_health = 0
+node_speed = 90
+node_speed_variance = 30
+start_delay = 2.0
+spawn_delay = 1.2
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_o77a4")
+composition = Array[ExtResource("2_3pnqe")]([SubResource("Resource_lm1v6"), SubResource("Resource_3i2co"), SubResource("Resource_o6kkw")])
