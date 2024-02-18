@@ -9,7 +9,7 @@ const ARC: float = 360.0
 
 var _decel_rate: float = 0.2
 var _target_angle: float
-var _bullets_in_burst: int = 60
+var _bullets_in_burst: int = 50
 var _bullets_in_ring: int = 40
 
 @onready var enemy_sprite: Sprite2D = $EnemySprite
