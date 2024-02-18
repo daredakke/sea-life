@@ -52,10 +52,10 @@ height = 158.0
 radius = 46.0
 height = 138.0
 
-[node name="BossNautilus" type="Area2D" groups=["enemy"]]
+[node name="BossNautilus" type="Area2D" groups=["boss", "enemy"]]
 script = ExtResource("1_04spg")
 enemy_type = "Boss"
-health = 4300
+health = 4500
 explosion_scale = 1.0
 speed = 150.0
 speed_variance = 0.0
@@ -92,7 +92,7 @@ autostart = true
 wait_time = 3.0
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.33
 one_shot = true
 autostart = true
 

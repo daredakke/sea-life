@@ -33,9 +33,18 @@ func _on_area_entered(area: Area2D) -> void:
 			_die(score_value)
 	
 	if area.is_in_group("special_attack"):
-		_die(score_value)
+		if self.is_in_group("boss"):
+			health -= 750
+			
+			if health <= 0:
+				_die(score_value)
+		else:
+			_die(score_value)
 	
-	if area.is_in_group("player_hitbox") or area.is_in_group("enemy_despawner"):
+	if area.is_in_group("player_hitbox") and not self.is_in_group("boss"):
+		_die(0)
+		
+	if area.is_in_group("enemy_despawner"):
 		_die(0)
 
 

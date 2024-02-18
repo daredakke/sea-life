@@ -173,7 +173,6 @@ func _reset_game_state() -> void:
 	_background_hue = randf()
 	
 	player.set_process(true)
-	Input.set_custom_mouse_cursor(_cursor_crosshair, Input.CURSOR_ARROW, Vector2(24, 24))
 	
 	# Clear any bullets or enemies from an existing game
 	Globals.remove_child_nodes(projectiles)

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="WavesCollection" load_steps=17 format=3 uid="uid://cy2i6tw25smj6"]
 
 [ext_resource type="Script" path="res://scripts/waves_collection.gd" id="1_dj21a"]
-[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_eb331"]
 [ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_rwfbh"]
 [ext_resource type="Script" path="res://scripts/wave_composition.gd" id="3_0psyh"]
+[ext_resource type="PackedScene" uid="uid://dyv4rxauc7r01" path="res://scenes/enemies/boss_nautilus.tscn" id="4_5bhrp"]
 [ext_resource type="Resource" uid="uid://dm4mqaq6wodcg" path="res://resources/waves/wave_11.tres" id="4_vyaqd"]
 [ext_resource type="Resource" uid="uid://bu3cdkklxaxdv" path="res://resources/waves/wave_12.tres" id="5_duken"]
 [ext_resource type="Resource" uid="uid://cbyofpyhiehhd" path="res://resources/waves/wave_13.tres" id="6_4deph"]
@@ -13,11 +13,11 @@
 
 [sub_resource type="Resource" id="Resource_ydiev"]
 script = ExtResource("2_rwfbh")
-node_scene = ExtResource("1_eb331")
+node_scene = ExtResource("4_5bhrp")
 nodes_to_spawn = 1
-node_health = 1
-node_speed = 175
-node_speed_variance = 30
+node_health = 0
+node_speed = 150
+node_speed_variance = 10
 start_delay = 0.05
 spawn_delay = 1.0
 aim_at_player = false
@@ -46,4 +46,4 @@ composition = Array[ExtResource("2_rwfbh")]([SubResource("Resource_ydiev")])
 
 [resource]
 script = ExtResource("1_dj21a")
-collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), ExtResource("4_vyaqd"), ExtResource("5_duken"), ExtResource("6_4deph"), ExtResource("7_8kqsm"), ExtResource("6_wyyxq"), ExtResource("9_aydd4"), SubResource("Resource_4xwsc"), SubResource("Resource_l0318"), SubResource("Resource_4re78"), SubResource("Resource_l5u5k")])
+collection = Array[ExtResource("3_0psyh")]([SubResource("Resource_usbm2"), SubResource("Resource_4xwsc"), ExtResource("4_vyaqd"), ExtResource("5_duken"), ExtResource("6_4deph"), ExtResource("7_8kqsm"), ExtResource("6_wyyxq"), ExtResource("9_aydd4"), SubResource("Resource_l0318"), SubResource("Resource_4re78"), SubResource("Resource_l5u5k")])

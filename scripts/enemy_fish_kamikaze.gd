@@ -2,6 +2,8 @@ class_name EnemyFishKamikaze
 extends Enemy
 
 
+const ARC: float = 360.0
+
 @export var bullet_speed: int = 75
 @export var salvo_size: int = 8
 
@@ -40,11 +42,11 @@ func _process(delta: float) -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	for i in range(salvo_size):
+	for i in salvo_size:
 		var enemy_bullet_instance := _enemy_bullet_scene.instantiate() as EnemyBullet
 		enemy_bullet_instance.position = self.position
 		enemy_bullet_instance.speed = bullet_speed
-		enemy_bullet_instance.direction = Vector2.RIGHT.rotated(TAU * (randf() + i + 1))
+		enemy_bullet_instance.direction = direction.rotated(deg_to_rad((ARC / salvo_size) * i))
 		
 		add_sibling(enemy_bullet_instance)
 	
