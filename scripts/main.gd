@@ -172,6 +172,9 @@ func _reset_game_state() -> void:
 	_background_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0))
 	_background_hue = randf()
 	
+	player.set_process(true)
+	Input.set_custom_mouse_cursor(_cursor_crosshair, Input.CURSOR_ARROW, Vector2(24, 24))
+	
 	# Clear any bullets or enemies from an existing game
 	Globals.remove_child_nodes(projectiles)
 	Globals.remove_child_nodes(enemies)
@@ -270,7 +273,9 @@ func _show_stats_screen() -> void:
 	Input.set_custom_mouse_cursor(_cursor_arrow, Input.CURSOR_ARROW, Vector2(0, 0))
 	# Remove any stray bullets so they don't threaten the player
 	for node in enemies.get_children():
-		node.explode()
+		if node.has_method("explode"):
+			node.explode()
+		
 		enemies.remove_child(node)
 		node.queue_free()
 	

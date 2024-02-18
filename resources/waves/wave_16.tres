@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=7 format=3 uid="uid://b04tmovj6sqyw"]
+
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_incjh"]
+[ext_resource type="PackedScene" uid="uid://c36kupih0uhmn" path="res://scenes/enemies/enemy_fish_kamikaze.tscn" id="1_uyn0r"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_8rv1v"]
+
+[sub_resource type="Resource" id="Resource_3d0vd"]
+script = ExtResource("2_8rv1v")
+node_scene = ExtResource("1_uyn0r")
+nodes_to_spawn = 12
+node_health = 28
+node_speed = 90
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 0.05
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_8omym"]
+script = ExtResource("2_8rv1v")
+node_scene = ExtResource("1_uyn0r")
+nodes_to_spawn = 24
+node_health = 28
+node_speed = 100
+node_speed_variance = 45
+start_delay = 6.0
+spawn_delay = 0.05
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_57kik"]
+script = ExtResource("2_8rv1v")
+node_scene = ExtResource("1_uyn0r")
+nodes_to_spawn = 36
+node_health = 28
+node_speed = 110
+node_speed_variance = 50
+start_delay = 14.0
+spawn_delay = 0.05
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_incjh")
+composition = Array[ExtResource("2_8rv1v")]([SubResource("Resource_3d0vd"), SubResource("Resource_8omym"), SubResource("Resource_57kik")])
