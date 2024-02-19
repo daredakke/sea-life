@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_3lyyb"]
 script = ExtResource("2_jn56m")
 node_scene = ExtResource("1_laa1r")
-nodes_to_spawn = 33
+nodes_to_spawn = 38
 node_health = 12
 node_speed = 100
 node_speed_variance = 30
@@ -20,7 +20,7 @@ target_y_variance = 150.0
 [sub_resource type="Resource" id="Resource_4xlvb"]
 script = ExtResource("2_jn56m")
 node_scene = ExtResource("1_laa1r")
-nodes_to_spawn = 44
+nodes_to_spawn = 52
 node_health = 12
 node_speed = 110
 node_speed_variance = 40
@@ -33,7 +33,7 @@ target_y_variance = 150.0
 [sub_resource type="Resource" id="Resource_jgy2f"]
 script = ExtResource("2_jn56m")
 node_scene = ExtResource("1_laa1r")
-nodes_to_spawn = 55
+nodes_to_spawn = 66
 node_health = 12
 node_speed = 120
 node_speed_variance = 50

@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=12 format=3 uid="uid://bqt3h04ikii0q"]
+
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_ka55h"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="1_w3ij8"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_xl5xt"]
+[ext_resource type="PackedScene" uid="uid://f2fnv1w2k1vw" path="res://scenes/enemies/enemy_crab.tscn" id="3_5wket"]
+[ext_resource type="PackedScene" uid="uid://dg325iwinn4xs" path="res://scenes/enemies/enemy_squid.tscn" id="4_mmxr8"]
+
+[sub_resource type="Resource" id="Resource_7vdjx"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("1_w3ij8")
+nodes_to_spawn = 25
+node_health = 10
+node_speed = 120
+node_speed_variance = 60
+start_delay = 0.05
+spawn_delay = 0.1
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_1y03q"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("3_5wket")
+nodes_to_spawn = 25
+node_health = 18
+node_speed = 110
+node_speed_variance = 30
+start_delay = 4.5
+spawn_delay = 0.1
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_yf86v"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("3_5wket")
+nodes_to_spawn = 40
+node_health = 18
+node_speed = 120
+node_speed_variance = 50
+start_delay = 8.0
+spawn_delay = 0.05
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_li0of"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("4_mmxr8")
+nodes_to_spawn = 45
+node_health = 8
+node_speed = 125
+node_speed_variance = 50
+start_delay = 15.0
+spawn_delay = 0.1
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_eolyu"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("3_5wket")
+nodes_to_spawn = 50
+node_health = 18
+node_speed = 130
+node_speed_variance = 30
+start_delay = 14.0
+spawn_delay = 0.1
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_aqx1l"]
+script = ExtResource("2_xl5xt")
+node_scene = ExtResource("1_w3ij8")
+nodes_to_spawn = 25
+node_health = 10
+node_speed = 130
+node_speed_variance = 50
+start_delay = 21.0
+spawn_delay = 0.05
+aim_at_player = true
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_ka55h")
+composition = Array[ExtResource("2_xl5xt")]([SubResource("Resource_7vdjx"), SubResource("Resource_1y03q"), SubResource("Resource_yf86v"), SubResource("Resource_li0of"), SubResource("Resource_eolyu"), SubResource("Resource_aqx1l")])
