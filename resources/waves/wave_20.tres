@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=7 format=3 uid="uid://dci71x2f4g4by"]
+
+[ext_resource type="PackedScene" uid="uid://ulwbeuk17l4a" path="res://scenes/enemies/enemy_starfish.tscn" id="1_o3csw"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_yo64n"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_voy50"]
+
+[sub_resource type="Resource" id="Resource_hk8t1"]
+script = ExtResource("2_voy50")
+node_scene = ExtResource("1_o3csw")
+nodes_to_spawn = 5
+node_health = 38
+node_speed = 90
+node_speed_variance = 20
+start_delay = 0.05
+spawn_delay = 0.5
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_sakb7"]
+script = ExtResource("2_voy50")
+node_scene = ExtResource("1_o3csw")
+nodes_to_spawn = 10
+node_health = 38
+node_speed = 90
+node_speed_variance = 30
+start_delay = 0.05
+spawn_delay = 0.25
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[sub_resource type="Resource" id="Resource_rgwct"]
+script = ExtResource("2_voy50")
+node_scene = ExtResource("1_o3csw")
+nodes_to_spawn = 20
+node_health = 38
+node_speed = 90
+node_speed_variance = 40
+start_delay = 0.05
+spawn_delay = 0.15
+aim_at_player = false
+target_x_variance = 150.0
+target_y_variance = 150.0
+
+[resource]
+script = ExtResource("1_yo64n")
+composition = Array[ExtResource("2_voy50")]([SubResource("Resource_hk8t1"), SubResource("Resource_sakb7"), SubResource("Resource_rgwct")])
