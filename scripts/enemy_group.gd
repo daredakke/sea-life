@@ -11,5 +11,3 @@ extends Resource
 @export_range(0.05, 120) var start_delay: float = 0.05
 @export_range(0.05, 60) var spawn_delay: float = 1.0
 @export var aim_at_player: bool = false
-@export var target_x_variance: float = 150
-@export var target_y_variance: float = 150

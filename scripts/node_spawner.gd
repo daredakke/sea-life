@@ -8,8 +8,8 @@ var _node_health: int
 var _node_speed: int
 var _node_speed_variance: int
 var _aim_at_player: bool
-var _target_x_variance: float
-var _target_y_variance: float
+var _target_x_variance: float = 250.0
+var _target_y_variance: float = 150.0
 
 var _target: Vector2
 var _spawn_areas: Array[SpawnArea]
@@ -28,8 +28,6 @@ func _ready() -> void:
 	start_timer.wait_time = configuration.start_delay
 	spawn_timer.wait_time = configuration.spawn_delay
 	_aim_at_player = configuration.aim_at_player
-	_target_x_variance = configuration.target_x_variance
-	_target_y_variance = configuration.target_y_variance
 	
 	start_timer.start()
 	

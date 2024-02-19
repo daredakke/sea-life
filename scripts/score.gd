@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func set_score_label(score: int) -> void:
-	score_label.text = str(score)
+	score_label.text = Globals.format_integer(score)
 
 
 func set_multiplier_label(multiplier: int) -> void:

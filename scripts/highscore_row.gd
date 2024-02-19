@@ -14,4 +14,4 @@ var score: int
 func _ready() -> void:
 	rank_label.text = "#" + str(rank_text)
 	name_label.text = name_text
-	score_label.text = str(score)
+	score_label.text = Globals.format_integer(score)
