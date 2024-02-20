@@ -391,7 +391,6 @@ text = "PREV"
 
 [node name="InstructionsVBox" type="VBoxContainer" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(560, 0)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -523,66 +522,67 @@ text = "- UPGRADE STATS AFTER EACH WAVE
 
 [node name="ScreenshotSpacerPanel" type="Panel" parent="Instructions/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="ScreenshotSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
 position = Vector2(460, 0)
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_ephfk")
 
 [node name="ScoreMultiplierSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(676, -122)
+position = Vector2(677, -148)
 texture = ExtResource("8_a3k4a")
 
 [node name="ScoreSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(305, -153)
+position = Vector2(305, -178)
 texture = ExtResource("9_f1fsy")
 
 [node name="SpecialChargesSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(490, -72)
+position = Vector2(493, -90)
 texture = ExtResource("10_77wmg")
 
 [node name="ToNextSpecialSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(646, 81)
+position = Vector2(646, 103)
 texture = ExtResource("11_1y2he")
 
 [node name="HealthSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(300, 113)
+position = Vector2(300, 136)
 texture = ExtResource("12_mohbj")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(277, -15)
+position = Vector2(272, -15)
 texture = ExtResource("13_oyvmf")
 
 [node name="PlayerArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(389, -8)
+position = Vector2(384, -8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_2m8fh")
 
 [node name="HealthArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(299, 148)
+position = Vector2(299, 171)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_m1ssf")
 
 [node name="ScoreArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(401, -163)
+position = Vector2(401, -188)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_qqpjr")
 
 [node name="SpecialChargeArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(472, -134)
+position = Vector2(475, -152)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_u7w6t")
 
 [node name="SpecialMeterArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(637, 142)
+position = Vector2(637, 164)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("18_grbh6")
 
 [node name="ScoreMultiplierArrow" type="Sprite2D" parent="Instructions/Panel/MarginContainer/HBoxContainer/ScreenshotSpacerPanel"]
-position = Vector2(528, -167)
+position = Vector2(529, -193)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_gn2r5")
 
