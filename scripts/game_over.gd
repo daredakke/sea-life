@@ -37,7 +37,7 @@ func set_enemies_defeated(value: int) -> void:
 
 func set_total_score(value: int) -> void:
 	_score = value
-	total_score_value.text = str(value)
+	total_score_value.text = Globals.format_integer(value)
 
 
 func _show_highscore_input() -> void:

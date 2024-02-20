@@ -42,7 +42,7 @@ func save_single_score(score: int, score_name: String) -> void:
 	var index: int = -1
 	
 	# Get index to splice new score
-	for i in range(scores["scores"].size()):
+	for i in scores["scores"].size():
 		if score > scores["scores"][i]:
 			index = i
 			break
@@ -52,7 +52,7 @@ func save_single_score(score: int, score_name: String) -> void:
 		index = scores["scores"].size()
 	
 	scores["scores"].insert(index, score)
-	scores["names"].insert(index, name)
+	scores["names"].insert(index, score_name)
 	
 	# Truncate scores if there are too many
 	if scores["scores"].size() > MAX_SCORES:
