@@ -14,6 +14,7 @@ var _score: int:
 		if Highscores.is_new_highscore(new_value):
 			_show_highscore_input()
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pulse_timer: Timer = %PulseTimer
 @onready var total_score_value: Label = %TotalScoreValue
 @onready var enemies_killed_value: Label = %EnemiesKilledValue
@@ -25,6 +26,7 @@ var _score: int:
 
 
 func _ready() -> void:
+	animation_player.play("boiling")
 	_hide_highscore_input()
 	hide()
 

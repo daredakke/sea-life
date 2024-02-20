@@ -1,12 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq4f7ttthp0en"]
+[gd_scene load_steps=9 format=3 uid="uid://dq4f7ttthp0en"]
 
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_grf8t"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pgrpx"]
-[ext_resource type="Texture2D" uid="uid://bfrnyu45n68wy" path="res://assets/backgrounds/composite.jpg" id="3_cxcvs"]
+[ext_resource type="Shader" path="res://assets/bg_repeat.gdshader" id="2_v75e3"]
+[ext_resource type="Texture2D" uid="uid://b64xs80u2mp8l" path="res://assets/backgrounds/game-over.png" id="3_10in1"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r21sc"]
-texture = ExtResource("3_cxcvs")
-modulate_color = Color(0.4, 0.4, 0.4, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6brad"]
+shader = ExtResource("2_v75e3")
+shader_parameter/direction = Vector2(0.18, -1)
+shader_parameter/speed_scale = 0.04
+
+[sub_resource type="Animation" id="Animation_20m5g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gmd50"]
+resource_name = "boiling"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfy5x"]
+_data = {
+"RESET": SubResource("Animation_20m5g"),
+"boiling": SubResource("Animation_gmd50")
+}
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -17,22 +57,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pgrpx")
 
+[node name="Background" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(0.101961, 0.2, 0.341176, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6brad")
+position = Vector2(640, 359)
+texture = ExtResource("3_10in1")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jfy5x")
+}
+
 [node name="PulseTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.45
 autostart = true
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_grf8t")
-theme_override_styles/panel = SubResource("StyleBoxTexture_r21sc")
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,69 +94,64 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 256
 theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
 
-[node name="GameOverLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_grf8t")
-theme_override_font_sizes/font_size = 144
-text = "GAME OVER"
-horizontal_alignment = 1
-
-[node name="TotalScoreHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="TotalScoreHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="TotalScoreLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/TotalScoreHBox"]
+[node name="TotalScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TotalScoreHBox"]
 layout_mode = 2
 text = "TOTAL SCORE"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/TotalScoreHBox"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/TotalScoreHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="TotalScoreValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/TotalScoreHBox"]
+[node name="TotalScoreValue" type="Label" parent="MarginContainer/VBoxContainer/TotalScoreHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "124589034"
 horizontal_alignment = 2
 
-[node name="EnemiesKilledHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="EnemiesKilledHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 32
 
-[node name="EnemiesKilledLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/EnemiesKilledHBox"]
+[node name="EnemiesKilledLabel" type="Label" parent="MarginContainer/VBoxContainer/EnemiesKilledHBox"]
 layout_mode = 2
 text = "ENEMIES KILLED"
 
-[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/EnemiesKilledHBox"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/EnemiesKilledHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="EnemiesKilledValue" type="Label" parent="Panel/MarginContainer/VBoxContainer/EnemiesKilledHBox"]
+[node name="EnemiesKilledValue" type="Label" parent="MarginContainer/VBoxContainer/EnemiesKilledHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3452"
 horizontal_alignment = 2
 
-[node name="NewHighscoreLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="NewHighscoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "NEW HIGHSCORE!"
 horizontal_alignment = 1
 
-[node name="HighscoreHBox" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="HighscoreHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="HighscoreInput" type="LineEdit" parent="Panel/MarginContainer/VBoxContainer/HighscoreHBox"]
+[node name="HighscoreInput" type="LineEdit" parent="MarginContainer/VBoxContainer/HighscoreHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_grf8t")
@@ -120,23 +159,24 @@ placeholder_text = "XYZ"
 alignment = 1
 max_length = 3
 
-[node name="HighscoreButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HighscoreHBox"]
+[node name="HighscoreButton" type="Button" parent="MarginContainer/VBoxContainer/HighscoreHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_grf8t")
 text = "SUBMIT"
 
-[node name="ButtonMargin" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="ButtonMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 48
+theme_override_constants/margin_top = 32
 
-[node name="ReturnToTitleButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/ButtonMargin"]
+[node name="ReturnToTitleButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_grf8t")
 text = "RETURN TO TITLE"
 
 [connection signal="timeout" from="PulseTimer" to="." method="_on_pulse_timer_timeout"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HighscoreHBox/HighscoreButton" to="." method="_on_highscore_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ButtonMargin/ReturnToTitleButton" to="." method="_on_return_to_title_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HighscoreHBox/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonMargin/ReturnToTitleButton" to="." method="_on_return_to_title_button_pressed"]
