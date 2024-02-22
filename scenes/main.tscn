@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmujgct7j0jq"]
+[gd_scene load_steps=17 format=3 uid="uid://dmujgct7j0jq"]
 
 [ext_resource type="PackedScene" uid="uid://dfwhkhol7mfff" path="res://scenes/player.tscn" id="1_8if2x"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_bw2ht"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bi7e6b8a2ue6p" path="res://scenes/player_health_bar.tscn" id="4_kc4cn"]
 [ext_resource type="PackedScene" uid="uid://bstxmoqmg6epi" path="res://scenes/score.tscn" id="4_qno8n"]
 [ext_resource type="PackedScene" uid="uid://ckfabkssvqr3s" path="res://scenes/special.tscn" id="5_bwqbv"]
+[ext_resource type="AudioStream" uid="uid://cny3cyep4c68t" path="res://assets/sfx/pop.mp3" id="5_mom1p"]
+[ext_resource type="Script" path="res://scripts/pop_sfx.gd" id="6_3k3fs"]
 [ext_resource type="PackedScene" uid="uid://chftm345jv2bv" path="res://scenes/stats.tscn" id="7_35p0l"]
 [ext_resource type="PackedScene" uid="uid://dq4f7ttthp0en" path="res://scenes/game_over.tscn" id="8_6op73"]
 [ext_resource type="PackedScene" uid="uid://ceckwpqwfrg3b" path="res://scenes/fade_out.tscn" id="9_31iox"]
@@ -92,6 +94,15 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 position = Vector2(640, 360)
 
+[node name="PopSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_mom1p")
+volume_db = 0.945
+max_polyphony = 32
+panning_strength = 0.5
+bus = &"SFX"
+script = ExtResource("6_3k3fs")
+
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 1
 
@@ -128,5 +139,6 @@ visible = false
 
 [connection signal="timeout" from="WaveStartTimer" to="." method="_start_wave"]
 [connection signal="timeout" from="WaveEndTimer" to="." method="_show_stats_screen"]
+[connection signal="finished" from="PopSFX" to="PopSFX" method="_on_finished"]
 [connection signal="stat_increased" from="UI/Stats" to="." method="_on_stat_increased"]
 [connection signal="splash_ended" from="UI/Splash" to="." method="_enable_buttons"]

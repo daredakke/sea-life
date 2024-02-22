@@ -5,7 +5,7 @@ signal wave_over
 signal score_increased(value: int, increase_multiplier: bool)
 signal special_increased(value: int, max_value: int)
 signal special_charged
-signal shake_screen(enemy_type: String)
+signal enemy_killed(enemy_type: String)
 
 const MAX_ENEMY_DEFEATED_MILESTONE: int = 125
 
@@ -74,7 +74,7 @@ func _player_killed_enemy(score_value: int, enemy_type: String) -> void:
 		
 		special_charged.emit()
 	
-	shake_screen.emit(enemy_type)
+	enemy_killed.emit(enemy_type)
 	score_increased.emit(score_value, true)
 
 

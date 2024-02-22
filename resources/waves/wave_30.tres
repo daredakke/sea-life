@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="WaveComposition" load_steps=14 format=3 uid="uid://d4ih7kq8tiuis"]
+
+[ext_resource type="PackedScene" uid="uid://dyv4rxauc7r01" path="res://scenes/enemies/boss_nautilus.tscn" id="1_8ghdx"]
+[ext_resource type="Script" path="res://scripts/wave_composition.gd" id="1_qwtpb"]
+[ext_resource type="Script" path="res://scripts/enemy_group.gd" id="2_nedcw"]
+[ext_resource type="PackedScene" uid="uid://v6n87qvsl1mo" path="res://scenes/enemies/rock_small.tscn" id="3_8vyxn"]
+[ext_resource type="PackedScene" uid="uid://dr5qvryr3aik7" path="res://scenes/enemies/rock_large.tscn" id="4_yg4me"]
+[ext_resource type="PackedScene" uid="uid://f2fnv1w2k1vw" path="res://scenes/enemies/enemy_crab.tscn" id="5_5t3vk"]
+[ext_resource type="PackedScene" uid="uid://damxl450n0mfe" path="res://scenes/enemies/enemy_fish.tscn" id="6_yo8xf"]
+
+[sub_resource type="Resource" id="Resource_s6l1q"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("1_8ghdx")
+nodes_to_spawn = 1
+node_health = 5000
+node_speed = 150
+node_speed_variance = 10
+start_delay = 0.05
+spawn_delay = 1.0
+aim_at_player = false
+
+[sub_resource type="Resource" id="Resource_evr16"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("1_8ghdx")
+nodes_to_spawn = 1
+node_health = 5000
+node_speed = 165
+node_speed_variance = 20
+start_delay = 11.0
+spawn_delay = 1.0
+aim_at_player = false
+
+[sub_resource type="Resource" id="Resource_xmueh"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("3_8vyxn")
+nodes_to_spawn = 21
+node_health = 15
+node_speed = 100
+node_speed_variance = 40
+start_delay = 1.5
+spawn_delay = 0.9
+aim_at_player = false
+
+[sub_resource type="Resource" id="Resource_ywlax"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("4_yg4me")
+nodes_to_spawn = 18
+node_health = 27
+node_speed = 80
+node_speed_variance = 40
+start_delay = 2.0
+spawn_delay = 1.0
+aim_at_player = false
+
+[sub_resource type="Resource" id="Resource_0nn5d"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("5_5t3vk")
+nodes_to_spawn = 17
+node_health = 0
+node_speed = 80
+node_speed_variance = 30
+start_delay = 3.2
+spawn_delay = 1.0
+aim_at_player = false
+
+[sub_resource type="Resource" id="Resource_c86na"]
+script = ExtResource("2_nedcw")
+node_scene = ExtResource("6_yo8xf")
+nodes_to_spawn = 18
+node_health = 15
+node_speed = 80
+node_speed_variance = 30
+start_delay = 4.1
+spawn_delay = 0.9
+aim_at_player = false
+
+[resource]
+script = ExtResource("1_qwtpb")
+composition = Array[ExtResource("2_nedcw")]([SubResource("Resource_s6l1q"), SubResource("Resource_evr16"), SubResource("Resource_xmueh"), SubResource("Resource_ywlax"), SubResource("Resource_0nn5d"), SubResource("Resource_c86na")])

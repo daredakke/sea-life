@@ -71,6 +71,7 @@ var _cursor_crosshair := preload("res://assets/crosshair.png")
 @onready var camera: Camera2D = %Camera
 @onready var enemies: Node = %Enemies
 @onready var screen_centre: Marker2D = %ScreenCentre
+@onready var pop_sfx: PopSfx = %PopSFX
 @onready var player_health_bar: PlayerHealthBar = %PlayerHealthBar
 @onready var player_special_bar: PlayerSpecialBar = %PlayerSpecialBar
 @onready var special: Special = %Special	
@@ -110,7 +111,7 @@ func _ready() -> void:
 	Waves.score_increased.connect(_increase_score)
 	Waves.special_increased.connect(_update_player_special_bar)
 	Waves.special_charged.connect(_increase_special_charge)
-	Waves.shake_screen.connect(_enemy_defeated_screen_shake)
+	Waves.enemy_killed.connect(_enemy_defeated_screen_shake)
 	
 	_handle_pause_state()
 
@@ -201,6 +202,8 @@ func _restart_game() -> void:
 
 
 func _enemy_defeated_screen_shake(enemy_type: String) -> void:
+	pop_sfx.play()
+	
 	if enemy_type == "Boss":
 		_shake_decay_rate = SHAKE_DECAY_RATE_BOSS
 		_apply_noise_shake(SHAKE_STRENGTH_BOSS + randf_range(-1.0, 1.0))
