@@ -14,8 +14,6 @@ node_speed_variance = 20
 start_delay = 0.05
 spawn_delay = 0.5
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_sakb7"]
 script = ExtResource("2_voy50")
@@ -24,11 +22,9 @@ nodes_to_spawn = 10
 node_health = 38
 node_speed = 90
 node_speed_variance = 30
-start_delay = 0.05
+start_delay = 6.0
 spawn_delay = 0.25
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_rgwct"]
 script = ExtResource("2_voy50")
@@ -37,11 +33,9 @@ nodes_to_spawn = 20
 node_health = 38
 node_speed = 90
 node_speed_variance = 40
-start_delay = 0.05
+start_delay = 12.0
 spawn_delay = 0.15
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [resource]
 script = ExtResource("1_yo64n")

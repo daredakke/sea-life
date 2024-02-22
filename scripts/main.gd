@@ -52,12 +52,12 @@ var _node_spawner_scene: PackedScene = preload("res://scenes/enemies/node_spawne
 var _player_bullet_scene: PackedScene = preload("res://scenes/player_bullet.tscn")
 var _special_attack_scene: PackedScene = preload("res://scenes/special_attack.tscn")
 var _final_wave_changes: Dictionary = {
-	"nodes_to_spawn": 2,
+	"nodes_to_spawn": 1,
 	"node_health": 1,
-	"node_speed": 2,
+	"node_speed": 0.5,
 	"node_speed_variance": 2,
-	"spawn_delay": -0.1,
-	"start_delay": -0.1,
+	"spawn_delay": -0.05,
+	"start_delay": -0.05,
 }
 var _background_hue: float
 var _cursor_arrow := preload("res://assets/cursor.png")
