@@ -30,7 +30,7 @@ var player_direction: Vector2
 var fire_rate: float = 0.33
 
 var _target_angle: float
-var _dead_position := Vector2(-1000, -1000)
+var _dead_position := Vector2(640, -80)
 var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 
 @onready var player_sprite: Sprite2D = %PlayerSprite
@@ -39,6 +39,7 @@ var _explosion_scene: PackedScene = preload("res://scenes/explosion.tscn")
 @onready var bullet_spawn_timer: Timer = %BulletSpawnTimer
 @onready var special_cooldown_timer: Timer = %SpecialCooldownTimer
 @onready var bullet_spawn_point: Marker2D = $BulletSpawnPoint
+@onready var player_death_sfx: AudioStreamPlayer2D = %PlayerDeathSFX
 @onready var hit_box_sprite: Sprite2D = %HitBoxSprite
 
 
@@ -94,6 +95,7 @@ func set_fire_rate(multiplier: int) -> void:
 
 
 func kill_player() -> void:
+	player_death_sfx.play()
 	_spawn_explosion()
 	
 	is_alive = false

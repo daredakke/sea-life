@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfwhkhol7mfff"]
+[gd_scene load_steps=10 format=3 uid="uid://dfwhkhol7mfff"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n2ulj"]
 [ext_resource type="Texture2D" uid="uid://swmt6yxf4btc" path="res://assets/entities/fish2.png" id="2_807rj"]
+[ext_resource type="AudioStream" uid="uid://vcwpe0f6a11t" path="res://assets/sfx/player-explosion.mp3" id="3_5eif6"]
 [ext_resource type="Texture2D" uid="uid://8heor5yml8xx" path="res://assets/circle-white.png" id="3_k53br"]
 
 [sub_resource type="Animation" id="Animation_51a3q"]
@@ -87,6 +88,12 @@ one_shot = true
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(24, 0)
+
+[node name="PlayerDeathSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_5eif6")
+panning_strength = 0.65
+bus = &"SFX"
 
 [node name="HitBox" type="Area2D" parent="." groups=["player_hitbox"]]
 

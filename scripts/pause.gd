@@ -80,13 +80,13 @@ func _clear_highscore_list() -> void:
 
 
 func _on_music_slider_value_changed(value: float) -> void:
-	music_label.text = "MUSIC - " + str(value) + "%"
+	music_label.text = "MUSIC - " + str(floor(value * 100)) + "%"
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 	AudioServer.set_bus_mute(music_bus, value < 0.05)
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
-	sfx_label.text = "SFX - " + str(value) + "%"
+	sfx_label.text = "SFX - " + str(floor(value * 100)) + "%"
 	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
 	AudioServer.set_bus_mute(sfx_bus, value < 0.05)
 
