@@ -16,8 +16,6 @@ node_speed_variance = 40
 start_delay = 0.05
 spawn_delay = 0.5
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_t8ul6"]
 script = ExtResource("2_bfudq")
@@ -29,8 +27,6 @@ node_speed_variance = 30
 start_delay = 8.5
 spawn_delay = 0.4
 aim_at_player = true
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_qitwa"]
 script = ExtResource("2_bfudq")
@@ -42,8 +38,6 @@ node_speed_variance = 20
 start_delay = 8.0
 spawn_delay = 0.6
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [resource]
 script = ExtResource("1_hbun1")

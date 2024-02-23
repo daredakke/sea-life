@@ -17,8 +17,6 @@ node_speed_variance = 50
 start_delay = 0.05
 spawn_delay = 1.5
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_nne4k"]
 script = ExtResource("2_pw23t")
@@ -30,8 +28,6 @@ node_speed_variance = 50
 start_delay = 0.05
 spawn_delay = 1.4
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_y4uyp"]
 script = ExtResource("2_pw23t")
@@ -43,8 +39,6 @@ node_speed_variance = 30
 start_delay = 12.5
 spawn_delay = 0.05
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_5y8cr"]
 script = ExtResource("2_pw23t")
@@ -56,8 +50,6 @@ node_speed_variance = 40
 start_delay = 22.0
 spawn_delay = 0.18
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_kv5od"]
 script = ExtResource("2_pw23t")
@@ -69,8 +61,6 @@ node_speed_variance = 50
 start_delay = 26.0
 spawn_delay = 0.8
 aim_at_player = false
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [sub_resource type="Resource" id="Resource_ea7qj"]
 script = ExtResource("2_pw23t")
@@ -82,8 +72,6 @@ node_speed_variance = 70
 start_delay = 26.0
 spawn_delay = 0.7
 aim_at_player = true
-target_x_variance = 150.0
-target_y_variance = 150.0
 
 [resource]
 script = ExtResource("1_0114w")

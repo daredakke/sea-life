@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://baoqr7j73ipkc" path="res://resources/custom.tres" id="1_grf8t"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pgrpx"]
-[ext_resource type="Shader" path="res://assets/bg_repeat.gdshader" id="2_v75e3"]
+[ext_resource type="Shader" path="res://resources/bg_repeat.gdshader" id="2_v75e3"]
 [ext_resource type="Texture2D" uid="uid://b64xs80u2mp8l" path="res://assets/backgrounds/game-over.png" id="3_10in1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6brad"]
